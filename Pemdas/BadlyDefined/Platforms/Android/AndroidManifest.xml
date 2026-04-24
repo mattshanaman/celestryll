@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+	<application 
+		android:allowBackup="true"
+		android:supportsRtl="true"
+		android:requestLegacyExternalStorage="false">
+	</application>
+	
+	<!-- Only declare permissions actually used -->
+	<!-- Internet permission removed - not needed for offline word puzzle game -->
+	<!-- Storage permissions removed - using app-specific storage only -->
+	
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	
+	<!-- Declare this app works on tablets and phones -->
+	<uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+	<uses-feature android:name="android.hardware.screen.portrait" android:required="false" />
+</manifest>

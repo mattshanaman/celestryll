@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:pages="clr-namespace:BadlyDefined.Pages"
+       x:Class="BadlyDefined.AppShell"
+       Shell.FlyoutBehavior="Disabled">
+
+    <TabBar>
+        <ShellContent
+            Title="Play"
+            ContentTemplate="{DataTemplate pages:GamePage}"
+            Route="game" />
+
+        <ShellContent
+            Title="Profile"
+            ContentTemplate="{DataTemplate pages:ProfilePage}"
+            Route="profile" />
+
+        <ShellContent
+            Title="Test"
+            ContentTemplate="{DataTemplate pages:TestModePage}"
+            Route="testmode" />
+    </TabBar>
+
+</Shell>

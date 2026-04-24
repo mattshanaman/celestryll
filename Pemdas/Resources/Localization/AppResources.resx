@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+
+	<data name="AppTitle" xml:space="preserve">
+    <value>PEMDAS - Daily Math Challenge</value>
+  </data>
+	<data name="TabDailyChallenge" xml:space="preserve">
+    <value>Daily Challenge</value>
+  </data>
+	<data name="TabProfile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+	<data name="Streak" xml:space="preserve">
+    <value>Streak</value>
+  </data>
+	<data name="Hints" xml:space="preserve">
+    <value>Hints</value>
+  </data>
+	<data name="Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+	<data name="Mode" xml:space="preserve">
+    <value>Mode</value>
+  </data>
+	<data name="Difficulty" xml:space="preserve">
+    <value>Difficulty</value>
+  </data>
+	<data name="EnterAnswer" xml:space="preserve">
+    <value>Enter your answer...</value>
+  </data>
+	<data name="ButtonHint" xml:space="preserve">
+    <value>Hint</value>
+  </data>
+	<data name="ButtonSubmit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+	<data name="ButtonShare" xml:space="preserve">
+    <value>Share Result</value>
+  </data>
+	<data name="ButtonClear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+	<data name="AlreadyCompleted" xml:space="preserve">
+    <value>You've already completed today's puzzle! Come back tomorrow.</value>
+  </data>
+	<data name="CorrectAnswer" xml:space="preserve">
+    <value>Correct! You earned {0} points!</value>
+  </data>
+	<data name="WrongAnswer" xml:space="preserve">
+    <value>Not quite right. Try again!</value>
+  </data>
+	<data name="NoHintTokens" xml:space="preserve">
+    <value>No hint tokens available. Watch an ad to earn one?</value>
+  </data>
+	<data name="HintTokenEarned" xml:space="preserve">
+    <value>You earned a hint token!</value>
+  </data>
+	<data name="TimeUp" xml:space="preserve">
+    <value>Time's up!</value>
+  </data>
+	<data name="ShareTitle" xml:space="preserve">
+    <value>Share My PEMDAS Result</value>
+  </data>
+	<data name="BuildEquation" xml:space="preserve">
+    <value>Build an equation to reach: {0}</value>
+  </data>
+	<data name="PleaseEnterAnswer" xml:space="preserve">
+    <value>Please enter an answer first.</value>
+  </data>
+	<data name="NoPuzzleLoaded" xml:space="preserve">
+    <value>No puzzle loaded. Please restart the app.</value>
+  </data>
+	<data name="ErrorCheckingAnswer" xml:space="preserve">
+    <value>An error occurred while checking your answer. Please try again.</value>
+  </data>
+	<data name="ErrorGettingHint" xml:space="preserve">
+    <value>An error occurred while getting the hint.</value>
+  </data>
+	<data name="UnableToShowAd" xml:space="preserve">
+    <value>Unable to show ad at this time.</value>
+  </data>
+	<data name="NoPuzzleToShare" xml:space="preserve">
+    <value>No puzzle to share.</value>
+  </data>
+	<data name="UnableToShare" xml:space="preserve">
+    <value>Unable to share at this time.</value>
+  </data>
+	<data name="YourStats" xml:space="preserve">
+    <value>Your Stats</value>
+  </data>
+	<data name="CurrentStreak" xml:space="preserve">
+    <value>Current Streak</value>
+  </data>
+	<data name="BestStreak" xml:space="preserve">
+    <value>Best Streak</value>
+  </data>
+	<data name="PuzzlesSolved" xml:space="preserve">
+    <value>Puzzles Solved</value>
+  </data>
+	<data name="TotalPoints" xml:space="preserve">
+    <value>Total Points</value>
+  </data>
+	<data name="HintTokensAvailable" xml:space="preserve">
+    <value>Hint Tokens Available</value>
+  </data>
+	<data name="PremiumMember" xml:space="preserve">
+    <value>Premium Member</value>
+  </data>
+	<data name="GoPremium" xml:space="preserve">
+    <value>Go Premium!</value>
+  </data>
+	<data name="PremiumFeature1" xml:space="preserve">
+    <value>Access puzzle archives</value>
+  </data>
+	<data name="PremiumFeature2" xml:space="preserve">
+    <value>Unlimited practice mode</value>
+  </data>
+	<data name="PremiumFeature3" xml:space="preserve">
+    <value>Advanced operators</value>
+  </data>
+	<data name="PremiumFeature4" xml:space="preserve">
+    <value>No ads</value>
+  </data>
+	<data name="SubscribeButton" xml:space="preserve">
+    <value>Subscribe Now - $2.99/month</value>
+  </data>
+	<data name="ViewArchive" xml:space="preserve">
+    <value>View Puzzle Archive</value>
+  </data>
+	<data name="SubscribeSuccess" xml:space="preserve">
+    <value>Thank you for subscribing!</value>
+  </data>
+	<data name="SubscribeRequired" xml:space="preserve">
+    <value>Subscribe to access the puzzle archive!</value>
+  </data>
+	<data name="SubscriptionFailed" xml:space="preserve">
+    <value>Unable to complete subscription. Please try again later.</value>
+  </data>
+	<data name="Success" xml:space="preserve">
+    <value>Success</value>
+  </data>
+	<data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+	<data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+	<data name="ErrorLoadingProfile" xml:space="preserve">
+    <value>An error occurred while loading your profile. Please try again.</value>
+  </data>
+	<data name="ErrorDuringSubscription" xml:space="preserve">
+    <value>An error occurred during subscription. Please try again later.</value>
+  </data>
+	<data name="UnableToAccessArchive" xml:space="preserve">
+    <value>Unable to access archive at this time.</value>
+  </data>
+	<data name="FailedToLoadUserProgress" xml:space="preserve">
+    <value>Failed to load user progress.</value>
+  </data>
+	<data name="Easy" xml:space="preserve">
+    <value>Easy</value>
+  </data>
+	<data name="Medium" xml:space="preserve">
+    <value>Medium</value>
+  </data>
+	<data name="Hard" xml:space="preserve">
+    <value>Hard</value>
+  </data>
+	<data name="Creative" xml:space="preserve">
+    <value>Creative</value>
+  </data>
+	<data name="Tricky" xml:space="preserve">
+    <value>Tricky</value>
+  </data>
+	<data name="Speed" xml:space="preserve">
+    <value>Speed</value>
+  </data>
+	<data name="Boss" xml:space="preserve">
+    <value>Boss</value>
+  </data>
+	<data name="SolveIt" xml:space="preserve">
+    <value>Solve It</value>
+  </data>
+	<data name="BuildIt" xml:space="preserve">
+    <value>Build It</value>
+  </data>
+	<data name="ErrorLoadingPuzzle" xml:space="preserve">
+    <value>Failed to load today's puzzle. Please restart the app.</value>
+  </data>
+	<data name="ErrorLoadingPuzzleTryAgain" xml:space="preserve">
+    <value>An error occurred while loading the puzzle. Please try again.</value>
+  </data>
+</root>

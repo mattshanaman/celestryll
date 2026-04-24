@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+
+    <toolkit:AppThemeColor x:Key="Color.Background" Light="#FAFAFA" Dark="#101418" />
+    <toolkit:AppThemeColor x:Key="Color.Surface"    Light="#FFFFFF" Dark="#1B1F24" />
+    <toolkit:AppThemeColor x:Key="Color.Primary"    Light="#2EA3C9" Dark="#2EA3C9" />
+    <toolkit:AppThemeColor x:Key="Color.OnPrimary"  Light="#FFFFFF" Dark="#FFFFFF" />
+    <toolkit:AppThemeColor x:Key="Color.TextPrimary"   Light="#111111" Dark="#FFFFFF" />
+    <toolkit:AppThemeColor x:Key="Color.TextSecondary" Light="#5C6C7C" Dark="#B3FFFFFF" />
+    <toolkit:AppThemeColor x:Key="Color.Border"     Light="#33424A55" Dark="#33FFFFFF" />
+    <toolkit:AppThemeColor x:Key="Color.Disabled"   Light="#9E9E9E"  Dark="#66FFFFFF" />
+
+    <toolkit:AppThemeColor x:Key="Color.ToolbarBackground" Light="#0F1A20" Dark="#0F1A20" />
+    <toolkit:AppThemeColor x:Key="Color.ToolbarForeground" Light="#FFFFFF" Dark="#FFFFFF" />
+
+    <Style TargetType="ContentPage">
+        <Setter Property="BackgroundColor" Value="{DynamicResource Color.Background}" />
+    </Style>
+
+    <Style TargetType="Label">
+        <Setter Property="TextColor" Value="{DynamicResource Color.TextPrimary}" />
+        <Setter Property="LineBreakMode" Value="TailTruncation" />
+    </Style>
+
+    <Style TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{DynamicResource Color.Primary}" />
+        <Setter Property="TextColor" Value="{DynamicResource Color.OnPrimary}" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="Padding" Value="14,10" />
+        <Setter Property="BorderColor" Value="{DynamicResource Color.Border}" />
+        <Setter Property="BorderWidth" Value="1" />
+    </Style>
+
+    <Style TargetType="Entry">
+        <Setter Property="TextColor" Value="{DynamicResource Color.TextPrimary}" />
+        <Setter Property="PlaceholderColor" Value="{DynamicResource Color.TextSecondary}" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource Color.Surface}" />
+    </Style>
+
+    <Style TargetType="Switch">
+        <Setter Property="OnColor" Value="{DynamicResource Color.Primary}" />
+        <Setter Property="ThumbColor" Value="{DynamicResource Color.Surface}" />
+    </Style>
+
+    <Style TargetType="BoxView">
+        <Setter Property="Color" Value="{DynamicResource Color.Border}" />
+    </Style>
+
+</ResourceDictionary>

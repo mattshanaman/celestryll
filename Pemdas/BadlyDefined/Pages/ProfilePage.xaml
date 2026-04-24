@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:BadlyDefined.ViewModels"
+             x:Class="BadlyDefined.Pages.ProfilePage"
+             x:DataType="viewmodels:ProfileViewModel"
+             Title="{Binding Title}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="20">
+            
+            <!-- Subscription Status -->
+            <Border BackgroundColor="{StaticResource Primary}" Padding="16" StrokeShape="RoundRectangle 12" Rotation="-2">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="{Binding SubscriptionStatus}"
+                           FontSize="24" 
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           HorizontalOptions="Center"/>
+                    
+                    <Button Text="Subscribe to Premium" 
+                            Command="{Binding SubscribeCommand}"
+                            IsVisible="{Binding IsSubscribed, Converter={StaticResource InvertedBoolConverter}}"
+                            BackgroundColor="White"
+                            TextColor="{StaticResource Primary}"
+                            FontAttributes="Bold"/>
+                    
+                    <Button Text="Restore Purchases" 
+                            Command="{Binding RestorePurchasesCommand}"
+                            BackgroundColor="White"
+                            TextColor="{StaticResource Primary}"
+                            Opacity="0.8"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Statistics -->
+            <Label Text="📊 Statistics" FontSize="20" FontAttributes="Bold"/>
+
+            <!-- Share Buttons -->
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                <Button Grid.Column="0"
+                        Text="📤 Share Stats"
+                        Command="{Binding ShareStatsCommand}"
+                        BackgroundColor="{StaticResource Info}"
+                        TextColor="White"
+                        FontSize="14"/>
+
+                <Button Grid.Column="1"
+                        Text="✉️ Email Stats"
+                        Command="{Binding EmailStatsCommand}"
+                        BackgroundColor="{StaticResource Secondary}"
+                        TextColor="White"
+                        FontSize="14"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto,Auto" ColumnSpacing="12" RowSpacing="12">
+                
+                <!-- Current Streak -->
+                <Border Grid.Row="0" Grid.Column="0" BackgroundColor="{StaticResource Secondary}" Padding="16" StrokeShape="RoundRectangle 8" Rotation="3">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="🔥" FontSize="24" HorizontalOptions="Center"/>
+                        <Label Text="{Binding CurrentStreak}" 
+                               FontSize="28" 
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               TextColor="White"/>
+                        <Label Text="Current Streak" 
+                               FontSize="12" 
+                               HorizontalOptions="Center"
+                               TextColor="White"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Longest Streak -->
+                <Border Grid.Row="0" Grid.Column="1" BackgroundColor="{StaticResource Tertiary}" Padding="16" StrokeShape="RoundRectangle 8" Rotation="-1">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="⭐" FontSize="24" HorizontalOptions="Center"/>
+                        <Label Text="{Binding LongestStreak}" 
+                               FontSize="28" 
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               TextColor="White"/>
+                        <Label Text="Longest Streak" 
+                               FontSize="12" 
+                               HorizontalOptions="Center"
+                               TextColor="White"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Total Puzzles -->
+                <Border Grid.Row="1" Grid.Column="0" BackgroundColor="{StaticResource Info}" Padding="16" StrokeShape="RoundRectangle 8" Rotation="2">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="🎯" FontSize="24" HorizontalOptions="Center"/>
+                        <Label Text="{Binding TotalPuzzlesCompleted}" 
+                               FontSize="28" 
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               TextColor="White"/>
+                        <Label Text="Total Solved" 
+                               FontSize="12" 
+                               HorizontalOptions="Center"
+                               TextColor="White"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Total Points -->
+                <Border Grid.Row="1" Grid.Column="1" BackgroundColor="{StaticResource Success}" Padding="16" StrokeShape="RoundRectangle 8" Rotation="-3">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="🏆" FontSize="24" HorizontalOptions="Center"/>
+                        <Label Text="{Binding TotalPoints}" 
+                               FontSize="28" 
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               TextColor="White"/>
+                        <Label Text="Total Points" 
+                               FontSize="12" 
+                               HorizontalOptions="Center"
+                               TextColor="White"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Hint Tokens -->
+                <Border Grid.Row="2" Grid.Column="0" BackgroundColor="{StaticResource Warning}" Padding="16" StrokeShape="RoundRectangle 8" Rotation="1">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="💡" FontSize="24" HorizontalOptions="Center"/>
+                        <Label Text="{Binding HintTokens}" 
+                               FontSize="28" 
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               TextColor="White"/>
+                        <Label Text="Hint Tokens" 
+                               FontSize="12" 
+                               HorizontalOptions="Center"
+                               TextColor="White"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Best Attempts -->
+                <Border Grid.Row="2" Grid.Column="1" BackgroundColor="{StaticResource Primary}" Padding="16" StrokeShape="RoundRectangle 8" Rotation="-2">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="🎖️" FontSize="24" HorizontalOptions="Center"/>
+                        <Label Text="{Binding BestAttempts}" 
+                               FontSize="28" 
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               TextColor="White"/>
+                        <Label Text="Best Attempts" 
+                               FontSize="12" 
+                               HorizontalOptions="Center"
+                               TextColor="White"/>
+                    </VerticalStackLayout>
+                </Border>
+            </Grid>
+
+            <!-- By Difficulty -->
+            <Label Text="📈 By Difficulty" FontSize="20" FontAttributes="Bold"/>
+
+            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
+                <Border Grid.Column="0" BackgroundColor="{StaticResource DifficultyEasy}" Padding="12" StrokeShape="RoundRectangle 8" Rotation="-2">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="⭐" FontSize="20" HorizontalOptions="Center"/>
+                        <Label Text="{Binding EasyCompleted}" 
+                               FontSize="24" 
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               TextColor="White"/>
+                        <Label Text="Easy" FontSize="11" HorizontalOptions="Center" TextColor="White"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Grid.Column="1" BackgroundColor="{StaticResource DifficultyMedium}" Padding="12" StrokeShape="RoundRectangle 8" Rotation="3">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="⭐⭐" FontSize="20" HorizontalOptions="Center"/>
+                        <Label Text="{Binding MediumCompleted}" 
+                               FontSize="24" 
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               TextColor="White"/>
+                        <Label Text="Medium" FontSize="11" HorizontalOptions="Center" TextColor="White"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Grid.Column="2" BackgroundColor="{StaticResource DifficultyHard}" Padding="12" StrokeShape="RoundRectangle 8" Rotation="-1">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="⭐⭐⭐" FontSize="20" HorizontalOptions="Center"/>
+                        <Label Text="{Binding HardCompleted}" 
+                               FontSize="24" 
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               TextColor="White"/>
+                        <Label Text="Hard" FontSize="11" HorizontalOptions="Center" TextColor="White"/>
+                    </VerticalStackLayout>
+                </Border>
+            </Grid>
+
+            <!-- Average Attempts -->
+            <Border BackgroundColor="{StaticResource Gray200}" Padding="16" StrokeShape="RoundRectangle 8" Rotation="1">
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="12">
+                    <Label Text="📊 Average Attempts:" FontSize="16" VerticalOptions="Center"/>
+                    <Label Text="{Binding AverageAttempts}" 
+                           FontSize="20" 
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource Primary}"/>
+                </HorizontalStackLayout>
+            </Border>
+
+            <!-- Email Section -->
+            <Label Text="✉️ Email Settings" FontSize="20" FontAttributes="Bold" Margin="0,8,0,0"/>
+
+            <Border BackgroundColor="{StaticResource Gray100}" Padding="16" StrokeShape="RoundRectangle 8" Rotation="-1">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Enter your email for notifications and account recovery:" 
+                           FontSize="14" 
+                           TextColor="{StaticResource Gray600}"/>
+
+                    <Entry Text="{Binding UserEmail}"
+                           Placeholder="your.email@example.com"
+                           Keyboard="Email"
+                           FontSize="16"
+                           BackgroundColor="White"/>
+
+                    <Label Text="{Binding EmailValidationMessage}"
+                           FontSize="12"
+                           TextColor="{StaticResource Primary}"
+                           IsVisible="{Binding EmailValidationMessage, Converter={StaticResource StringIsNotNullOrEmptyConverter}}"/>
+
+                    <Button Text="Save Email"
+                            Command="{Binding SaveEmailCommand}"
+                            BackgroundColor="{StaticResource Primary}"
+                            TextColor="White"
+                            IsEnabled="{Binding IsEmailValid}"
+                            HorizontalOptions="End"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Activity Indicator -->
+            <ActivityIndicator IsRunning="{Binding IsBusy}" 
+                              IsVisible="{Binding IsBusy}"
+                              Color="{StaticResource Primary}"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(100, 80)">
+        <!-- Ring 1: Outer Moebius ribbon (45 degrees) -->
+        <g transform="rotate(45)">
+            <path d="M -55,0 A 55,20 0 0,1 -20,-18" fill="none" stroke="#2D2F7F" stroke-width="4"/>
+            <path d="M -20,-18 A 55,20 0 0,1 20,-18" fill="none" stroke="#2D2F7F" stroke-width="4"/>
+            <path d="M 20,-18 A 55,20 0 0,1 55,0" fill="none" stroke="#6A6DFF" stroke-width="2.5"/>
+            <path d="M 55,0 A 55,20 0 0,1 20,18" fill="none" stroke="#2D2F7F" stroke-width="3"/>
+            <path d="M 20,18 A 55,20 0 0,1 -20,18" fill="none" stroke="#2D2F7F" stroke-width="3"/>
+            <path d="M -20,18 A 55,20 0 0,1 -55,0" fill="none" stroke="#6A6DFF" stroke-width="2.5"/>
+        </g>
+        <!-- Ring 2: Outer Moebius ribbon (-45 degrees) -->
+        <g transform="rotate(-45)">
+            <path d="M -55,0 A 55,20 0 0,1 -20,-18" fill="none" stroke="#1FA2A0" stroke-width="4"/>
+            <path d="M -20,-18 A 55,20 0 0,1 20,-18" fill="none" stroke="#1FA2A0" stroke-width="4"/>
+            <path d="M 20,-18 A 55,20 0 0,1 55,0" fill="none" stroke="#6A6DFF" stroke-width="2.5"/>
+            <path d="M 55,0 A 55,20 0 0,1 20,18" fill="none" stroke="#1FA2A0" stroke-width="3"/>
+            <path d="M 20,18 A 55,20 0 0,1 -20,18" fill="none" stroke="#1FA2A0" stroke-width="3"/>
+            <path d="M -20,18 A 55,20 0 0,1 -55,0" fill="none" stroke="#6A6DFF" stroke-width="2.5"/>
+        </g>
+        <!-- Ring 3: Inner Moebius ribbon (horizontal) -->
+        <g>
+            <path d="M -35,0 A 35,13 0 0,1 -12,-12" fill="none" stroke="#6A6DFF" stroke-width="3.5"/>
+            <path d="M -12,-12 A 35,13 0 0,1 12,-12" fill="none" stroke="#6A6DFF" stroke-width="3.5"/>
+            <path d="M 12,-12 A 35,13 0 0,1 35,0" fill="none" stroke="#1FA2A0" stroke-width="2"/>
+            <path d="M 35,0 A 35,13 0 0,1 12,12" fill="none" stroke="#6A6DFF" stroke-width="2.5"/>
+            <path d="M 12,12 A 35,13 0 0,1 -12,12" fill="none" stroke="#6A6DFF" stroke-width="2.5"/>
+            <path d="M -12,12 A 35,13 0 0,1 -35,0" fill="none" stroke="#1FA2A0" stroke-width="2"/>
+        </g>
+        <!-- Center star -->
+        <circle cx="0" cy="0" r="8" fill="#1FA2A0"/>
+        <circle cx="0" cy="0" r="4" fill="#E8F7F6"/>
+    </g>
+    <text x="100" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="300" fill="#2D2F7F" letter-spacing="2">Celestryll</text>
+</svg>

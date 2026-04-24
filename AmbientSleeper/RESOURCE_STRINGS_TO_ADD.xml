@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+  ADD THESE STRINGS TO AppResources.resx BEFORE THE CLOSING </root> TAG
+  
+  Location: Resources\Strings\AppResources.resx
+  Insert at line: 283 (before </root>)
+-->
+
+  <!-- Playback Page - Locked Features (IMPROVED USER-FRIENDLY MESSAGES) -->
+  <data name="Playback_PlaylistLocked_Title" xml:space="preserve">
+    <value>?? Playlists Locked</value>
+  </data>
+  <data name="Playback_PlaylistLocked_Message" xml:space="preserve">
+    <value>Create and save playlists for longer listening sessions. Available in Standard tier and above.</value>
+  </data>
+  <data name="Playback_PlaylistMode" xml:space="preserve">
+    <value>Playlist mode</value>
+  </data>
+  
+  <data name="Playback_MixPlaylistLocked_Title" xml:space="preserve">
+    <value>?? Mix Playlists Locked</value>
+  </data>
+  <data name="Playback_MixPlaylistLocked_Message" xml:space="preserve">
+    <value>Schedule different soundscapes throughout your session. Available in Premium and Pro+ tiers.</value>
+  </data>
+  <data name="Playback_MixPlaylistEmpty" xml:space="preserve">
+    <value>Create and save mixes first, then add them here to build a scheduled playlist.</value>
+  </data>
+
+  <!-- EQ Page - Locked Features (IMPROVED USER-FRIENDLY MESSAGES) -->
+  <data name="EQ_Locked_Title" xml:space="preserve">
+    <value>??? Equalizer</value>
+  </data>
+  <data name="EQ_Locked_Message" xml:space="preserve">
+    <value>Customize your sound with professional frequency controls. Available in Premium and Pro+ tiers.</value>
+  </data>
+  <data name="EQ_5BandTitle" xml:space="preserve">
+    <value>5-Band Graphic EQ</value>
+  </data>
+  <data name="EQ_5BandDescription" xml:space="preserve">
+    <value>Adjust 5 frequency bands to customize your sound. Move sliders up to boost, down to reduce.</value>
+  </data>
+  <data name="EQ_10BandTitle" xml:space="preserve">
+    <value>10-Band Parametric EQ</value>
+  </data>
+  <data name="EQ_PresetsPremium" xml:space="preserve">
+    <value>Premium</value>
+  </data>
+  <data name="EQ_PresetsProPlus" xml:space="preserve">
+    <value>Pro+</value>
+  </data>
+
+  <!-- Playback Settings - Alarm Integration (IMPROVED USER-FRIENDLY MESSAGES) -->
+  <data name="PlaybackSettings_AlarmLocked_Title" xml:space="preserve">
+    <value>?? Alarm Integration Locked</value>
+  </data>
+  <data name="PlaybackSettings_AlarmLocked_Message" xml:space="preserve">
+    <value>Wake up to custom alarm sounds. Available in Standard tier and above.</value>
+  </data>
+  <data name="PlaybackSettings_AlarmFreeNote" xml:space="preserve">
+    <value>Free tier uses your device's default alarm sound.</value>
+  </data>
+
+  <!-- Ad System Strings (USER-FRIENDLY, MOBILE-OPTIMIZED) -->
+  
+  <!-- Ad Prompts -->
+  <data name="Ad_WatchForExtension_Title" xml:space="preserve">
+    <value>Get 45 More Minutes</value>
+  </data>
+  <data name="Ad_WatchForExtension_Message" xml:space="preserve">
+    <value>Watch a short ad to extend your session</value>
+  </data>
+  <data name="Ad_WatchForExtension_Button" xml:space="preserve">
+    <value>Watch Ad</value>
+  </data>
+  
+  <data name="Ad_WatchToUnlock_Title" xml:space="preserve">
+    <value>Unlock This Sound</value>
+  </data>
+  <data name="Ad_WatchToUnlock_Message" xml:space="preserve">
+    <value>Watch a short ad to unlock until you close the app</value>
+  </data>
+  <data name="Ad_WatchToUnlock_Button" xml:space="preserve">
+    <value>Watch Ad</value>
+  </data>
+  
+  <!-- Time Warning -->
+  <data name="Ad_TimeAlmostUp_Title" xml:space="preserve">
+    <value>? Time Almost Up</value>
+  </data>
+  <data name="Ad_TimeRemaining" xml:space="preserve">
+    <value>{0} minutes remaining</value>
+  </data>
+  <data name="Ad_2MinutesLeft" xml:space="preserve">
+    <value>2 minutes remaining</value>
+  </data>
+  
+  <!-- Success Messages -->
+  <data name="Ad_SessionExtended_Title" xml:space="preserve">
+    <value>Session Extended!</value>
+  </data>
+  <data name="Ad_SessionExtended_Message" xml:space="preserve">
+    <value>You've earned 45 more minutes of listening. Enjoy!</value>
+  </data>
+  
+  <data name="Ad_SoundUnlocked_Title" xml:space="preserve">
+    <value>Sound Unlocked!</value>
+  </data>
+  <data name="Ad_SoundUnlocked_Message" xml:space="preserve">
+    <value>You can use this sound until you close the app.</value>
+  </data>
+  
+  <!-- Ad States -->
+  <data name="Ad_LoadingAd" xml:space="preserve">
+    <value>Loading ad...</value>
+  </data>
+  <data name="Ad_AdNotAvailable_Title" xml:space="preserve">
+    <value>Ad Not Available</value>
+  </data>
+  <data name="Ad_AdNotAvailable_Message" xml:space="preserve">
+    <value>No ad available right now. Please try again in a moment.</value>
+  </data>
+  
+  <!-- Alternative Actions -->
+  <data name="Ad_OrUpgrade" xml:space="preserve">
+    <value>Or upgrade to Premium for unlimited sessions</value>
+  </data>
+  <data name="Ad_OrUpgrade_Short" xml:space="preserve">
+    <value>Or upgrade to remove ads</value>
+  </data>
+  <data name="Ad_NoThanks" xml:space="preserve">
+    <value>No Thanks</value>
+  </data>
+  <data name="Ad_MaybeLater" xml:space="preserve">
+    <value>Maybe Later</value>
+  </data>
+  
+  <!-- Ad Types (for analytics/debugging) -->
+  <data name="Ad_Type_Banner" xml:space="preserve">
+    <value>Banner</value>
+  </data>
+  <data name="Ad_Type_Interstitial" xml:space="preserve">
+    <value>Interstitial</value>
+  </data>
+  <data name="Ad_Type_Rewarded" xml:space="preserve">
+    <value>Rewarded</value>
+  </data>

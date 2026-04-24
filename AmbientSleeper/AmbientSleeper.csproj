@@ -1,0 +1,222 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net10.0-android;net10.0-ios;net10.0-maccatalyst</TargetFrameworks>
+		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net10.0-tizen</TargetFrameworks> -->
+
+		<!-- Note for MacCatalyst:
+		The default runtime is maccatalyst-x64, except in Release config, in which case the default is maccatalyst-x64;maccatalyst-arm64.
+		When specifying both architectures, use the plural <RuntimeIdentifiers> instead of the singular <RuntimeIdentifier>.
+		The Mac App Store will NOT accept apps with ONLY maccatalyst-arm64 indicated;
+		either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
+		<!-- For example: <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers> -->
+
+		<OutputType>Exe</OutputType>
+		<RootNamespace>AmbientSleeper</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<NeutralLanguage>en</NeutralLanguage>
+
+		<!-- Display name -->
+		<ApplicationTitle>AmbientSleeper</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.ambientsleeper.app</ApplicationId>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0.0</ApplicationDisplayVersion>
+		<ApplicationVersion>10000</ApplicationVersion>
+
+		<!-- To develop, package, and publish an app to the Microsoft Store, see: https://aka.ms/MauiTemplateUnpackaged -->
+		<WindowsPackageType>None</WindowsPackageType>
+
+		<!-- Prefer tablet form factors and multi-window support -->
+		<ApplicationDisplayName>AmbientSleeper</ApplicationDisplayName>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.0</SupportedOSPlatformVersion>
+		<!-- Enable iPad multitasking: Ensure not full screen only -->
+		<RequiresFullScreen>false</RequiresFullScreen>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">15.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">26.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+
+		<MauiEnableXamlCBindingWithSourceCompilation>true</MauiEnableXamlCBindingWithSourceCompilation>
+	</PropertyGroup>
+
+	<!-- Google Play Store Release Configuration -->
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)' == 'Release|net10.0-android'">
+		<!-- Generate App Bundle (.aab) instead of APK -->
+		<AndroidPackageFormat>aab</AndroidPackageFormat>
+		<!-- Enable AOT for better performance -->
+		<RunAOTCompilation>true</RunAOTCompilation>
+		<!-- Link away unused code -->
+		<AndroidLinkMode>SdkOnly</AndroidLinkMode>
+		<!-- Support modern Android architectures -->
+		<RuntimeIdentifiers>android-arm;android-arm64;android-x86;android-x64</RuntimeIdentifiers>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#000000" BaseSize="128,128" />
+		<MauiIcon Update="Resources\AppIcon\ambient_sleeper_background_and_small_icon1.png" BaseSize="512,512" />
+
+		<!-- Splash Screen - Full screen display -->
+		<MauiSplashScreen Include="Resources\Splash\ambient_sleeper_background_and_small_icon2.png" Color="#1a1a2e" BaseSize="1024,1024" />
+		
+		<!-- SVG fallback -->
+		<MauiSplashScreen Include="Resources\Splash\ambientsleeper_splash.svg" Color="#1a1a2e" BaseSize="456,456" />
+
+     <!-- Images (explicit list to avoid accidental non-image inclusion and duplicate output names) -->
+		<MauiImage Include="Resources\Images\ambient_sleeper_background_and_small_icon_2048x2048.png" />
+		<MauiImage Include="Resources\Images\ambient_sleeper_bg_phone_portrait_1080x1920.png" />
+		<MauiImage Include="Resources\Images\ambient_sleeper_bg_phone_portrait_720x1280.png" />
+		<MauiImage Include="Resources\Images\ambient_sleeper_bg_tablet_portrait_1200x1600.png" />
+		<MauiImage Include="Resources\Images\ambient_sleeper_bg_tablet_portrait_1536x2048.png" />
+		<MauiImage Include="Resources\Images\ambient_sleeper_fullsize.png" />
+		<MauiImage Include="Resources\Images\dotnet_bot.png" />
+		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
+		<!-- Change logical name of the background image -->
+		<MauiImage Update="Resources\Images\ambient_sleeper_background_and_small_icon.png" />
+		
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AndroidResource Remove="BuildProcessTemplates\**" />
+	  <Compile Remove="BuildProcessTemplates\**" />
+	  <EmbeddedResource Remove="BuildProcessTemplates\**" />
+	  <MauiCss Remove="BuildProcessTemplates\**" />
+	  <MauiXaml Remove="BuildProcessTemplates\**" />
+	  <None Remove="BuildProcessTemplates\**" />
+	  <AndroidResource Remove="Apps\**" />
+	  <Compile Remove="Apps\**" />
+	  <EmbeddedResource Remove="Apps\**" />
+	  <MauiCss Remove="Apps\**" />
+	  <MauiXaml Remove="Apps\**" />
+	  <None Remove="Apps\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AndroidResource Remove="Platforms\Android\Resources\values\styles.xml" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Models\MixSoundItem.cs" />
+	  <Compile Remove="Models\SoundItem.cs" />
+	  <Compile Remove="Services\IMixAudioService.cs" />
+	  <Compile Remove="Services\ISettingsService.cs" />
+	  <Compile Remove="Services\MixAudioService.cs" />
+	  <Compile Remove="Services\SettingsService.cs" />
+	  <Compile Remove="ViewModels\MainViewModel.cs" />
+	  <Compile Remove="ViewModels\SoundsViewModel.cs" />
+	  <Compile Remove="Views\MainPage.xaml.cs" />
+	  <Compile Remove="Views\SoundsPage.xaml.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Remove="Views\MainPage.xaml" />
+	  <MauiXaml Remove="Views\SoundsPage.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Maui" Version="12.2.0" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="9.0.110" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.9" />
+		<PackageReference Include="Plugin.LocalNotification" Version="12.0.2" />
+		<PackageReference Include="Plugin.Maui.AppRating" Version="1.2.2" />
+		<PackageReference Include="Plugin.Maui.Audio" Version="4.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\EqPage.xaml.cs">
+	    <DependentUpon>EqPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\HelpPage.xaml.cs">
+	    <DependentUpon>HelpPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\LegalPage.xaml.cs">
+	    <DependentUpon>LegalPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\LibraryPage.xaml.cs">
+	    <DependentUpon>LibraryPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\PlaybackPage.xaml.cs">
+	    <DependentUpon>PlaybackPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\PlaybackSettingsPage.xaml.cs">
+	    <DependentUpon>PlaybackSettingsPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\SettingsPage.xaml.cs">
+	    <DependentUpon>SettingsPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\TimerPage.xaml.cs">
+	    <DependentUpon>TimerPage.xaml</DependentUpon> <!-- FIXED -->
+	  </Compile>
+	  <Compile Update="Views\UpgradePage.xaml.cs">
+	    <DependentUpon>UpgradePage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\EqPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\HelpPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\LegalPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\LibraryPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\PlaybackPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\PlaybackSettingsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\SettingsPage.xaml">
+  	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\TimerPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\UpgradePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  
+	</ItemGroup>
+
+	<!-- Localization resources generation -->
+	<ItemGroup>
+	  <EmbeddedResource Update="Resources\Strings\AppResources.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <CustomToolNamespace>AmbientSleeper.Resources.Strings</CustomToolNamespace>
+	    <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <Compile Update="Resources\Strings\AppResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>AppResources.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Platforms\Android\Resources\drawable\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Include=".github\copilot-instructions.md" />
+	  <None Include=".github\upgrades\scenarios\new-dotnet-version_06d37b\plan.md" />
+	</ItemGroup>
+
+</Project>

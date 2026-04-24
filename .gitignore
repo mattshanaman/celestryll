@@ -1,0 +1,23 @@
+# Build output
+bin/
+obj/
+*.user
+.vs/
+*.suo
+
+# NuGet
+packages/
+*.nupkg
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Node / web tooling
+node_modules/
+npm-debug.log
+
+# Android / iOS build artifacts
+*.apk
+*.ipa
+*.aab

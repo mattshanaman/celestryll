@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:AmbientSleeper.Resources.Strings"
+             xmlns:vm="clr-namespace:AmbientSleeper.ViewModels"
+             xmlns:models="clr-namespace:AmbientSleeper.Models"
+             xmlns:svc="clr-namespace:AmbientSleeper.Services"
+             x:Class="AmbientSleeper.Views.PlaybackPage"
+             x:DataType="vm:PlaybackViewModel"
+             x:Name="Root"
+             Title="{x:Static resx:AppResources.Nav_Playback}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{x:Static resx:AppResources.Toolbar_Tier}" Priority="0" Order="Primary" Clicked="OnOpenSettings" />
+        <ToolbarItem Text="{x:Static resx:AppResources.Toolbar_EQ}" Priority="1" Order="Primary" Command="{Binding OpenEqCommand}" IsEnabled="{Binding IsEqEnabled}" />
+        <ToolbarItem Text="{x:Static resx:AppResources.Toolbar_Audio}" Priority="2" Order="Primary" Clicked="OnOpenPlaybackSettings" />
+        <ToolbarItem Text="{x:Static resx:AppResources.Toolbar_Export}" Priority="3" Order="Secondary" Command="{Binding ExportCommand}" />
+        <ToolbarItem Text="{x:Static resx:AppResources.Toolbar_Import}" Priority="4" Order="Secondary" Command="{Binding ImportCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="TabActiveBg">#BF000000</Color>
+            <Color x:Key="TabInactiveBg">#80FFFFFF</Color>
+            <Color x:Key="TabActiveText">#FFFFFFFF</Color>
+            <Color x:Key="TabInactiveText">#222222</Color>
+            <Color x:Key="TabActiveBorder">#FFFFFFFF</Color>
+            <Color x:Key="TabInactiveBorder">#CCFFFFFF</Color>
+            <Style x:Key="TabButtonStyle" TargetType="Button">
+                <Setter Property="HeightRequest" Value="{OnIdiom Phone=40, Tablet=48}" />
+                <Setter Property="FontSize" Value="{OnIdiom Phone=14, Tablet=16}" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="CornerRadius" Value="14" />
+                <Setter Property="Padding" Value="{OnIdiom Phone='12,8', Tablet='16,10'}" />
+                <Setter Property="Margin" Value="8,10" />
+                <Setter Property="BorderWidth" Value="2" />
+                <Setter Property="BackgroundColor" Value="{StaticResource TabInactiveBg}" />
+                <Setter Property="TextColor" Value="{StaticResource TabInactiveText}" />
+                <Setter Property="BorderColor" Value="{StaticResource TabInactiveBorder}" />
+                <Setter Property="Shadow">
+                    <Setter.Value>
+                        <Shadow Brush="#40000000" Opacity="0.6" Radius="6" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto,*" Padding="{OnIdiom Phone=0, Tablet=10}">
+        <!-- Tab Header -->
+        <Grid Grid.Row="0" ColumnDefinitions="*,*,*" Padding="{OnIdiom Phone='10,6', Tablet='16,8'}" BackgroundColor="Transparent">
+            <!-- Mix Tab Button -->
+            <Button Grid.Column="0" 
+                    Style="{StaticResource TabButtonStyle}" 
+                    Text="{x:Static resx:AppResources.Tab_Mix}"
+                    SemanticProperties.Description="{x:Static resx:AppResources.Tab_Mix}"
+                    Command="{Binding ChangeTabCommand}" 
+                    CommandParameter="0">
+                <Button.Triggers>
+                    <DataTrigger TargetType="Button"
+                                 Binding="{Binding SelectedTabIndex, Converter={StaticResource IntToBoolConverter}, ConverterParameter=0}"
+                                 Value="True">
+                        <Setter Property="BackgroundColor" Value="{StaticResource TabActiveBg}" />
+                        <Setter Property="TextColor" Value="{StaticResource TabActiveText}" />
+                        <Setter Property="BorderColor" Value="{StaticResource TabActiveBorder}" />
+                    </DataTrigger>
+                </Button.Triggers>
+            </Button>
+            
+            <!-- Playlist Tab Button -->
+            <Button Grid.Column="1" 
+                    Style="{StaticResource TabButtonStyle}" 
+                    Text="{x:Static resx:AppResources.Tab_Playlist}"
+                    SemanticProperties.Description="{x:Static resx:AppResources.Tab_Playlist}"
+                    Command="{Binding ChangeTabCommand}" 
+                    CommandParameter="1"
+                    IsEnabled="{Binding IsPlaylistEnabled}">
+                <Button.Triggers>
+                    <DataTrigger TargetType="Button"
+                                 Binding="{Binding SelectedTabIndex, Converter={StaticResource IntToBoolConverter}, ConverterParameter=1}"
+                                 Value="True">
+                        <Setter Property="BackgroundColor" Value="{StaticResource TabActiveBg}" />
+                        <Setter Property="TextColor" Value="{StaticResource TabActiveText}" />
+                        <Setter Property="BorderColor" Value="{StaticResource TabActiveBorder}" />
+                    </DataTrigger>
+                    <DataTrigger TargetType="Button"
+                                 Binding="{Binding IsPlaylistEnabled}"
+                                 Value="False">
+                        <Setter Property="Opacity" Value="0.5" />
+                    </DataTrigger>
+                </Button.Triggers>
+            </Button>
+            
+            <!-- Mix Playlist Tab Button -->
+            <Button Grid.Column="2" 
+                    Style="{StaticResource TabButtonStyle}" 
+                    Text="{x:Static resx:AppResources.Tab_MixPlaylist}"
+                    SemanticProperties.Description="{x:Static resx:AppResources.Tab_MixPlaylist}"
+                    Command="{Binding ChangeTabCommand}" 
+                    CommandParameter="2"
+                    IsEnabled="{Binding IsMixPlaylistEnabled}">
+                <Button.Triggers>
+                    <DataTrigger TargetType="Button"
+                                 Binding="{Binding SelectedTabIndex, Converter={StaticResource IntToBoolConverter}, ConverterParameter=2}"
+                                 Value="True">
+                        <Setter Property="BackgroundColor" Value="{StaticResource TabActiveBg}" />
+                        <Setter Property="TextColor" Value="{StaticResource TabActiveText}" />
+                        <Setter Property="BorderColor" Value="{StaticResource TabActiveBorder}" />
+                    </DataTrigger>
+                    <DataTrigger TargetType="Button"
+                                 Binding="{Binding IsMixPlaylistEnabled}"
+                                 Value="False">
+                        <Setter Property="Opacity" Value="0.5" />
+                    </DataTrigger>
+                </Button.Triggers>
+            </Button>
+        </Grid>
+
+        <!-- Tab Content (no outer ScrollView so inner CollectionViews can virtualize efficiently) -->
+        <Grid Grid.Row="1">
+                <!-- MIX TAB -->
+                <VerticalStackLayout IsVisible="{Binding SelectedTabIndex, Converter={StaticResource IntToBoolConverter}, ConverterParameter=0}"
+                                     Padding="{OnIdiom Phone=16, Tablet=24}" Spacing="{OnIdiom Phone=16, Tablet=20}" BackgroundColor="Transparent">
+                    <Label Text="{x:Static resx:AppResources.Mix_Mode}" 
+                           FontAttributes="Bold" 
+                           FontSize="{OnIdiom Phone=20, Tablet=22}" 
+                           TextColor="{DynamicResource Color.Border}"
+                           SemanticProperties.HeadingLevel="Level1" />
+                    
+                    <!-- Empty State -->
+                    <Label Text="{x:Static resx:AppResources.Mix_Empty}"
+                           IsVisible="{Binding MixSelection.Count, Converter={StaticResource IntToBoolConverter}, ConverterParameter=0}"
+                           FontSize="14" TextColor="Gray" Margin="0,8" />
+                    
+                    <CollectionView ItemsSource="{Binding MixSelection}">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="{OnIdiom Phone=1, Tablet=2, Desktop=3}" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="models:AudioItem">
+                                <Grid Padding="{OnIdiom Phone=8, Tablet=12}" RowDefinitions="Auto,Auto" ColumnDefinitions="*,Auto" ColumnSpacing="8" BackgroundColor="{DynamicResource Color.Surface}" Margin="0,4">
+                                    <Label Text="{Binding Title}" FontSize="{OnIdiom Phone=Default, Tablet=18}" VerticalOptions="Center" />
+                                    <Button Grid.Column="1" 
+                                            Text="?" 
+                                            FontSize="18"
+                                            WidthRequest="44"
+                                            HeightRequest="44"
+                                            Padding="0"
+                                            SemanticProperties.Description="{x:Static resx:AppResources.Mix_RemoveButton}"
+                                            Command="{Binding Source={x:Reference Root}, Path=BindingContext.RemoveFromMixCommand}"
+                                            CommandParameter="{Binding .}" />
+                                    <StackLayout Grid.Row="1" Grid.ColumnSpan="2" Spacing="4">
+                                        <Label Text="{Binding Volume, StringFormat='Volume: {0:P0}'}" FontSize="12" TextColor="Gray" />
+                                        <Slider Minimum="0" Maximum="1" Value="{Binding Volume, Mode=TwoWay}"
+                                                SemanticProperties.Description="{x:Static resx:AppResources.A11y_VolumeSlider}"
+                                                SemanticProperties.Hint="{x:Static resx:AppResources.A11y_VolumeSliderHint}" />
+                                    </StackLayout>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    
+                    <HorizontalStackLayout Spacing="8">
+                        <Label Text="{Binding MixSelection.Count, StringFormat='{x:Static resx:AppResources.Mix_SoundsInMixFormat}'}" 
+                               FontSize="12" TextColor="Gray" />
+                        <Label Text="{Binding MaxOverlaySounds, StringFormat='{x:Static resx:AppResources.Mix_OfFormat}'}" 
+                               FontSize="12" TextColor="Gray" />
+                    </HorizontalStackLayout>
+                    
+                    <HorizontalStackLayout Spacing="12">
+                        <Button Text="{x:Static resx:AppResources.Common_PlayButton}" 
+                                Command="{Binding StartMixCommand}" 
+                                WidthRequest="120"
+                                MinimumHeightRequest="44"
+                                SemanticProperties.Description="{x:Static resx:AppResources.A11y_PlayButton}"
+                                SemanticProperties.Hint="{x:Static resx:AppResources.A11y_PlayButtonHint}" />
+                        <Button Text="{x:Static resx:AppResources.Common_StopButton}" 
+                                Command="{Binding StopMixCommand}" 
+                                WidthRequest="120"
+                                MinimumHeightRequest="44"
+                                SemanticProperties.Description="{x:Static resx:AppResources.A11y_StopButton}"
+                                SemanticProperties.Hint="{x:Static resx:AppResources.A11y_StopButtonHint}" />
+                    </HorizontalStackLayout>
+                    
+                    <BoxView HeightRequest="1" BackgroundColor="{DynamicResource Color.Border}" Margin="0,8" />
+                    
+                    <Label Text="{x:Static resx:AppResources.Mix_SaveCurrent}" 
+                           FontAttributes="Bold" 
+                           TextColor="{DynamicResource Color.Border}"
+                           SemanticProperties.HeadingLevel="Level2" />
+                    <HorizontalStackLayout Spacing="8">
+                        <Entry x:Name="MixNameEntry" 
+                               Placeholder="{x:Static resx:AppResources.Mix_NamePlaceholder}" 
+                               WidthRequest="{OnIdiom Phone=200, Tablet=280}" 
+                               ReturnCommand="{Binding SaveCurrentMixCommand}"
+                               ReturnCommandParameter="{Binding Text, Source={x:Reference MixNameEntry}}"
+                               SemanticProperties.Description="{x:Static resx:AppResources.Mix_NamePlaceholder}"
+                               SemanticProperties.Hint="{x:Static resx:AppResources.A11y_SaveMixButtonHint}" />
+                        <Button Text="{x:Static resx:AppResources.Common_SaveButton}" 
+                                Command="{Binding SaveCurrentMixCommand}"
+                                CommandParameter="{Binding Text, Source={x:Reference MixNameEntry}}"
+                                IsEnabled="{Binding CanSaveMix}"
+                                MinimumHeightRequest="44"
+                                SemanticProperties.Description="{x:Static resx:AppResources.A11y_SaveMixButton}"
+                                SemanticProperties.Hint="{x:Static resx:AppResources.A11y_SaveMixButtonHint}" />
+                    </HorizontalStackLayout>
+                    <Label Text="{Binding MaxSavedMixes, StringFormat='{x:Static resx:AppResources.Mix_SaveLimitFormat}'}"
+                           FontSize="12" TextColor="Gray"
+                           IsVisible="{Binding CanSaveMix, Converter={StaticResource InverseBoolConverter}}" />
+                    
+                    <Label Text="{x:Static resx:AppResources.Mix_SavedTitle}" 
+                           FontAttributes="Bold" 
+                           Margin="0,16,0,0" 
+                           TextColor="{DynamicResource Color.Border}"
+                           SemanticProperties.HeadingLevel="Level2" />
+                    
+                    <!-- Empty State for Saved Mixes -->
+                    <Label Text="{x:Static resx:AppResources.Mix_SavedEmpty}"
+                           IsVisible="{Binding Mixes.Count, Converter={StaticResource IntToBoolConverter}, ConverterParameter=0}"
+                           FontSize="14" TextColor="Gray" Margin="0,8" />
+                    
+                    <CollectionView ItemsSource="{Binding Mixes}" SelectionMode="None">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="{OnIdiom Phone=1, Tablet=2, Desktop=3}" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="models:SavedMix">
+                                <VerticalStackLayout Spacing="4" Padding="{OnIdiom Phone=8, Tablet=12}" BackgroundColor="{DynamicResource Color.Surface}" Margin="0,4">
+                                    <HorizontalStackLayout Spacing="8">
+                                        <Label Text="{Binding Name}" VerticalOptions="Center" FontAttributes="Bold" WidthRequest="{OnIdiom Phone=140, Tablet=200}" />
+                                        <Button Text="{x:Static resx:AppResources.Common_LoadButton}" 
+                                                FontSize="12"
+                                                Padding="8,4"
+                                                MinimumHeightRequest="44"
+                                                SemanticProperties.Description="{x:Static resx:AppResources.Common_LoadButton}"
+                                                Command="{Binding Source={x:Reference Root}, Path=BindingContext.LoadMixCommand}" 
+                                                CommandParameter="{Binding Name}" />
+                                        <Button Text="{x:Static resx:AppResources.Common_DeleteIcon}" 
+                                                FontSize="16"
+                                                WidthRequest="44"
+                                                HeightRequest="44"
+                                                Padding="0"
+                                                SemanticProperties.Description="{x:Static resx:AppResources.A11y_DeleteButton}"
+                                                SemanticProperties.Hint="{x:Static resx:AppResources.A11y_DeleteButtonHint}"
+                                                Command="{Binding Source={x:Reference Root}, Path=BindingContext.DeleteMixCommand}" 
+                                                CommandParameter="{Binding Name}" />
+                                    </HorizontalStackLayout>
+                                    <Label Text="{Binding Items.Count, StringFormat='{x:Static resx:AppResources.Mix_SoundsCountFormat}'}" FontSize="12" TextColor="Gray" />
+                                </VerticalStackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    
+                    <BoxView HeightRequest="1" BackgroundColor="{DynamicResource Color.Border}" Margin="0,16" />
+                    <Button Text="{Binding FadeOutSeconds, StringFormat='{x:Static resx:AppResources.Mix_StopAllFormat}'}" 
+                            Command="{Binding StopAllCommand}" 
+                            BackgroundColor="DarkRed"
+                            TextColor="White" />
+                </VerticalStackLayout>
+
+                <!-- PLAYLIST TAB -->
+                <VerticalStackLayout IsVisible="{Binding SelectedTabIndex, Converter={StaticResource IntToBoolConverter}, ConverterParameter=1}"
+                                     IsEnabled="{Binding IsPlaylistEnabled}" 
+                                     Padding="{OnIdiom Phone=16, Tablet=24}" 
+                                     Spacing="{OnIdiom Phone=16, Tablet=20}" 
+                                     BackgroundColor="Transparent">
+                    <VerticalStackLayout.Triggers>
+                        <DataTrigger TargetType="VerticalStackLayout"
+                                     Binding="{Binding IsPlaylistEnabled}"
+                                     Value="False">
+                            <Setter Property="Opacity" Value="0.5" />
+                        </DataTrigger>
+                    </VerticalStackLayout.Triggers>
+                    
+                    <Label Text="{x:Static resx:AppResources.Playlist_Mode}" FontAttributes="Bold" FontSize="{OnIdiom Phone=20, Tablet=22}" TextColor="{DynamicResource Color.Border}" />
+                    
+                    <!-- Locked Message -->
+                    <Border IsVisible="{Binding IsPlaylistEnabled, Converter={StaticResource InverseBoolConverter}}"
+                            BackgroundColor="#40FF9800"
+                            Stroke="#FF9800"
+                            StrokeThickness="2"
+                            Padding="12"
+                            Margin="0,0,0,12">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="8" />
+                        </Border.StrokeShape>
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="{x:Static resx:AppResources.Playback_PlaylistLocked_Title}" FontAttributes="Bold" FontSize="16" />
+                            <Label Text="{x:Static resx:AppResources.Playback_PlaylistLocked_Message}" 
+                                   FontSize="14" />
+                        </VerticalStackLayout>
+                    </Border>
+                    
+                    <!-- Empty State -->
+                    <Label Text="{x:Static resx:AppResources.Playlist_Empty}"
+                           IsVisible="{Binding PlaylistQueue.Count, Converter={StaticResource IntToBoolConverter}, ConverterParameter=0}"
+                           FontSize="14" TextColor="Gray" Margin="0,8" />
+                    
+                    <CollectionView ItemsSource="{Binding PlaylistQueue}">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="{OnIdiom Phone=1, Tablet=2, Desktop=3}" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="models:AudioItem">
+                                <Grid Padding="{OnIdiom Phone=8, Tablet=12}" ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8" BackgroundColor="{DynamicResource Color.Surface}" Margin="0,4">
+                                    <Label Grid.Column="0" Text="?" FontSize="18" VerticalOptions="Center" />
+                                    <Label Grid.Column="1" Text="{Binding Title}" FontSize="{OnIdiom Phone=Default, Tablet=18}" VerticalOptions="Center" />
+                                    <Button Grid.Column="2" 
+                                            Text="?" 
+                                            FontSize="18"
+                                            WidthRequest="44"
+                                            HeightRequest="44"
+                                            Padding="0"
+                                            SemanticProperties.Description="{x:Static resx:AppResources.Playlist_RemoveButton}"
+                                            Command="{Binding Source={x:Reference Root}, Path=BindingContext.RemoveFromPlaylistCommand}"
+                                            CommandParameter="{Binding .}" />
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    
+                    <Label Text="{Binding PlaylistQueue.Count, StringFormat='{x:Static resx:AppResources.Playlist_SoundsCountFormat}'}" 
+                           FontSize="12" TextColor="Gray" />
+                    
+                    <HorizontalStackLayout Spacing="12">
+                        <Label Text="{x:Static resx:AppResources.Playlist_LoopToggle}" VerticalOptions="Center" TextColor="{DynamicResource Color.Border}" />
+                        <Switch IsToggled="{Binding PlaylistLoopEnabled}" />
+                    </HorizontalStackLayout>
+                    
+                    <HorizontalStackLayout Spacing="12">
+                        <Button Text="{x:Static resx:AppResources.Common_PlayButton}" Command="{Binding StartPlaylistCommand}" IsEnabled="{Binding IsPlaylistEnabled}" WidthRequest="120" />
+                        <Button Text="{x:Static resx:AppResources.Common_StopButton}" Command="{Binding StopPlaylistCommand}" IsEnabled="{Binding IsPlaylistEnabled}" WidthRequest="120" />
+                    </HorizontalStackLayout>
+                    
+                    <BoxView HeightRequest="1" BackgroundColor="{DynamicResource Color.Border}" Margin="0,8" />
+                    
+                    <Label Text="{x:Static resx:AppResources.Playlist_SaveCurrent}" FontAttributes="Bold" TextColor="{DynamicResource Color.Border}" />
+                    <HorizontalStackLayout Spacing="8">
+                        <Entry x:Name="PlaylistNameEntry" 
+                               Placeholder="{x:Static resx:AppResources.Playlist_NamePlaceholder}" 
+                               WidthRequest="{OnIdiom Phone=200, Tablet=280}"
+                               ReturnCommand="{Binding SaveCurrentPlaylistCommand}"
+                               ReturnCommandParameter="{Binding Text, Source={x:Reference PlaylistNameEntry}}" />
+                        <Button Text="{x:Static resx:AppResources.Common_SaveButton}" 
+                                Command="{Binding SaveCurrentPlaylistCommand}"
+                                CommandParameter="{Binding Text, Source={x:Reference PlaylistNameEntry}}"
+                                IsEnabled="{Binding CanSavePlaylist}" />
+                    </HorizontalStackLayout>
+                    <Label Text="{Binding MaxSavedPlaylists, StringFormat='{x:Static resx:AppResources.Playlist_SaveLimitFormat}'}"
+                           FontSize="12" TextColor="Gray"
+                           IsVisible="{Binding CanSavePlaylist, Converter={StaticResource InverseBoolConverter}}" />
+                    
+                    <Label Text="{x:Static resx:AppResources.Playlist_SavedTitle}" FontAttributes="Bold" Margin="0,16,0,0" TextColor="{DynamicResource Color.Border}" />
+                    
+                    <!-- Empty State for Saved Playlists -->
+                    <Label Text="{x:Static resx:AppResources.Playlist_SavedEmpty}"
+                           IsVisible="{Binding Playlists.Count, Converter={StaticResource IntToBoolConverter}, ConverterParameter=0}"
+                           FontSize="14" TextColor="Gray" Margin="0,8" />
+                    
+                    <CollectionView ItemsSource="{Binding Playlists}" SelectionMode="None">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="{OnIdiom Phone=1, Tablet=2, Desktop=3}" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="svc:SavedPlaylist">
+                                <VerticalStackLayout Spacing="4" Padding="{OnIdiom Phone=8, Tablet=12}" BackgroundColor="{DynamicResource Color.Surface}" Margin="0,4">
+                                    <HorizontalStackLayout Spacing="8">
+                                        <Label Text="{Binding Name}" VerticalOptions="Center" FontAttributes="Bold" WidthRequest="{OnIdiom Phone=140, Tablet=200}" />
+                                        <Button Text="{x:Static resx:AppResources.Common_LoadButton}" 
+                                                FontSize="12"
+                                                Padding="8,4"
+                                                MinimumHeightRequest="44"
+                                                SemanticProperties.Description="{x:Static resx:AppResources.Common_LoadButton}"
+                                                Command="{Binding Source={x:Reference Root}, Path=BindingContext.LoadPlaylistCommand}" 
+                                                CommandParameter="{Binding Name}" />
+                                        <Button Text="{x:Static resx:AppResources.Common_DeleteIcon}" 
+                                                FontSize="16"
+                                                WidthRequest="44"
+                                                HeightRequest="44"
+                                                Padding="0"
+                                                SemanticProperties.Description="{x:Static resx:AppResources.Playlist_DeleteButton}"
+                                                Command="{Binding Source={x:Reference Root}, Path=BindingContext.DeletePlaylistCommand}" 
+                                                CommandParameter="{Binding Name}" />
+                                    </HorizontalStackLayout>
+                                    <Label Text="{Binding Items.Count, StringFormat='{x:Static resx:AppResources.Mix_SoundsCountFormat}'}" FontSize="12" TextColor="Gray" />
+                                </VerticalStackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    
+                    <BoxView HeightRequest="1" BackgroundColor="{DynamicResource Color.Border}" Margin="0,16" />
+                    <Button Text="{Binding FadeOutSeconds, StringFormat='{x:Static resx:AppResources.Mix_StopAllFormat}'}" 
+                            Command="{Binding StopAllCommand}" 
+                            BackgroundColor="DarkRed"
+                            TextColor="White" />
+                </VerticalStackLayout>
+
+                <!-- MIX PLAYLIST TAB -->
+                <VerticalStackLayout x:Name="MixPlaylistTabRoot"
+                                     IsVisible="{Binding SelectedTabIndex, Converter={StaticResource IntToBoolConverter}, ConverterParameter=2}"
+                                     IsEnabled="{Binding IsMixPlaylistEnabled}"
+                                     Padding="{OnIdiom Phone=16, Tablet=24}" 
+                                     Spacing="{OnIdiom Phone=16, Tablet=20}" 
+                                     BackgroundColor="Transparent">
+                    <VerticalStackLayout.Triggers>
+                        <DataTrigger TargetType="VerticalStackLayout"
+                                     Binding="{Binding IsMixPlaylistEnabled}"
+                                     Value="False">
+                            <Setter Property="Opacity" Value="0.5" />
+                        </DataTrigger>
+                    </VerticalStackLayout.Triggers>
+                    
+                    <Label Text="{x:Static resx:AppResources.MixPlaylist_Mode}" FontAttributes="Bold" FontSize="{OnIdiom Phone=20, Tablet=22}" TextColor="{DynamicResource Color.Border}" />
+                    
+                    <!-- Locked Message -->
+                    <Border IsVisible="{Binding IsMixPlaylistEnabled, Converter={StaticResource InverseBoolConverter}}"
+                            BackgroundColor="#40FF9800"
+                            Stroke="#FF9800"
+                            StrokeThickness="2"
+                            Padding="12"
+                            Margin="0,0,0,12">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="8" />
+                        </Border.StrokeShape>
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="{x:Static resx:AppResources.MixPlaylist_Locked_Title}" FontAttributes="Bold" FontSize="16" />
+                            <Label Text="{x:Static resx:AppResources.MixPlaylist_Locked_Message}" 
+                                   FontSize="14" />
+                        </VerticalStackLayout>
+                    </Border>
+                    
+                    <!-- Empty State -->
+                    <Label Text="{x:Static resx:AppResources.MixPlaylist_Empty}"
+                           IsVisible="{Binding MixPlaylistQueue.Count, Converter={StaticResource IntToBoolConverter}, ConverterParameter=0}"
+                           FontSize="14" TextColor="Gray" Margin="0,8" />
+
+                    <CollectionView ItemsSource="{Binding MixPlaylistQueue}">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="{OnIdiom Phone=1, Tablet=2, Desktop=3}" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="models:MixPlaylistEntry">
+                                <Grid Padding="{OnIdiom Phone=8, Tablet=12}" RowDefinitions="Auto,Auto" ColumnDefinitions="*,Auto" ColumnSpacing="8" BackgroundColor="{DynamicResource Color.Surface}" Margin="0,4">
+                                    <Label Text="{Binding Mix.Name}" FontSize="{OnIdiom Phone=Default, Tablet=18}" FontAttributes="Bold" VerticalOptions="Center" />
+                                    <Button Grid.Column="1" 
+                                            Text="?" 
+                                            FontSize="18"
+                                            WidthRequest="44"
+                                            HeightRequest="44"
+                                            Padding="0"
+                                            SemanticProperties.Description="{x:Static resx:AppResources.MixPlaylist_RemoveButton}"
+                                            Command="{Binding Source={x:Reference Root}, Path=BindingContext.RemoveFromMixPlaylistCommand}"
+                                            CommandParameter="{Binding .}" />
+                                    
+                                    <!-- Transition Controls -->
+                                    <StackLayout Grid.Row="1" Grid.ColumnSpan="2" Spacing="8" IsVisible="{Binding Source={x:Reference Root}, Path=BindingContext.IsMixPlaylistTransitionsEnabled}">
+                                        <HorizontalStackLayout Spacing="8">
+                                            <Label Text="{x:Static resx:AppResources.MixPlaylist_Duration}" FontSize="12" VerticalOptions="Center" WidthRequest="70" />
+                                            <Entry Text="{Binding DurationSeconds}" WidthRequest="80" Keyboard="Numeric" HorizontalTextAlignment="Center" />
+                                            <Label Text="{x:Static resx:AppResources.MixPlaylist_Seconds}" FontSize="12" VerticalOptions="Center" />
+                                        </HorizontalStackLayout>
+                                        <HorizontalStackLayout Spacing="8">
+                                            <Label Text="{x:Static resx:AppResources.MixPlaylist_Transition}" FontSize="12" VerticalOptions="Center" WidthRequest="70" />
+                                            <Slider Minimum="0" Maximum="30" Value="{Binding TransitionSeconds}" WidthRequest="{OnIdiom Phone=150, Tablet=200}" VerticalOptions="Center" />
+                                            <Label Text="{Binding TransitionSeconds, StringFormat='{0:F0}s'}" FontSize="12" VerticalOptions="Center" WidthRequest="40" />
+                                        </HorizontalStackLayout>
+                                    </StackLayout>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                    <HorizontalStackLayout Spacing="12">
+                        <Label Text="{x:Static resx:AppResources.MixPlaylist_Loop}" VerticalOptions="Center" TextColor="{DynamicResource Color.Border}" />
+                        <Switch IsToggled="{Binding MixPlaylistLoopEnabled}" />
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="12">
+                        <Button Text="{x:Static resx:AppResources.Common_PlayButton}" Command="{Binding StartMixPlaylistCommand}" WidthRequest="120" />
+                        <Button Text="{x:Static resx:AppResources.Common_StopButton}" Command="{Binding StopMixPlaylistCommand}" WidthRequest="120" />
+                    </HorizontalStackLayout>
+
+                    <BoxView HeightRequest="1" BackgroundColor="{DynamicResource Color.Border}" Margin="0,8" />
+                    
+                    <Label Text="{x:Static resx:AppResources.MixPlaylist_Save}" FontAttributes="Bold" TextColor="{DynamicResource Color.Border}" />
+                    <HorizontalStackLayout Spacing="8">
+                        <Entry x:Name="MixPlaylistNameEntry" 
+                               Placeholder="{x:Static resx:AppResources.MixPlaylist_NamePlaceholder}" 
+                               WidthRequest="{OnIdiom Phone=200, Tablet=280}"
+                               ReturnCommand="{Binding SaveCurrentMixPlaylistCommand}"
+                               ReturnCommandParameter="{Binding Text, Source={x:Reference MixPlaylistNameEntry}}" />
+                        <Button Text="{x:Static resx:AppResources.Common_SaveButton}"
+                                Command="{Binding SaveCurrentMixPlaylistCommand}"
+                                CommandParameter="{Binding Text, Source={x:Reference MixPlaylistNameEntry}}"
+                                IsEnabled="{Binding CanSaveMixPlaylist}" />
+                    </HorizontalStackLayout>
+                    <Label Text="{Binding MaxSavedMixPlaylists, StringFormat='{x:Static resx:AppResources.MixPlaylist_SaveLimitFormat}'}"
+                           FontSize="12" TextColor="Gray"
+                           IsVisible="{Binding CanSaveMixPlaylist, Converter={StaticResource InverseBoolConverter}}" />
+
+                    <Label Text="{x:Static resx:AppResources.MixPlaylist_Saved}" 
+                           FontAttributes="Bold" 
+                           Margin="0,16,0,0" 
+                           TextColor="{DynamicResource Color.Border}"
+                           SemanticProperties.HeadingLevel="Level2" />
+                    
+                    <!-- Empty State for Saved Mix Playlists -->
+                    <Label Text="{x:Static resx:AppResources.MixPlaylist_SavedEmpty}"
+                           IsVisible="{Binding MixPlaylists.Count, Converter={StaticResource IntToBoolConverter}, ConverterParameter=0}"
+                           FontSize="14" TextColor="Gray" Margin="0,8" />
+                    
+                    <CollectionView ItemsSource="{Binding MixPlaylists}" SelectionMode="None">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="{OnIdiom Phone=1, Tablet=2, Desktop=3}" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="models:SavedMixPlaylist">
+                                <VerticalStackLayout Spacing="4" Padding="{OnIdiom Phone=8, Tablet=12}" BackgroundColor="{DynamicResource Color.Surface}" Margin="0,4">
+                                    <HorizontalStackLayout Spacing="8">
+                                        <Label Text="{Binding Name}" VerticalOptions="Center" FontAttributes="Bold" WidthRequest="{OnIdiom Phone=140, Tablet=200}" />
+                                        <Button Text="{x:Static resx:AppResources.Common_LoadButton}" 
+                                                FontSize="12"
+                                                Padding="8,4"
+                                                MinimumHeightRequest="44"
+                                                SemanticProperties.Description="{x:Static resx:AppResources.Common_LoadButton}"
+                                                Command="{Binding Source={x:Reference Root}, Path=BindingContext.LoadMixPlaylistCommand}" 
+                                                CommandParameter="{Binding Name}" />
+                                        <Button Text="{x:Static resx:AppResources.Common_DeleteIcon}" 
+                                                FontSize="16"
+                                                WidthRequest="44"
+                                                HeightRequest="44"
+                                                Padding="0"
+                                                SemanticProperties.Description="{x:Static resx:AppResources.MixPlaylist_DeleteButton}"
+                                                Command="{Binding Source={x:Reference Root}, Path=BindingContext.DeleteMixPlaylistCommand}" 
+                                                CommandParameter="{Binding Name}" />
+                                    </HorizontalStackLayout>
+                                    <Label Text="{Binding Entries.Count, StringFormat='{x:Static resx:AppResources.MixPlaylist_MixesCountFormat}'}" FontSize="12" TextColor="Gray" />
+                                </VerticalStackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    
+                    <BoxView HeightRequest="1" BackgroundColor="{DynamicResource Color.Border}" Margin="0,16" />
+                    <Button Text="{Binding FadeOutSeconds, StringFormat='{x:Static resx:AppResources.Mix_StopAllFormat}'}" 
+                            Command="{Binding StopAllCommand}" 
+                            BackgroundColor="DarkRed"
+                            TextColor="White" />
+                </VerticalStackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>
+

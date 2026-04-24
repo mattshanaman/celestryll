@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="456" height="456" viewBox="0 0 456 456" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle with gradient -->
+  <defs>
+    <radialGradient id="bgGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f0f1e;stop-opacity:1" />
+    </radialGradient>
+    <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a90e2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#357abd;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="456" height="456" fill="url(#bgGradient)"/>
+  
+  <!-- Moon/Sleep icon -->
+  <g transform="translate(228, 228)">
+    <!-- Outer glow -->
+    <circle cx="0" cy="0" r="100" fill="url(#iconGradient)" opacity="0.3"/>
+    <circle cx="0" cy="0" r="80" fill="url(#iconGradient)" opacity="0.5"/>
+    
+    <!-- Main moon shape -->
+    <circle cx="0" cy="0" r="60" fill="#e8f4f8"/>
+    
+    <!-- Crescent shadow to make it look like a moon -->
+    <circle cx="20" cy="-10" r="55" fill="#1a1a2e" opacity="0.15"/>
+    
+    <!-- Stars around the moon -->
+    <g fill="#ffffff" opacity="0.8">
+      <!-- Small stars -->
+      <circle cx="-90" cy="-40" r="3"/>
+   <circle cx="85" cy="-50" r="2.5"/>
+      <circle cx="-80" cy="60" r="2"/>
+      <circle cx="90" cy="45" r="3"/>
+      <circle cx="-50" cy="-85" r="2"/>
+    <circle cx="60" cy="-80" r="2.5"/>
+      <circle cx="-65" cy="75" r="2"/>
+<circle cx="70" cy="80" r="2.5"/>
+      
+      <!-- Medium stars with sparkle effect -->
+      <g transform="translate(-95, 10)">
+        <circle r="3.5"/>
+        <line x1="-6" y1="0" x2="6" y2="0" stroke="white" stroke-width="1"/>
+<line x1="0" y1="-6" x2="0" y2="6" stroke="white" stroke-width="1"/>
+      </g>
+      
+      <g transform="translate(95, -15)">
+        <circle r="3"/>
+        <line x1="-5" y1="0" x2="5" y2="0" stroke="white" stroke-width="0.8"/>
+        <line x1="0" y1="-5" x2="0" y2="5" stroke="white" stroke-width="0.8"/>
+      </g>
+    </g>
+    
+    <!-- Sound waves emanating from moon -->
+    <g stroke="#4a90e2" stroke-width="2" fill="none" opacity="0.4">
+      <path d="M 75,0 Q 90,0 105,0" stroke-linecap="round"/>
+      <path d="M 75,-15 Q 95,-15 115,-15" stroke-linecap="round"/>
+      <path d="M 75,15 Q 95,15 115,15" stroke-linecap="round"/>
+ 
+      <path d="M -75,0 Q -90,0 -105,0" stroke-linecap="round"/>
+      <path d="M -75,-15 Q -95,-15 -115,-15" stroke-linecap="round"/>
+      <path d="M -75,15 Q -95,15 -115,15" stroke-linecap="round"/>
+    </g>
+  </g>
+  
+  <!-- App name text -->
+  <text x="228" y="380" 
+        font-family="'Segoe UI', Arial, sans-serif" 
+        font-size="32" 
+    font-weight="300"
+        fill="#e8f4f8" 
+        text-anchor="middle">Ambient Sleeper</text>
+  
+  <!-- Tagline -->
+  <text x="228" y="410" 
+        font-family="'Segoe UI', Arial, sans-serif" 
+        font-size="14" 
+font-weight="300"
+        fill="#4a90e2" 
+        text-anchor="middle" 
+        opacity="0.8">Relaxing Soundscapes</text>
+</svg>

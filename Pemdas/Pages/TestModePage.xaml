@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:Pemdas.ViewModels"
+             x:Class="Pemdas.Pages.TestModePage"
+             x:DataType="viewmodels:TestModeViewModel"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource Gray100}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            
+            <!-- Title -->
+            <Label Text="Test Mode - Puzzle Preview"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"/>
+            
+            <Label Text="Select a day to preview that puzzle type"
+                   FontSize="14"
+                   TextColor="{StaticResource Gray600}"
+                   HorizontalOptions="Center"/>
+
+            <!-- Day Selector -->
+            <Frame BorderColor="{StaticResource Primary}" 
+                   Padding="15"
+                   BackgroundColor="White">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Select Day of Week:"
+                           FontSize="16"
+                           FontAttributes="Bold"/>
+                    
+                    <Picker ItemsSource="{Binding DayOptions}"
+                            SelectedItem="{Binding SelectedDay}"
+                            FontSize="16"
+                            TextColor="{StaticResource Gray900}"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Preview Info -->
+            <Frame BorderColor="{StaticResource Secondary}"
+                   Padding="15"
+                   BackgroundColor="White">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Preview Info:"
+                           FontSize="16"
+                           FontAttributes="Bold"/>
+                    
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="Mode:"
+                               FontAttributes="Bold"
+                               WidthRequest="80"/>
+                        <Label Text="{Binding PreviewMode}"/>
+                    </HorizontalStackLayout>
+                    
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="Difficulty:"
+                               FontAttributes="Bold"
+                               WidthRequest="80"/>
+                        <Label Text="{Binding PreviewDifficulty}"/>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Test Button -->
+            <Button Text="Test This Puzzle"
+                    Command="{Binding NavigateToGameCommand}"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="White"
+                    FontSize="18"
+                    HeightRequest="50"
+                    CornerRadius="10"/>
+
+            <!-- Instructions -->
+            <Frame BackgroundColor="#E3F2FD"
+                   Padding="15"
+                   HasShadow="False">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Instructions:"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource Gray900}"/>
+                    
+                    <Label TextColor="{StaticResource Gray900}" FontSize="14" Text="1. Select a day from the dropdown above"/>
+                    <Label TextColor="{StaticResource Gray900}" FontSize="14" Text="2. Review the Mode and Difficulty"/>
+                    <Label TextColor="{StaticResource Gray900}" FontSize="14" Text="3. Click 'Test This Puzzle' to try it"/>
+                    <Label TextColor="{StaticResource Gray900}" FontSize="14" Text="4. Check that the UI is intuitive"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Puzzle Type Legend -->
+            <Frame BackgroundColor="#FFF3E0"
+                   Padding="15"
+                   HasShadow="False">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Puzzle Types:"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource Gray900}"/>
+                    
+                    <Label TextColor="{StaticResource Gray900}" FontSize="13" Text="Easy (Monday) - Single value (?)"/>
+                    <Label TextColor="{StaticResource Gray900}" FontSize="13" Text="Medium (Tuesday) - Build equation"/>
+                    <Label TextColor="{StaticResource Gray900}" FontSize="13" Text="Hard (Wednesday) - Two values (A, B)"/>
+                    <Label TextColor="{StaticResource Gray900}" FontSize="13" Text="Creative (Thursday) - Build equation"/>
+                    <Label TextColor="{StaticResource Gray900}" FontSize="13" Text="Tricky (Friday) - Three values (A, B, C)"/>
+                    <Label TextColor="{StaticResource Gray900}" FontSize="13" Text="Speed (Saturday) - Build equation (60s)"/>
+                    <Label TextColor="{StaticResource Gray900}" FontSize="13" Text="Boss (Sunday) - Two values (X, Y) + exponents"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Back Button -->
+            <Button Text="Back to Game"
+                    Command="{Binding NavigateToGameCommand}"
+                    BackgroundColor="{StaticResource Gray300}"
+                    TextColor="{StaticResource Gray900}"
+                    FontSize="16"
+                    HeightRequest="45"
+                    CornerRadius="10"/>
+
+            <ActivityIndicator IsRunning="{Binding IsBusy}"
+                              IsVisible="{Binding IsBusy}"
+                              Color="{StaticResource Primary}"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

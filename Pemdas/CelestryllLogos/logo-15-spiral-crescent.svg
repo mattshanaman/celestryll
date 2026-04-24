@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(100, 80)">
+        <!-- Main crescent opening right -->
+        <path d="M -45,0 A 45,45 0 1,1 45,0 A 38,38 0 1,0 -38,0 Z"
+              fill="#1FA2A0"/>
+        <!-- Spiral flowing from left curve inward -->
+        <path d="M -35,-10 Q -28,-8 -20,-5 Q -12,-2 -5,0 Q 2,2 8,3 Q 14,3 18,2"
+              fill="none" stroke="#6A6DFF" stroke-width="2.5"/>
+        <path d="M -35,10 Q -28,8 -20,5 Q -12,2 -5,0 Q 2,-2 8,-3 Q 14,-3 18,-2"
+              fill="none" stroke="#2D2F7F" stroke-width="2.5"/>
+        <!-- Center focal point -->
+        <circle cx="18" cy="0" r="4" fill="#E8F7F6"/>
+        <!-- Accent stars on left curve -->
+        <circle cx="-40" cy="-15" r="2" fill="#E8F7F6"/>
+        <circle cx="-40" cy="15" r="2" fill="#E8F7F6"/>
+    </g>
+    <text x="100" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="300" fill="#0F1A2B" letter-spacing="2">Celestryll</text>
+</svg>

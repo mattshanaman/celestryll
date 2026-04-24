@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+	<application android:allowBackup="true" android:icon="@mipmap/appicon" android:roundIcon="@mipmap/appicon_round" android:supportsRtl="true">
+		<!--<service android:name=".Platforms.Android.PlaybackNotificationService"
+		         android:exported="false"
+				 android:foregroundServiceType="mediaPlayback"/>-->
+	</application>
+	<!-- Enable support for all screen sizes and densities (tablets, phones, foldables) -->
+	<supports-screens android:smallScreens="true"
+	                  android:normalScreens="true"
+	                  android:largeScreens="true"
+	                  android:xlargeScreens="true"
+	                  android:anyDensity="true" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+	<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+	<uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+	
+	<!-- Required for keeping device awake while playing sleep sounds -->
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
+	<!-- Required for Google Play In-App Billing -->
+	<uses-permission android:name="com.android.vending.BILLING" />
+	
+	<!-- Notifications for Timer ending -->
+	<uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+	<uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+	
+	<!-- Ad ID permission for Google Play Ads (Android 13+) -->
+	<uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+</manifest>

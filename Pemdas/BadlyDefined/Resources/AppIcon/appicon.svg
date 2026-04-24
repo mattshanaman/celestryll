@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="456" height="456" viewBox="0 0 456 456" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#512BD4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2B0B98;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="456" height="456" fill="url(#iconGradient)" rx="105"/>
+  
+  <!-- Large "BD" monogram -->
+  <text x="120" y="290" font-family="Arial, sans-serif" font-size="160" font-weight="bold" fill="#FFE082" transform="rotate(-5 228 228)">BD</text>
+  
+  <!-- Decorative question marks -->
+  <g opacity="0.3">
+    <text x="320" y="140" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="#9ACD32" transform="rotate(15 350 140)">?</text>
+    <text x="60" y="360" font-family="Arial, sans-serif" font-size="55" font-weight="bold" fill="#8B4513" transform="rotate(-12 90 360)">?</text>
+  </g>
+</svg>

@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="BadlyDefined/BadlyDefined.csproj" />
+  <Project Path="GamesCore/GamesCore.csproj" />
+  <Project Path="Pemdas.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
+</Solution>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:AmbientSleeper.Resources.Strings"
+             xmlns:vm="clr-namespace:AmbientSleeper.ViewModels"
+             x:Class="AmbientSleeper.Views.TimerPage"
+             x:DataType="vm:TimerViewModel"
+             Title="{x:Static resx:AppResources.Timer_Title}">
+    <ScrollView>
+        <VerticalStackLayout Padding="{OnIdiom Phone=16, Tablet=24}" Spacing="{OnIdiom Phone=16, Tablet=20}">
+
+            <Label Text="{x:Static resx:AppResources.Timer_Title}" FontAttributes="Bold" FontSize="{OnIdiom Phone=22, Tablet=24}" />
+            <Label Text="{x:Static resx:AppResources.Timer_Description}"
+                   FontSize="14" TextColor="Gray" Margin="0,0,0,12" />
+
+            <!-- Timer Mode Selection -->
+            <Label Text="{x:Static resx:AppResources.Timer_ModeLabel}" FontAttributes="Bold" FontSize="{OnIdiom Phone=18, Tablet=20}" />
+            
+            <Border Stroke="#80FFFFFF" StrokeThickness="2" Padding="12" Margin="0,0,0,8">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="8" />
+                </Border.StrokeShape>
+                <Border.Triggers>
+                    <DataTrigger TargetType="Border" Binding="{Binding UseDuration}" Value="True">
+                        <Setter Property="Stroke" Value="#4CAF50" />
+                        <Setter Property="BackgroundColor" Value="#204CAF50" />
+                    </DataTrigger>
+                </Border.Triggers>
+                <VerticalStackLayout Spacing="8">
+                    <RadioButton Content="{x:Static resx:AppResources.Timer_StopAfterDuration}" IsChecked="{Binding UseDuration}" FontAttributes="Bold" />
+                    <Label Text="{x:Static resx:AppResources.Timer_DurationDescription}"
+                           FontSize="12" TextColor="Gray" Margin="32,0,0,0" />
+                    <HorizontalStackLayout Spacing="8" Margin="32,4,0,0">
+                        <Label Text="{x:Static resx:AppResources.Timer_DurationLabel}" VerticalOptions="Center" />
+                        <TimePicker Time="{Binding Duration}" Format="HH:mm" 
+                                    IsEnabled="{Binding UseDuration}"
+                                    WidthRequest="120" />
+                        <Label Text="{x:Static resx:AppResources.Timer_HoursMinutes}" FontSize="12" TextColor="Gray" VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Stroke="#80FFFFFF" StrokeThickness="2" Padding="12">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="8" />
+                </Border.StrokeShape>
+                <Border.Triggers>
+                    <DataTrigger TargetType="Border" Binding="{Binding UseAtTime}" Value="True">
+                        <Setter Property="Stroke" Value="#4CAF50" />
+                        <Setter Property="BackgroundColor" Value="#204CAF50" />
+                    </DataTrigger>
+                </Border.Triggers>
+                <VerticalStackLayout Spacing="8">
+                    <RadioButton Content="{x:Static resx:AppResources.Timer_StopAtTime}" IsChecked="{Binding UseAtTime}" FontAttributes="Bold" />
+                    <Label Text="{x:Static resx:AppResources.Timer_TimeDescription}"
+                           FontSize="12" TextColor="Gray" Margin="32,0,0,0" />
+                    <HorizontalStackLayout Spacing="8" Margin="32,4,0,0">
+                        <Label Text="{x:Static resx:AppResources.Timer_StopTimeLabel}" VerticalOptions="Center" />
+                        <TimePicker Time="{Binding StopAtTime}" Format="t" 
+                                    IsEnabled="{Binding UseAtTime}"
+                                    WidthRequest="120" />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Timer Status -->
+            <BoxView HeightRequest="1" BackgroundColor="#80FFFFFF" Margin="0,16,0,8" />
+            
+            <Label Text="{x:Static resx:AppResources.Timer_Status}" FontAttributes="Bold" FontSize="{OnIdiom Phone=18, Tablet=20}" />
+            <Border Stroke="#2196F3" StrokeThickness="2" Padding="16" BackgroundColor="#202196F3">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="8" />
+                </Border.StrokeShape>
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="{Binding Remaining, StringFormat='{}{0:hh\\:mm\\:ss}'}" 
+                           FontSize="{OnIdiom Phone=18, Tablet=20}" 
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center" />
+                    <Label Text="{x:Static resx:AppResources.Timer_WillFadeOut}"
+                           FontSize="12" TextColor="Gray" HorizontalTextAlignment="Center" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Timer Controls -->
+            <BoxView HeightRequest="1" BackgroundColor="#80FFFFFF" Margin="0,16,0,8" />
+            
+            <Label Text="{x:Static resx:AppResources.Timer_Controls}" FontAttributes="Bold" FontSize="{OnIdiom Phone=18, Tablet=20}" />
+            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="12" RowSpacing="12">
+                <Button Grid.Row="0" Grid.Column="0"
+                        Text="{x:Static resx:AppResources.Timer_StartTimer}" 
+                        Command="{Binding StartTimerCommand}"
+                        BackgroundColor="#4CAF50"
+                        TextColor="White"
+                        FontSize="16"
+                        Padding="12" />
+                <Button Grid.Row="0" Grid.Column="1"
+                        Text="{x:Static resx:AppResources.Timer_CancelTimer}" 
+                        Command="{Binding CancelTimerCommand}"
+                        BackgroundColor="#F44336"
+                        TextColor="White"
+                        FontSize="16"
+                        Padding="12" />
+                <Button Grid.Row="1" Grid.Column="0"
+                        Text="{x:Static resx:AppResources.Timer_Add5Min}" 
+                        Command="{Binding Add5MinCommand}"
+                        FontSize="14" />
+                <Button Grid.Row="1" Grid.Column="1"
+                        Text="{x:Static resx:AppResources.Timer_Remove5Min}" 
+                        Command="{Binding Sub5MinCommand}"
+                        FontSize="14" />
+            </Grid>
+
+            <!-- Alarm Control -->
+            <BoxView HeightRequest="1" BackgroundColor="#80FFFFFF" Margin="0,16,0,8" />
+            
+            <Label Text="{x:Static resx:AppResources.Alarm_Title}" FontAttributes="Bold" FontSize="{OnIdiom Phone=18, Tablet=20}" />
+            <Label Text="{x:Static resx:AppResources.Timer_StopAlarmDescription}"
+                   FontSize="12" TextColor="Gray" />
+            <Button Text="{x:Static resx:AppResources.Timer_StopAlarm}"
+                    Command="{Binding StopAlarmCommand}"
+                    BackgroundColor="#FF9800"
+                    TextColor="White"
+                    Padding="12" />
+
+            <!-- Help Text -->
+            <Border Stroke="#80FFFFFF" StrokeThickness="1" Padding="12" Margin="0,16,0,0" BackgroundColor="#10FFFFFF">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="8" />
+                </Border.StrokeShape>
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="{x:Static resx:AppResources.Timer_TipsTitle}" FontAttributes="Bold" FontSize="14" />
+                    <Label Text="{x:Static resx:AppResources.Timer_Tip1}"
+                           FontSize="12" TextColor="Gray" />
+                    <Label Text="{x:Static resx:AppResources.Timer_Tip2}"
+                           FontSize="12" TextColor="Gray" />
+                    <Label Text="{x:Static resx:AppResources.Timer_Tip3}"
+                           FontSize="12" TextColor="Gray" />
+                    <Label Text="{x:Static resx:AppResources.Timer_Tip4}"
+                           FontSize="12" TextColor="Gray" />
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

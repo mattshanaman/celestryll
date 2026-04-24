@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:AmbientSleeper.Views"
+    xmlns:res="clr-namespace:AmbientSleeper.Resources.Strings"
+    x:Class="AmbientSleeper.AppShell"
+    BackgroundColor="{DynamicResource Color.ToolbarBackground}"
+    ForegroundColor="{DynamicResource Color.ToolbarForeground}"
+    TitleColor="{DynamicResource Color.ToolbarForeground}"
+    DisabledColor="{DynamicResource Color.Disabled}"
+    UnselectedColor="{DynamicResource Color.TextSecondary}"
+    TabBarBackgroundColor="{DynamicResource Color.ToolbarBackground}"
+    TabBarForegroundColor="{DynamicResource Color.ToolbarForeground}"
+    TabBarTitleColor="{DynamicResource Color.ToolbarForeground}"
+    TabBarUnselectedColor="{DynamicResource Color.TextSecondary}"
+    FlyoutBehavior="Flyout">
+
+    <Shell.FlyoutHeader>
+        <Grid BackgroundColor="{DynamicResource Color.Primary}" 
+              Padding="20" 
+              HeightRequest="120">
+            <VerticalStackLayout VerticalOptions="Center" Spacing="5">
+                <Label Text="{x:Static res:AppResources.AppName}" 
+                       FontSize="22" 
+                       FontAttributes="Bold"
+                       TextColor="White"/>
+                <Label Text="{x:Static res:AppResources.AppTagline}" 
+                       FontSize="14" 
+                       TextColor="White"
+                       Opacity="0.8"/>
+            </VerticalStackLayout>
+        </Grid>
+    </Shell.FlyoutHeader>
+
+    <!-- Main TabBar - Default View -->
+    <TabBar>
+        <Tab Title="{x:Static res:AppResources.Nav_Library}" Icon="tab_sounds.png">
+            <ShellContent ContentTemplate="{DataTemplate views:LibraryPage}" />
+        </Tab>
+        <Tab Title="{x:Static res:AppResources.Nav_Playback}" Icon="tab_playback.png">
+            <ShellContent ContentTemplate="{DataTemplate views:PlaybackPage}" />
+        </Tab>
+        <Tab Title="{x:Static res:AppResources.Nav_Timer}" Icon="tab_timer.png">
+            <ShellContent ContentTemplate="{DataTemplate views:TimerPage}" />
+        </Tab>
+    </TabBar>
+
+    <!-- Flyout Menu Items (Menu Only - Not Tabs) -->
+    <Shell.FlyoutFooter>
+        <VerticalStackLayout Padding="10" Spacing="5">
+            <Button Text="{x:Static res:AppResources.Help_Title}"
+                    Clicked="OnHelpClicked"
+                    BackgroundColor="Transparent"
+                    TextColor="{DynamicResource Color.Primary}"
+                    HorizontalOptions="Start"
+                    FontSize="16"
+                    Padding="10,5"/>
+            <Button Text="{x:Static res:AppResources.Legal_Title}"
+                    Clicked="OnLegalClicked"
+                    BackgroundColor="Transparent"
+                    TextColor="{DynamicResource Color.Primary}"
+                    HorizontalOptions="Start"
+                    FontSize="16"
+                    Padding="10,5"/>
+            <Button Text="{x:Static res:AppResources.Subscription_Title}"
+                    Clicked="OnSettingsClicked"
+                    BackgroundColor="Transparent"
+                    TextColor="{DynamicResource Color.Primary}"
+                    HorizontalOptions="Start"
+                    FontSize="16"
+                    Padding="10,5"/>
+        </VerticalStackLayout>
+    </Shell.FlyoutFooter>
+</Shell>

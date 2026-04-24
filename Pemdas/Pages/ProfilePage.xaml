@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:Pemdas.ViewModels"
+             x:Class="Pemdas.Pages.ProfilePage"
+             x:DataType="viewmodels:ProfileViewModel"
+             Title="{Binding Title}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- Profile Header -->
+            <Frame BackgroundColor="{StaticResource Primary}" Padding="20" HasShadow="True">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="👤" FontSize="60" HorizontalOptions="Center"/>
+                    <Label Text="Your Stats" 
+                           FontSize="24" 
+                           FontAttributes="Bold" 
+                           HorizontalOptions="Center"
+                           TextColor="White"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Stats Grid -->
+            <Grid RowDefinitions="Auto,Auto,Auto" 
+                  ColumnDefinitions="*,*" 
+                  RowSpacing="15" 
+                  ColumnSpacing="15">
+
+                <Frame Grid.Row="0" Grid.Column="0" Padding="15">
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="🔥" FontSize="30" HorizontalOptions="Center"/>
+                        <Label Text="{Binding CurrentStreak}" 
+                               FontSize="28" 
+                               FontAttributes="Bold" 
+                               HorizontalOptions="Center"/>
+                        <Label Text="Current Streak" 
+                               FontSize="12" 
+                               HorizontalOptions="Center"
+                               TextColor="{StaticResource Gray600}"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Grid.Row="0" Grid.Column="1" Padding="15">
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="🏆" FontSize="30" HorizontalOptions="Center"/>
+                        <Label Text="{Binding LongestStreak}" 
+                               FontSize="28" 
+                               FontAttributes="Bold" 
+                               HorizontalOptions="Center"/>
+                        <Label Text="Best Streak" 
+                               FontSize="12" 
+                               HorizontalOptions="Center"
+                               TextColor="{StaticResource Gray600}"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Grid.Row="1" Grid.Column="0" Padding="15">
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="✓" FontSize="30" HorizontalOptions="Center"/>
+                        <Label Text="{Binding TotalPuzzlesSolved}" 
+                               FontSize="28" 
+                               FontAttributes="Bold" 
+                               HorizontalOptions="Center"/>
+                        <Label Text="Puzzles Solved" 
+                               FontSize="12" 
+                               HorizontalOptions="Center"
+                               TextColor="{StaticResource Gray600}"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Grid.Row="1" Grid.Column="1" Padding="15">
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="⭐" FontSize="30" HorizontalOptions="Center"/>
+                        <Label Text="{Binding TotalPoints}" 
+                               FontSize="28" 
+                               FontAttributes="Bold" 
+                               HorizontalOptions="Center"/>
+                        <Label Text="Total Points" 
+                               FontSize="12" 
+                               HorizontalOptions="Center"
+                               TextColor="{StaticResource Gray600}"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Padding="15">
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="💡" FontSize="30" HorizontalOptions="Center"/>
+                        <Label Text="{Binding HintTokens}" 
+                               FontSize="28" 
+                               FontAttributes="Bold" 
+                               HorizontalOptions="Center"/>
+                        <Label Text="Hint Tokens Available" 
+                               FontSize="12" 
+                               HorizontalOptions="Center"
+                               TextColor="{StaticResource Gray600}"/>
+                    </VerticalStackLayout>
+                </Frame>
+            </Grid>
+
+            <!-- Share Stats Buttons -->
+            <Label Text="📤 Share Your Stats" FontSize="18" FontAttributes="Bold" Margin="0,10,0,5"/>
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                <Button Grid.Column="0"
+                        Text="📤 Share"
+                        Command="{Binding ShareStatsCommand}"
+                        BackgroundColor="{StaticResource Info}"
+                        TextColor="White"/>
+
+                <Button Grid.Column="1"
+                        Text="✉️ Email"
+                        Command="{Binding EmailStatsCommand}"
+                        BackgroundColor="{StaticResource Secondary}"
+                        TextColor="White"/>
+            </Grid>
+
+            <!-- Email Settings -->
+            <Label Text="✉️ Email Settings" FontSize="18" FontAttributes="Bold" Margin="0,10,0,5"/>
+            <Frame BackgroundColor="{StaticResource Gray100}" Padding="15">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Enter your email to easily share your stats:" 
+                           FontSize="14" 
+                           TextColor="{StaticResource Gray600}"/>
+
+                    <Entry Text="{Binding UserEmail}"
+                           Placeholder="your.email@example.com"
+                           Keyboard="Email"
+                           FontSize="16"
+                           BackgroundColor="White"/>
+
+                    <Label Text="{Binding EmailValidationMessage}"
+                           FontSize="12"
+                           TextColor="{StaticResource Primary}"
+                           IsVisible="{Binding EmailValidationMessage, Converter={StaticResource StringIsNotNullOrEmptyConverter}}"/>
+
+                    <Button Text="Save Email"
+                            Command="{Binding SaveEmailCommand}"
+                            BackgroundColor="{StaticResource Primary}"
+                            TextColor="White"
+                            IsEnabled="{Binding IsEmailValid}"
+                            HorizontalOptions="End"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Subscription Status -->
+            <Frame BackgroundColor="{StaticResource Secondary}" Padding="20" IsVisible="{Binding IsSubscribed}">
+                <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                    <Label Text="✨" FontSize="24"/>
+                    <Label Text="Premium Member" 
+                           FontSize="18" 
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+            </Frame>
+
+            <!-- Subscribe Button -->
+            <Frame IsVisible="{Binding IsSubscribed, Converter={StaticResource InvertedBoolConverter}}"
+                   Padding="20"
+                   BackgroundColor="{StaticResource Gray100}">
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="Go Premium!" 
+                           FontSize="20" 
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"/>
+
+                    <Label FontSize="14" HorizontalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="✓ Access Past Games archive&#10;"/>
+                                <Span Text="✓ Play all 8 daily levels ad-free&#10;"/>
+                                <Span Text="✓ Unlimited practice mode&#10;"/>
+                                <Span Text="✓ Advanced operators&#10;"/>
+                                <Span Text="✓ No ads"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <Button Text="Subscribe Now - $2.99/month" 
+                            Command="{Binding SubscribeCommand}"
+                            BackgroundColor="{StaticResource Primary}"
+                            TextColor="White"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Archive Button -->
+            <Button Text="📚 View Past Games" 
+                    Command="{Binding ViewArchiveCommand}"
+                    BackgroundColor="{StaticResource Tertiary}"/>
+
+            <ActivityIndicator IsRunning="{Binding IsBusy}" 
+                              IsVisible="{Binding IsBusy}"
+                              Color="{StaticResource Primary}"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

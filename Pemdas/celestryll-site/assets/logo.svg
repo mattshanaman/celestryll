@@ -1,0 +1,35 @@
+<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Celestryll logo mark">
+  <!-- Constellation Crescent with Orbital Core — Logo #16 -->
+  <g transform="translate(60,60) rotate(-45)">
+    <!-- Crescent outline (subtle on dark backgrounds) -->
+    <path d="M -30,0 A 30,30 0 1,1 30,0 A 25,25 0 1,0 -25,0 Z"
+          fill="none" stroke="rgba(232,247,246,0.18)" stroke-width="2"/>
+    <!-- Constellation stars forming C-shape -->
+    <circle cx="0"   cy="-29" r="2.5" fill="#1FA2A0"/>
+    <circle cx="-14" cy="-25" r="2"   fill="#6A6DFF"/>
+    <circle cx="-21" cy="-21" r="2.5" fill="#1FA2A0"/>
+    <circle cx="-26" cy="-15" r="2"   fill="#6A6DFF"/>
+    <circle cx="-29" cy="-8"  r="3"   fill="#1FA2A0"/>
+    <circle cx="-30" cy="0"   r="2.5" fill="#6A6DFF"/>
+    <circle cx="-29" cy="8"   r="3"   fill="#1FA2A0"/>
+    <circle cx="-26" cy="15"  r="2"   fill="#6A6DFF"/>
+    <circle cx="-21" cy="21"  r="2.5" fill="#1FA2A0"/>
+    <circle cx="-14" cy="25"  r="2"   fill="#6A6DFF"/>
+    <circle cx="0"   cy="29"  r="2.5" fill="#1FA2A0"/>
+    <!-- Constellation connection line -->
+    <path d="M 0,-29 L -14,-25 L -21,-21 L -26,-15 L -29,-8 L -30,0 L -29,8 L -26,15 L -21,21 L -14,25 L 0,29"
+          fill="none" stroke="#6A6DFF" stroke-width="0.8" opacity="0.5"/>
+    <!-- Inner orbital ring -->
+    <ellipse cx="-2" cy="0" rx="18" ry="8" fill="none" stroke="#6A6DFF" stroke-width="1.5"
+             transform="rotate(20 -2 0)"/>
+    <!-- Orbiting stars on ring -->
+    <circle cx="-11" cy="-9"  r="1.5" fill="#E8F7F6"/>
+    <circle cx="8"   cy="6"   r="1.5" fill="#E8F7F6"/>
+    <!-- Center nucleus -->
+    <circle cx="-2"  cy="0"   r="3"   fill="#1FA2A0"/>
+    <circle cx="-2"  cy="0"   r="1.5" fill="#E8F7F6"/>
+    <!-- Accent stars on crescent arc -->
+    <circle cx="-24" cy="-20" r="1.8" fill="#E8F7F6" opacity="0.65"/>
+    <circle cx="-24" cy="20"  r="1.8" fill="#E8F7F6" opacity="0.65"/>
+  </g>
+</svg>

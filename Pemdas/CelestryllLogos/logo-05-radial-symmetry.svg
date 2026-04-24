@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(100, 80)">
+        <circle cx="0" cy="0" r="50" fill="none" stroke="#2D2F7F" stroke-width="2"/>
+        <line x1="0" y1="-50" x2="0" y2="-35" stroke="#6A6DFF" stroke-width="2"/>
+        <line x1="25" y1="-43.3" x2="17.5" y2="-30.3" stroke="#6A6DFF" stroke-width="1.5"/>
+        <line x1="43.3" y1="-25" x2="30.3" y2="-17.5" stroke="#6A6DFF" stroke-width="1.5"/>
+        <line x1="50" y1="0" x2="35" y2="0" stroke="#6A6DFF" stroke-width="2"/>
+        <line x1="43.3" y1="25" x2="30.3" y2="17.5" stroke="#6A6DFF" stroke-width="1.5"/>
+        <line x1="25" y1="43.3" x2="17.5" y2="30.3" stroke="#6A6DFF" stroke-width="1.5"/>
+        <line x1="0" y1="50" x2="0" y2="35" stroke="#6A6DFF" stroke-width="2"/>
+        <line x1="-25" y1="43.3" x2="-17.5" y2="30.3" stroke="#6A6DFF" stroke-width="1.5"/>
+        <line x1="-43.3" y1="25" x2="-30.3" y2="17.5" stroke="#6A6DFF" stroke-width="1.5"/>
+        <line x1="-50" y1="0" x2="-35" y2="0" stroke="#6A6DFF" stroke-width="2"/>
+        <line x1="-43.3" y1="-25" x2="-30.3" y2="-17.5" stroke="#6A6DFF" stroke-width="1.5"/>
+        <line x1="-25" y1="-43.3" x2="-17.5" y2="-30.3" stroke="#6A6DFF" stroke-width="1.5"/>
+        <circle cx="0" cy="0" r="20" fill="none" stroke="#1FA2A0" stroke-width="2"/>
+        <circle cx="0" cy="0" r="8" fill="#1FA2A0"/>
+    </g>
+    <text x="100" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="300" fill="#2D2F7F" letter-spacing="2">Celestryll</text>
+</svg>

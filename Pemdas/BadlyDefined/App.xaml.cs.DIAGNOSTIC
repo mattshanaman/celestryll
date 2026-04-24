@@ -1,0 +1,122 @@
+using System.Text;
+
+namespace BadlyDefined;
+
+public partial class App : Application
+{
+    private readonly DatabaseService _databaseService;
+    private static readonly StringBuilder _bootLog = new StringBuilder();
+
+    public App(DatabaseService databaseService)
+    {
+        LogStep("🔧 App constructor started");
+        
+        // Catch unhandled exceptions
+        AppDomain.CurrentDomain.UnhandledException += (s, e) =>
+        {
+            var exception = e.ExceptionObject as Exception;
+            LogStep($"💥 UNHANDLED EXCEPTION: {exception?.GetType().Name}");
+            LogStep($"💥 Message: {exception?.Message}");
+            LogStep($"💥 Stack: {exception?.StackTrace}");
+            
+            // Write boot log to file
+            WriteBootLogToFile();
+        };
+        
+        TaskScheduler.UnobservedTaskException += (s, e) =>
+        {
+            LogStep($"💥 UNOBSERVED TASK EXCEPTION: {e.Exception.GetType().Name}");
+            LogStep($"💥 Message: {e.Exception.Message}");
+            e.SetObserved();
+            
+            // Write boot log to file
+            WriteBootLogToFile();
+        };
+        
+        try
+        {
+            LogStep("🔧 Calling InitializeComponent...");
+            InitializeComponent();
+            LogStep("✅ InitializeComponent completed");
+        }
+        catch (Exception ex)
+        {
+            LogStep($"💥 INIT COMPONENT FAILED: {ex.GetType().Name}");
+            LogStep($"💥 Message: {ex.Message}");
+            LogStep($"💥 Stack: {ex.StackTrace}");
+            WriteBootLogToFile();
+            throw;
+        }
+        
+        _databaseService = databaseService;
+        LogStep("✅ App constructor completed");
+    }
+
+    protected override Window CreateWindow(IActivationState? activationState)
+    {
+        LogStep("🔧 CreateWindow called");
+        try
+        {
+            var window = new Window(new AppShell());
+            LogStep("✅ CreateWindow completed");
+            return window;
+        }
+        catch (Exception ex)
+        {
+            LogStep($"💥 CREATE WINDOW FAILED: {ex.GetType().Name}");
+            LogStep($"💥 Message: {ex.Message}");
+            LogStep($"💥 Stack: {ex.StackTrace}");
+            WriteBootLogToFile();
+            throw;
+        }
+    }
+
+    protected override void OnStart()
+    {
+        base.OnStart();
+
+        LogStep("🔧 App.OnStart called");
+        
+        // Initialize database in background
+        Task.Run(async () =>
+        {
+            try
+            {
+                LogStep("🔧 Starting database initialization...");
+                await _databaseService.InitializeAsync();
+                LogStep("✅ Database initialized successfully");
+            }
+            catch (Exception ex)
+            {
+                LogStep($"❌ Database initialization failed: {ex.GetType().Name}");
+                LogStep($"❌ Message: {ex.Message}");
+                LogStep($"❌ Stack: {ex.StackTrace}");
+            }
+        });
+        
+        LogStep("✅ App.OnStart completed");
+        
+        // Write successful boot log
+        WriteBootLogToFile();
+    }
+
+    private static void LogStep(string message)
+    {
+        System.Diagnostics.Debug.WriteLine(message);
+        _bootLog.AppendLine($"[{DateTime.Now:HH:mm:ss.fff}] {message}");
+    }
+
+    private static void WriteBootLogToFile()
+    {
+        try
+        {
+            var logPath = Path.Combine(FileSystem.AppDataDirectory, "badlydefined_boot.log");
+            File.WriteAllText(logPath, _bootLog.ToString());
+            System.Diagnostics.Debug.WriteLine($"📝 Boot log written to: {logPath}");
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"❌ Failed to write boot log: {ex.Message}");
+        }
+    }
+}

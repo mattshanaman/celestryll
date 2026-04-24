@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celestryll - Logo Concepts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0F1A2B 0%, #2D2F7F 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #E8F7F6;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #E8F7F6;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            color: #1FA2A0;
+            font-weight: 300;
+        }
+        
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            backdrop-filter: blur(10px);
+        }
+        
+        .logo-card:hover {
+            transform: translateY(-5px);
+            border-color: #1FA2A0;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 40px rgba(31, 162, 160, 0.2);
+        }
+        
+        .logo-container {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 20px;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-card svg {
+            max-width: 200px;
+            height: auto;
+        }
+        
+        .logo-title {
+            font-size: 1.4em;
+            color: #6A6DFF;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .logo-description {
+            color: #1FA2A0;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+        
+        .preview-section {
+            margin-top: 60px;
+            text-align: center;
+        }
+        
+        .preview-section h2 {
+            color: #E8F7F6;
+            font-size: 2em;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .icon-preview {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .icon-size {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(106, 109, 255, 0.3);
+        }
+        
+        .icon-size p {
+            margin-top: 10px;
+            color: #1FA2A0;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>CELESTRYLL</h1>
+        <p>Logo Concept Showcase</p>
+    </div>
+
+    <div class="logo-grid">
+        <!-- Logo Concept 1: Star Burst -->
+        <div class="logo-card">
+            <div class="logo-container">
+                <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Star burst symbol -->
+                    <g transform="translate(100, 80)">
+                        <!-- Outer star points -->
+                        <path d="M 0,-50 L 5,-15 L 35,-35 L 15,-5 L 50,0 L 15,5 L 35,35 L 5,15 L 0,50 L -5,15 L -35,35 L -15,5 L -50,0 L -15,-5 L -35,-35 L -5,-15 Z" 
+                              fill="none" 
+                              stroke="#2D2F7F" 
+                              stroke-width="2"/>
+                        <!-- Inner circle -->
+                        <circle cx="0" cy="0" r="12" fill="#1FA2A0"/>
+                        <!-- Accent lines -->
+                        <circle cx="0" cy="0" r="25" fill="none" stroke="#6A6DFF" stroke-width="1.5" stroke-dasharray="3,3"/>
+                    </g>
+                    <!-- Text -->
+                    <text x="100" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="300" fill="#2D2F7F" letter-spacing="2">Celestryll</text>
+                </svg>
+            </div>
+            <div class="logo-title">Star Burst</div>
+            <div class="logo-description">16-point star with circular accent, representing celestial radiance</div>
+        </div>
+
+        <!-- Logo Concept 2: Orbital Ring -->
+        <div class="logo-card">
+            <div class="logo-container">
+                <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Orbital design with 3 Moebius-twisted rings -->
+                    <g transform="translate(100, 80)">
+                        <!-- Ring 1: Outer Moebius ribbon (45 degrees) -->
+                        <g transform="rotate(45)">
+                            <!-- Wide sections (front view) -->
+                            <path d="M -55,0 A 55,20 0 0,1 -20,-18" fill="none" stroke="#2D2F7F" stroke-width="4"/>
+                            <path d="M -20,-18 A 55,20 0 0,1 20,-18" fill="none" stroke="#2D2F7F" stroke-width="4"/>
+                            <!-- Narrow sections (twist turning) -->
+                            <path d="M 20,-18 A 55,20 0 0,1 55,0" fill="none" stroke="#6A6DFF" stroke-width="2.5"/>
+                            <!-- Wide sections (other side) -->
+                            <path d="M 55,0 A 55,20 0 0,1 20,18" fill="none" stroke="#2D2F7F" stroke-width="3"/>
+                            <path d="M 20,18 A 55,20 0 0,1 -20,18" fill="none" stroke="#2D2F7F" stroke-width="3"/>
+                            <!-- Narrow sections (twist back) -->
+                            <path d="M -20,18 A 55,20 0 0,1 -55,0" fill="none" stroke="#6A6DFF" stroke-width="2.5"/>
+                        </g>
+
+                        <!-- Ring 2: Outer Moebius ribbon (-45 degrees) -->
+                        <g transform="rotate(-45)">
+                            <!-- Wide sections -->
+                            <path d="M -55,0 A 55,20 0 0,1 -20,-18" fill="none" stroke="#1FA2A0" stroke-width="4"/>
+                            <path d="M -20,-18 A 55,20 0 0,1 20,-18" fill="none" stroke="#1FA2A0" stroke-width="4"/>
+                            <!-- Narrow sections (twist) -->
+                            <path d="M 20,-18 A 55,20 0 0,1 55,0" fill="none" stroke="#6A6DFF" stroke-width="2.5"/>
+                            <!-- Wide sections -->
+                            <path d="M 55,0 A 55,20 0 0,1 20,18" fill="none" stroke="#1FA2A0" stroke-width="3"/>
+                            <path d="M 20,18 A 55,20 0 0,1 -20,18" fill="none" stroke="#1FA2A0" stroke-width="3"/>
+                            <!-- Narrow sections (twist back) -->
+                            <path d="M -20,18 A 55,20 0 0,1 -55,0" fill="none" stroke="#6A6DFF" stroke-width="2.5"/>
+                        </g>
+
+                        <!-- Ring 3: Inner Moebius ribbon (horizontal) -->
+                        <g>
+                            <!-- Wide sections -->
+                            <path d="M -35,0 A 35,13 0 0,1 -12,-12" fill="none" stroke="#6A6DFF" stroke-width="3.5"/>
+                            <path d="M -12,-12 A 35,13 0 0,1 12,-12" fill="none" stroke="#6A6DFF" stroke-width="3.5"/>
+                            <!-- Narrow sections (twist) -->
+                            <path d="M 12,-12 A 35,13 0 0,1 35,0" fill="none" stroke="#1FA2A0" stroke-width="2"/>
+                            <!-- Wide sections -->
+                            <path d="M 35,0 A 35,13 0 0,1 12,12" fill="none" stroke="#6A6DFF" stroke-width="2.5"/>
+                            <path d="M 12,12 A 35,13 0 0,1 -12,12" fill="none" stroke="#6A6DFF" stroke-width="2.5"/>
+                            <!-- Narrow sections (twist back) -->
+                            <path d="M -12,12 A 35,13 0 0,1 -35,0" fill="none" stroke="#1FA2A0" stroke-width="2"/>
+                        </g>
+
+                        <!-- Center star -->
+                        <circle cx="0" cy="0" r="8" fill="#1FA2A0"/>
+                        <circle cx="0" cy="0" r="4" fill="#E8F7F6"/>
+                    </g>
+                    <text x="100" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="300" fill="#2D2F7F" letter-spacing="2">Celestryll</text>
+                </svg>
+            </div>
+            <div class="logo-title">Orbital Ring</div>
+            <div class="logo-description">Three Moebius ribbons with width-change twist effect</div>
+        </div>
+
+        <!-- Logo Concept 3: Geometric Constellation -->
+        <div class="logo-card">
+            <div class="logo-container">
+                <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(100, 80)">
+                        <!-- Constellation points -->
+                        <circle cx="0" cy="-40" r="4" fill="#2D2F7F"/>
+                        <circle cx="35" cy="-20" r="3" fill="#6A6DFF"/>
+                        <circle cx="35" cy="20" r="3" fill="#6A6DFF"/>
+                        <circle cx="0" cy="40" r="4" fill="#2D2F7F"/>
+                        <circle cx="-35" cy="20" r="3" fill="#6A6DFF"/>
+                        <circle cx="-35" cy="-20" r="3" fill="#6A6DFF"/>
+                        <!-- Connection lines -->
+                        <path d="M 0,-40 L 35,-20 L 35,20 L 0,40 L -35,20 L -35,-20 Z" 
+                              fill="none" 
+                              stroke="#1FA2A0" 
+                              stroke-width="1.5"/>
+                        <!-- Inner hexagon -->
+                        <path d="M 0,-20 L 17,-10 L 17,10 L 0,20 L -17,10 L -17,-10 Z" 
+                              fill="none" 
+                              stroke="#2D2F7F" 
+                              stroke-width="2"/>
+                        <!-- Center -->
+                        <circle cx="0" cy="0" r="5" fill="#1FA2A0"/>
+                    </g>
+                    <text x="100" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="300" fill="#2D2F7F" letter-spacing="2">Celestryll</text>
+                </svg>
+            </div>
+            <div class="logo-title">Constellation</div>
+            <div class="logo-description">Connected stars forming geometric constellation pattern</div>
+        </div>
+
+        <!-- Logo Concept 4: Celestial Diamond -->
+        <div class="logo-card">
+            <div class="logo-container">
+                <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(100, 80)">
+                        <!-- Diamond shape -->
+                        <path d="M 0,-50 L 30,0 L 0,50 L -30,0 Z" 
+                              fill="none" 
+                              stroke="#2D2F7F" 
+                              stroke-width="2"/>
+                        <!-- Inner diamond -->
+                        <path d="M 0,-35 L 21,0 L 0,35 L -21,0 Z" 
+                              fill="none" 
+                              stroke="#6A6DFF" 
+                              stroke-width="2"/>
+                        <!-- Center lines -->
+                        <line x1="0" y1="-35" x2="0" y2="35" stroke="#1FA2A0" stroke-width="1.5"/>
+                        <line x1="-21" y1="0" x2="21" y2="0" stroke="#1FA2A0" stroke-width="1.5"/>
+                        <!-- Center circle -->
+                        <circle cx="0" cy="0" r="6" fill="#1FA2A0"/>
+                        <!-- Corner accents -->
+                        <circle cx="0" cy="-50" r="3" fill="#2D2F7F"/>
+                        <circle cx="30" cy="0" r="3" fill="#2D2F7F"/>
+                        <circle cx="0" cy="50" r="3" fill="#2D2F7F"/>
+                        <circle cx="-30" cy="0" r="3" fill="#2D2F7F"/>
+                    </g>
+                    <text x="100" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="300" fill="#2D2F7F" letter-spacing="2">Celestryll</text>
+                </svg>
+            </div>
+            <div class="logo-title">Celestial Diamond</div>
+            <div class="logo-description">Layered diamond geometry with star accents</div>
+        </div>
+
+        <!-- Logo Concept 5: Radial Symmetry -->
+        <div class="logo-card">
+            <div class="logo-container">
+                <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(100, 80)">
+                        <!-- Outer circle -->
+                        <circle cx="0" cy="0" r="50" fill="none" stroke="#2D2F7F" stroke-width="2"/>
+                        <!-- Radial lines (12 points) -->
+                        <g id="radial-lines">
+                            <line x1="0" y1="-50" x2="0" y2="-35" stroke="#6A6DFF" stroke-width="2"/>
+                            <line x1="25" y1="-43.3" x2="17.5" y2="-30.3" stroke="#6A6DFF" stroke-width="1.5"/>
+                            <line x1="43.3" y1="-25" x2="30.3" y2="-17.5" stroke="#6A6DFF" stroke-width="1.5"/>
+                            <line x1="50" y1="0" x2="35" y2="0" stroke="#6A6DFF" stroke-width="2"/>
+                            <line x1="43.3" y1="25" x2="30.3" y2="17.5" stroke="#6A6DFF" stroke-width="1.5"/>
+                            <line x1="25" y1="43.3" x2="17.5" y2="30.3" stroke="#6A6DFF" stroke-width="1.5"/>
+                            <line x1="0" y1="50" x2="0" y2="35" stroke="#6A6DFF" stroke-width="2"/>
+                            <line x1="-25" y1="43.3" x2="-17.5" y2="30.3" stroke="#6A6DFF" stroke-width="1.5"/>
+                            <line x1="-43.3" y1="25" x2="-30.3" y2="17.5" stroke="#6A6DFF" stroke-width="1.5"/>
+                            <line x1="-50" y1="0" x2="-35" y2="0" stroke="#6A6DFF" stroke-width="2"/>
+                            <line x1="-43.3" y1="-25" x2="-30.3" y2="-17.5" stroke="#6A6DFF" stroke-width="1.5"/>
+                            <line x1="-25" y1="-43.3" x2="-17.5" y2="-30.3" stroke="#6A6DFF" stroke-width="1.5"/>
+                        </g>
+                        <!-- Inner circle -->
+                        <circle cx="0" cy="0" r="20" fill="none" stroke="#1FA2A0" stroke-width="2"/>
+                        <!-- Center -->
+                        <circle cx="0" cy="0" r="8" fill="#1FA2A0"/>
+                    </g>
+                    <text x="100" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="300" fill="#2D2F7F" letter-spacing="2">Celestryll</text>
+                </svg>
+            </div>
+            <div class="logo-title">Radial Symmetry</div>
+            <div class="logo-description">Compass-like design with 12-point radial lines</div>
+        </div>
+
+        <!-- Logo Concept 6: Interlocked Crescents -->
+        <div class="logo-card">
+            <div class="logo-container">
+                <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(100, 80)">
+                        <!-- Crescent 1 -->
+                        <path d="M 0,-45 Q 20,-30 0,-15 Q -20,-30 0,-45" 
+                              fill="none" 
+                              stroke="#2D2F7F" 
+                              stroke-width="2.5"/>
+                        <path d="M 0,-45 Q 10,-30 0,-15" 
+                              fill="none" 
+                              stroke="#6A6DFF" 
+                              stroke-width="1.5"/>
+
+                        <!-- Crescent 2 (rotated 120deg) -->
+                        <path d="M 39,22.5 Q 29,12.5 19,22.5 Q 24,37.5 39,22.5" 
+                              fill="none" 
+                              stroke="#2D2F7F" 
+                              stroke-width="2.5"/>
+                        <path d="M 39,22.5 Q 29,17.5 19,22.5" 
+                              fill="none" 
+                              stroke="#6A6DFF" 
+                              stroke-width="1.5"/>
+
+                        <!-- Crescent 3 (rotated 240deg) -->
+                        <path d="M -39,22.5 Q -24,37.5 -19,22.5 Q -29,12.5 -39,22.5" 
+                              fill="none" 
+                              stroke="#2D2F7F" 
+                              stroke-width="2.5"/>
+                        <path d="M -39,22.5 Q -29,17.5 -19,22.5" 
+                              fill="none" 
+                              stroke="#6A6DFF" 
+                              stroke-width="1.5"/>
+
+                        <!-- Center star -->
+                        <circle cx="0" cy="0" r="8" fill="#1FA2A0"/>
+                        <circle cx="0" cy="0" r="3" fill="#E8F7F6"/>
+                    </g>
+                    <text x="100" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="300" fill="#2D2F7F" letter-spacing="2">Celestryll</text>
+                </svg>
+            </div>
+            <div class="logo-title">Triple Crescent</div>
+            <div class="logo-description">Three interlocked crescents forming celestial harmony</div>
+        </div>
+
+        <!-- Logo Concept 7: Spiral of Ideas -->
+        <div class="logo-card">
+            <div class="logo-container">
+                <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(100, 80)">
+                        <!-- Outer flowing spiral curve -->
+                        <path d="M 50,0 Q 35,-35 0,-50 Q -35,-35 -50,0 Q -35,35 0,50 Q 35,35 50,0" 
+                              fill="none" 
+                              stroke="#2D2F7F" 
+                              stroke-width="3"/>
+
+                        <!-- Mid spiral layer -->
+                        <path d="M 35,0 Q 25,-25 0,-35 Q -25,-25 -35,0 Q -25,25 0,35 Q 25,25 35,0" 
+                              fill="none" 
+                              stroke="#6A6DFF" 
+                              stroke-width="2.5"/>
+
+                        <!-- Inner spiral core -->
+                        <path d="M 20,0 Q 14,-14 0,-20 Q -14,-14 -20,0 Q -14,14 0,20 Q 14,14 20,0" 
+                              fill="none" 
+                              stroke="#1FA2A0" 
+                              stroke-width="2"/>
+
+                        <!-- Flowing accent curves -->
+                        <path d="M 0,-50 C 10,-45 15,-40 18,-35" 
+                              fill="none" 
+                              stroke="#6A6DFF" 
+                              stroke-width="1.5"/>
+                        <path d="M 50,0 C 45,10 40,15 35,18" 
+                              fill="none" 
+                              stroke="#6A6DFF" 
+                              stroke-width="1.5"/>
+                        <path d="M 0,50 C -10,45 -15,40 -18,35" 
+                              fill="none" 
+                              stroke="#6A6DFF" 
+                              stroke-width="1.5"/>
+                        <path d="M -50,0 C -45,-10 -40,-15 -35,-18" 
+                              fill="none" 
+                              stroke="#6A6DFF" 
+                              stroke-width="1.5"/>
+
+                        <!-- Center point -->
+                        <circle cx="0" cy="0" r="6" fill="#1FA2A0"/>
+                        <circle cx="0" cy="0" r="2" fill="#E8F7F6"/>
+                    </g>
+                    <text x="100" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="300" fill="#2D2F7F" letter-spacing="2">Celestryll</text>
+                </svg>
+            </div>
+            <div class="logo-title">Spiral of Ideas</div>
+            <div class="logo-description">Flowing geometric spiral representing continuous innovation</div>
+        </div>
+
+        <!-- Logo Concept 8: Interlocking Shapes -->
+        <div class="logo-card">
+            <div class="logo-container">
+                <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(100, 80)">
+                        <!-- Three overlapping rounded rectangles representing multiple apps -->
+
+                        <!-- Back rectangle (midnight blue) -->
+                        <rect x="-35" y="-25" width="45" height="45" rx="8" 
+                              fill="#0F1A2B" 
+                              stroke="none"/>
+
+                        <!-- Left rectangle (violet) - slightly overlapping -->
+                        <rect x="-45" y="-10" width="45" height="45" rx="8" 
+                              fill="#6A6DFF" 
+                              stroke="none" 
+                              opacity="0.9"/>
+
+                        <!-- Right rectangle (teal) - slightly overlapping -->
+                        <rect x="-10" y="-10" width="45" height="45" rx="8" 
+                              fill="#1FA2A0" 
+                              stroke="none" 
+                              opacity="0.9"/>
+
+                        <!-- Central overlap highlight (light aqua accent) -->
+                        <circle cx="-17.5" cy="12.5" r="8" fill="#E8F7F6" opacity="0.6"/>
+                        <circle cx="7.5" cy="12.5" r="8" fill="#E8F7F6" opacity="0.6"/>
+
+                        <!-- Connecting dots to show unity -->
+                        <circle cx="-22.5" cy="2.5" r="3" fill="#E8F7F6"/>
+                        <circle cx="12.5" cy="2.5" r="3" fill="#E8F7F6"/>
+                        <circle cx="-5" cy="15" r="3" fill="#E8F7F6"/>
+                    </g>
+                    <text x="100" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="300" fill="#0F1A2B" letter-spacing="2">Celestryll</text>
+                </svg>
+            </div>
+            <div class="logo-title">Interlocking Shapes</div>
+            <div class="logo-description">Three overlapping app tiles representing a unified multi-app studio</div>
+        </div>
+
+        <!-- Logo Concept 9: Arcane Tech Sigil -->
+        <div class="logo-card">
+            <div class="logo-container">
+                <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(100, 80)">
+                        <!-- Outer containment circle -->
+                        <circle cx="0" cy="0" r="50" fill="none" stroke="#2D2F7F" stroke-width="2"/>
+
+                        <!-- Inner geometric sigil structure -->
+                        <!-- Vertical tech line -->
+                        <line x1="0" y1="-40" x2="0" y2="-25" stroke="#6A6DFF" stroke-width="2.5"/>
+                        <line x1="0" y1="25" x2="0" y2="40" stroke="#6A6DFF" stroke-width="2.5"/>
+
+                        <!-- Horizontal tech line -->
+                        <line x1="-40" y1="0" x2="-25" y2="0" stroke="#6A6DFF" stroke-width="2.5"/>
+                        <line x1="25" y1="0" x2="40" y2="0" stroke="#6A6DFF" stroke-width="2.5"/>
+
+                        <!-- Diagonal tech lines (creating X pattern) -->
+                        <line x1="-28" y1="-28" x2="-18" y2="-18" stroke="#1FA2A0" stroke-width="2"/>
+                        <line x1="18" y1="18" x2="28" y2="28" stroke="#1FA2A0" stroke-width="2"/>
+                        <line x1="28" y1="-28" x2="18" y2="-18" stroke="#1FA2A0" stroke-width="2"/>
+                        <line x1="-18" y1="18" x2="-28" y2="28" stroke="#1FA2A0" stroke-width="2"/>
+
+                        <!-- Inner geometric hexagon -->
+                        <path d="M 0,-20 L 17,-10 L 17,10 L 0,20 L -17,10 L -17,-10 Z" 
+                              fill="none" 
+                              stroke="#2D2F7F" 
+                              stroke-width="2"/>
+
+                        <!-- Corner circuit nodes (4 corners) -->
+                        <circle cx="0" cy="-40" r="3" fill="#6A6DFF"/>
+                        <circle cx="40" cy="0" r="3" fill="#6A6DFF"/>
+                        <circle cx="0" cy="40" r="3" fill="#6A6DFF"/>
+                        <circle cx="-40" cy="0" r="3" fill="#6A6DFF"/>
+
+                        <!-- Inner connection points -->
+                        <circle cx="0" cy="-20" r="2.5" fill="#1FA2A0"/>
+                        <circle cx="17" cy="-10" r="2.5" fill="#1FA2A0"/>
+                        <circle cx="17" cy="10" r="2.5" fill="#1FA2A0"/>
+                        <circle cx="0" cy="20" r="2.5" fill="#1FA2A0"/>
+                        <circle cx="-17" cy="10" r="2.5" fill="#1FA2A0"/>
+                        <circle cx="-17" cy="-10" r="2.5" fill="#1FA2A0"/>
+
+                        <!-- Central core -->
+                        <circle cx="0" cy="0" r="6" fill="#1FA2A0"/>
+                        <circle cx="0" cy="0" r="3" fill="#2D2F7F"/>
+                    </g>
+                    <text x="100" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="300" fill="#2D2F7F" letter-spacing="2">Celestryll</text>
+                </svg>
+            </div>
+            <div class="logo-title">Arcane Tech Sigil</div>
+            <div class="logo-description">Geometric sigil combining mystical symbolism with tech-inspired geometry</div>
+        </div>
+
+        <!-- Logo Concept 10: Dual-Tone Crescent (ORIGINAL - Opens RIGHT like C) -->
+        <div class="logo-card">
+            <div class="logo-container">
+                <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(100, 80)">
+                        <!-- Top half (midnight blue) - opens right -->
+                        <path d="M -42,0 A 42,42 0 0,1 0,-42 A 42,42 0 0,1 42,0 
+                                 A 35,35 0 0,0 0,-35 A 35,35 0 0,0 -35,0 Z" 
+                              fill="#0F1A2B"/>
+
+                        <!-- Bottom half (teal) - opens right -->
+                        <path d="M -42,0 A 42,42 0 0,0 0,42 A 42,42 0 0,0 42,0 
+                                 A 35,35 0 0,1 0,35 A 35,35 0 0,1 -35,0 Z" 
+                              fill="#1FA2A0"/>
+
+                        <!-- Star accents on left curve -->
+                        <circle cx="-32" cy="-26" r="3" fill="#E8F7F6"/>
+                        <circle cx="-32" cy="26" r="3" fill="#E8F7F6"/>
+                        <circle cx="-20" cy="0" r="3" fill="#E8F7F6"/>
+                    </g>
+                    <text x="100" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="300" fill="#0F1A2B" letter-spacing="2">Celestryll</text>
+                </svg>
+            </div>
+            <div class="logo-title">Dual-Tone Crescent</div>
+            <div class="logo-description">C-shaped two-tone moon opening right for Celestryll</div>
+        </div>
+
+        <!-- Logo Concept 11: Nested Crescents (Rotated 90° CCW - Opens UPWARD) -->
+        <div class="logo-card">
+            <div class="logo-container">
+                <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(100, 80) rotate(-90)">
+                        <!-- Outer crescent (indigo) - rotated, opens upward -->
+                        <path d="M -50,0 A 50,50 0 1,1 50,0 A 40,40 0 1,0 -40,0 Z" 
+                              fill="none" stroke="#2D2F7F" stroke-width="3"/>
+
+                        <!-- Middle crescent (violet) - rotated, opens upward -->
+                        <path d="M -38,0 A 38,38 0 1,1 38,0 A 30,30 0 1,0 -30,0 Z" 
+                              fill="none" stroke="#6A6DFF" stroke-width="2.5"/>
+
+                        <!-- Inner crescent (teal) - rotated, opens upward -->
+                        <path d="M -26,0 A 26,26 0 1,1 26,0 A 20,20 0 1,0 -20,0 Z" 
+                              fill="#1FA2A0"/>
+
+                        <!-- Star accent -->
+                        <circle cx="-35" cy="0" r="3" fill="#E8F7F6"/>
+                    </g>
+                    <text x="100" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="300" fill="#2D2F7F" letter-spacing="2">Celestryll</text>
+                </svg>
+            </div>
+            <div class="logo-title">Nested Crescents (Vertical)</div>
+            <div class="logo-description">Three vertical crescents opening upward</div>
+        </div>
+
+        <!-- Logo Concept 12: Crescent Orbit (Opens RIGHT like C) -->
+        <div class="logo-card">
+            <div class="logo-container">
+                <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(100, 80)">
+                        <!-- Main crescent - opens right -->
+                        <path d="M -42,0 A 42,42 0 1,1 42,0 A 35,35 0 1,0 -35,0 Z" 
+                              fill="#1FA2A0"/>
+
+                        <!-- Orbital ring -->
+                        <ellipse cx="0" cy="0" rx="52" ry="20" fill="none" stroke="#6A6DFF" stroke-width="2" transform="rotate(25)"/>
+
+                        <!-- Small orbiting stars -->
+                        <circle cx="40" cy="-25" r="3" fill="#2D2F7F"/>
+                        <circle cx="-48" cy="8" r="3" fill="#2D2F7F"/>
+
+                        <!-- Center glow on left curve -->
+                        <circle cx="-18" cy="0" r="5" fill="#E8F7F6"/>
+                    </g>
+                    <text x="100" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="300" fill="#2D2F7F" letter-spacing="2">Celestryll</text>
+                </svg>
+            </div>
+            <div class="logo-title">Crescent Orbit</div>
+            <div class="logo-description">C-shaped moon opening right with orbital ring</div>
+        </div>
+
+        <!-- Logo Concept 13: Geometric Crescent (Opens RIGHT like C) -->
+        <div class="logo-card">
+            <div class="logo-container">
+                <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(100, 80)">
+                        <!-- Geometric crescent opening right -->
+                        <path d="M 0,-45 L -25,-35 L -35,-25 L -42,-10 L -45,0 L -42,10 L -35,25 L -25,35 L 0,45 
+                                 L 0,38 L -5,30 L -8,20 L -10,10 L -10,0 L -10,-10 L -8,-20 L -5,-30 L 0,-38 Z" 
+                              fill="#2D2F7F"/>
+
+                        <!-- Inner geometric highlight -->
+                        <path d="M -30,-8 L -25,-15 L -20,-8 L -25,0 Z" fill="#1FA2A0"/>
+                        <path d="M -30,8 L -25,0 L -20,8 L -25,15 Z" fill="#1FA2A0"/>
+
+                        <!-- Tech dots on left edge -->
+                        <circle cx="-30" cy="-25" r="2.5" fill="#6A6DFF"/>
+                        <circle cx="-35" cy="0" r="2.5" fill="#6A6DFF"/>
+                        <circle cx="-30" cy="25" r="2.5" fill="#6A6DFF"/>
+                    </g>
+                    <text x="100" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="300" fill="#2D2F7F" letter-spacing="2">Celestryll</text>
+                </svg>
+            </div>
+            <div class="logo-title">Geometric Crescent</div>
+            <div class="logo-description">Angular C-shaped crescent opening right</div>
+        </div>
+
+        <!-- Logo Concept 14: Crescent Constellation (Opens RIGHT like C) -->
+        <div class="logo-card">
+            <div class="logo-container">
+                <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(100, 80) rotate(-45)">
+                        <!-- Subtle crescent outline opening right -->
+                        <path d="M -40,0 A 40,40 0 1,1 40,0 A 33,33 0 1,0 -33,0 Z" 
+                              fill="none" stroke="#0F1A2B" stroke-width="2.5"/>
+
+                        <!-- Star constellation forming C-shape on left curve -->
+                        <circle cx="0" cy="-38" r="3.5" fill="#1FA2A0"/>
+                        <circle cx="-18" cy="-33" r="3" fill="#6A6DFF"/>
+                        <circle cx="-28" cy="-28" r="3.5" fill="#1FA2A0"/>
+                        <circle cx="-35" cy="-20" r="3" fill="#6A6DFF"/>
+                        <circle cx="-38" cy="-10" r="4" fill="#1FA2A0"/>
+                        <circle cx="-40" cy="0" r="3.5" fill="#6A6DFF"/>
+                        <circle cx="-38" cy="10" r="4" fill="#1FA2A0"/>
+                        <circle cx="-35" cy="20" r="3" fill="#6A6DFF"/>
+                        <circle cx="-28" cy="28" r="3.5" fill="#1FA2A0"/>
+                        <circle cx="-18" cy="33" r="3" fill="#6A6DFF"/>
+                        <circle cx="0" cy="38" r="3.5" fill="#1FA2A0"/>
+
+                        <!-- Connection lines -->
+                        <path d="M 0,-38 L -18,-33 L -28,-28 L -35,-20 L -38,-10 L -40,0 L -38,10 L -35,20 L -28,28 L -18,33 L 0,38" 
+                              fill="none" stroke="#6A6DFF" stroke-width="1" opacity="0.5"/>
+                    </g>
+                    <text x="100" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="300" fill="#0F1A2B" letter-spacing="2">Celestryll</text>
+                </svg>
+            </div>
+            <div class="logo-title">Crescent Constellation</div>
+            <div class="logo-description">Stars forming C-shape opening right for Celestryll</div>
+        </div>
+
+        <!-- Logo Concept 15: Spiral Crescent (Opens RIGHT like C) -->
+        <div class="logo-card">
+            <div class="logo-container">
+                <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(100, 80)">
+                        <!-- Main crescent opening right -->
+                        <path d="M -45,0 A 45,45 0 1,1 45,0 A 38,38 0 1,0 -38,0 Z" 
+                              fill="#1FA2A0"/>
+
+                        <!-- Spiral flowing from left curve inward -->
+                        <path d="M -35,-10 Q -28,-8 -20,-5 Q -12,-2 -5,0 Q 2,2 8,3 Q 14,3 18,2" 
+                              fill="none" stroke="#6A6DFF" stroke-width="2.5"/>
+                        <path d="M -35,10 Q -28,8 -20,5 Q -12,2 -5,0 Q 2,-2 8,-3 Q 14,-3 18,-2" 
+                              fill="none" stroke="#2D2F7F" stroke-width="2.5"/>
+
+                        <!-- Center focal point -->
+                        <circle cx="18" cy="0" r="4" fill="#E8F7F6"/>
+
+                        <!-- Accent stars on left curve -->
+                        <circle cx="-40" cy="-15" r="2" fill="#E8F7F6"/>
+                        <circle cx="-40" cy="15" r="2" fill="#E8F7F6"/>
+                    </g>
+                    <text x="100" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="300" fill="#0F1A2B" letter-spacing="2">Celestryll</text>
+                </svg>
+            </div>
+            <div class="logo-title">Spiral Crescent</div>
+            <div class="logo-description">C-shaped crescent with spiral energy opening right</div>
+        </div>
+
+        <!-- Logo Concept 16: Constellation Crescent with Orbital Core -->
+        <div class="logo-card">
+            <div class="logo-container">
+                <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(100, 80) rotate(-45)">
+                        <!-- Outer constellation crescent (from #17) -->
+                        <path d="M -40,0 A 40,40 0 1,1 40,0 A 33,33 0 1,0 -33,0 Z" 
+                              fill="none" stroke="#0F1A2B" stroke-width="2.5"/>
+
+                        <!-- Star constellation forming C-shape on left curve -->
+                        <circle cx="0" cy="-38" r="3.5" fill="#1FA2A0"/>
+                        <circle cx="-18" cy="-33" r="3" fill="#6A6DFF"/>
+                        <circle cx="-28" cy="-28" r="3.5" fill="#1FA2A0"/>
+                        <circle cx="-35" cy="-20" r="3" fill="#6A6DFF"/>
+                        <circle cx="-38" cy="-10" r="4" fill="#1FA2A0"/>
+                        <circle cx="-40" cy="0" r="3.5" fill="#6A6DFF"/>
+                        <circle cx="-38" cy="10" r="4" fill="#1FA2A0"/>
+                        <circle cx="-35" cy="20" r="3" fill="#6A6DFF"/>
+                        <circle cx="-28" cy="28" r="3.5" fill="#1FA2A0"/>
+                        <circle cx="-18" cy="33" r="3" fill="#6A6DFF"/>
+                        <circle cx="0" cy="38" r="3.5" fill="#1FA2A0"/>
+
+                        <!-- Connection lines -->
+                        <path d="M 0,-38 L -18,-33 L -28,-28 L -35,-20 L -38,-10 L -40,0 L -38,10 L -35,20 L -28,28 L -18,33 L 0,38" 
+                              fill="none" stroke="#6A6DFF" stroke-width="1" opacity="0.5"/>
+
+                        <!-- Inner orbital ring -->
+                        <ellipse cx="-3" cy="0" rx="24" ry="10" fill="none" stroke="#6A6DFF" stroke-width="2" transform="rotate(20 -3 0)"/>
+
+                        <!-- Small orbiting stars on ring -->
+                        <circle cx="-15" cy="-12" r="2" fill="#E8F7F6"/>
+                        <circle cx="10" cy="8" r="2" fill="#E8F7F6"/>
+
+                        <!-- Center nucleus (from #17) -->
+                        <circle cx="-3" cy="0" r="3" fill="#1FA2A0"/>
+                        <circle cx="-3" cy="0" r="1.5" fill="#E8F7F6"/>
+
+                        <!-- Accent stars on outer crescent -->
+                        <circle cx="-32" cy="-26" r="2.5" fill="#E8F7F6" opacity="0.7"/>
+                        <circle cx="-32" cy="26" r="2.5" fill="#E8F7F6" opacity="0.7"/>
+                    </g>
+                    <text x="100" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="300" fill="#0F1A2B" letter-spacing="2">Celestryll</text>
+                </svg>
+            </div>
+            <div class="logo-title">Constellation Crescent with Orbital Core</div>
+            <div class="logo-description">Constellation stars forming crescent with orbital ring and nucleus at center</div>
+        </div>
+
+        <!-- Logo Concept 17: Constellation Crescent with Full Orbital System -->
+        <div class="logo-card">
+            <div class="logo-container">
+                <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(100, 80) rotate(-45)">
+                        <!-- Outer constellation crescent (from #14) -->
+                        <!-- Subtle crescent outline opening right -->
+                        <path d="M -40,0 A 40,40 0 1,1 40,0 A 33,33 0 1,0 -33,0 Z" 
+                              fill="none" stroke="#0F1A2B" stroke-width="2.5"/>
+
+                        <!-- Star constellation forming C-shape on left curve -->
+                        <circle cx="0" cy="-38" r="3.5" fill="#1FA2A0"/>
+                        <circle cx="-18" cy="-33" r="3" fill="#6A6DFF"/>
+                        <circle cx="-28" cy="-28" r="3.5" fill="#1FA2A0"/>
+                        <circle cx="-35" cy="-20" r="3" fill="#6A6DFF"/>
+                        <circle cx="-38" cy="-10" r="4" fill="#1FA2A0"/>
+                        <circle cx="-40" cy="0" r="3.5" fill="#6A6DFF"/>
+                        <circle cx="-38" cy="10" r="4" fill="#1FA2A0"/>
+                        <circle cx="-35" cy="20" r="3" fill="#6A6DFF"/>
+                        <circle cx="-28" cy="28" r="3.5" fill="#1FA2A0"/>
+                        <circle cx="-18" cy="33" r="3" fill="#6A6DFF"/>
+                        <circle cx="0" cy="38" r="3.5" fill="#1FA2A0"/>
+
+                        <!-- Connection lines -->
+                        <path d="M 0,-38 L -18,-33 L -28,-28 L -35,-20 L -38,-10 L -40,0 L -38,10 L -35,20 L -28,28 L -18,33 L 0,38" 
+                              fill="none" stroke="#6A6DFF" stroke-width="1" opacity="0.5"/>
+
+                        <!-- ENTIRE Orbital Ring system from option #2, shrunk and CENTERED in open area -->
+                        <g transform="translate(5, 0) scale(0.5) rotate(45)">
+                            <!-- Ring 1: Outer Moebius ribbon (45 degrees) - Segmented to show twist -->
+                            <g transform="rotate(45)">
+                                <!-- Wide sections (front view) -->
+                                <path d="M -55,0 A 55,20 0 0,1 -20,-18" fill="none" stroke="#2D2F7F" stroke-width="3"/>
+                                <path d="M -20,-18 A 55,20 0 0,1 20,-18" fill="none" stroke="#2D2F7F" stroke-width="3"/>
+                                <!-- Narrow sections (twist turning) -->
+                                <path d="M 20,-18 A 55,20 0 0,1 55,0" fill="none" stroke="#6A6DFF" stroke-width="2"/>
+                                <!-- Wide sections (other side) -->
+                                <path d="M 55,0 A 55,20 0 0,1 20,18" fill="none" stroke="#2D2F7F" stroke-width="2.5"/>
+                                <path d="M 20,18 A 55,20 0 0,1 -20,18" fill="none" stroke="#2D2F7F" stroke-width="2.5"/>
+                                <!-- Narrow sections (twist back) -->
+                                <path d="M -20,18 A 55,20 0 0,1 -55,0" fill="none" stroke="#6A6DFF" stroke-width="2"/>
+                            </g>
+
+                            <!-- Ring 2: Outer Moebius ribbon (-45 degrees) -->
+                            <g transform="rotate(-45)">
+                                <!-- Wide sections -->
+                                <path d="M -55,0 A 55,20 0 0,1 -20,-18" fill="none" stroke="#1FA2A0" stroke-width="3"/>
+                                <path d="M -20,-18 A 55,20 0 0,1 20,-18" fill="none" stroke="#1FA2A0" stroke-width="3"/>
+                                <!-- Narrow sections (twist) -->
+                                <path d="M 20,-18 A 55,20 0 0,1 55,0" fill="none" stroke="#6A6DFF" stroke-width="2"/>
+                                <!-- Wide sections -->
+                                <path d="M 55,0 A 55,20 0 0,1 20,18" fill="none" stroke="#1FA2A0" stroke-width="2.5"/>
+                                <path d="M 20,18 A 55,20 0 0,1 -20,18" fill="none" stroke="#1FA2A0" stroke-width="2.5"/>
+                                <!-- Narrow sections (twist back) -->
+                                <path d="M -20,18 A 55,20 0 0,1 -55,0" fill="none" stroke="#6A6DFF" stroke-width="2"/>
+                            </g>
+
+                            <!-- Ring 3: Inner Moebius ribbon (horizontal) -->
+                            <g>
+                                <!-- Wide sections -->
+                                <path d="M -35,0 A 35,13 0 0,1 -12,-12" fill="none" stroke="#6A6DFF" stroke-width="3"/>
+                                <path d="M -12,-12 A 35,13 0 0,1 12,-12" fill="none" stroke="#6A6DFF" stroke-width="3"/>
+                                <!-- Narrow sections (twist) -->
+                                <path d="M 12,-12 A 35,13 0 0,1 35,0" fill="none" stroke="#1FA2A0" stroke-width="1.5"/>
+                                <!-- Wide sections -->
+                                <path d="M 35,0 A 35,13 0 0,1 12,12" fill="none" stroke="#6A6DFF" stroke-width="2"/>
+                                <path d="M 12,12 A 35,13 0 0,1 -12,12" fill="none" stroke="#6A6DFF" stroke-width="2"/>
+                                <!-- Narrow sections (twist back) -->
+                                <path d="M -12,12 A 35,13 0 0,1 -35,0" fill="none" stroke="#1FA2A0" stroke-width="1.5"/>
+                            </g>
+
+                            <!-- Center star -->
+                            <circle cx="0" cy="0" r="6" fill="#1FA2A0"/>
+                            <circle cx="0" cy="0" r="3" fill="#E8F7F6"/>
+                        </g>
+
+                                    </g>
+                                    <text x="100" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="300" fill="#0F1A2B" letter-spacing="2">Celestryll</text>
+                                </svg>
+                            </div>
+                            <div class="logo-title">Constellation Crescent with Full Orbital System</div>
+                            <div class="logo-description">Constellation stars forming crescent with complete orbital ring cosmos at center</div>
+                        </div>
+
+        <!-- Logo Concept 18: Rainbow Crescent - Full Palette -->
+        <div class="logo-card">
+            <div class="logo-container">
+                <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="rainbowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#0F1A2B;stop-opacity:1" />
+                            <stop offset="25%" style="stop-color:#2D2F7F;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#6A6DFF;stop-opacity:1" />
+                            <stop offset="75%" style="stop-color:#1FA2A0;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#E8F7F6;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <g transform="translate(100, 80)">
+                        <!-- Crescent with rainbow gradient - proper opening on RIGHT -->
+                        <!-- Uses two separate paths: outer circle minus offset inner circle -->
+                        <defs>
+                            <clipPath id="crescentClip">
+                                <!-- Outer circle -->
+                                <circle cx="0" cy="0" r="42"/>
+                            </clipPath>
+                            <mask id="crescentMask">
+                                <!-- White outer circle -->
+                                <circle cx="0" cy="0" r="42" fill="white"/>
+                                <!-- Black inner circle offset right to create opening -->
+                                <circle cx="10" cy="0" r="35" fill="black"/>
+                            </mask>
+                        </defs>
+
+                        <!-- Apply mask to create crescent with gradient -->
+                        <circle cx="0" cy="0" r="42" 
+                                fill="url(#rainbowGradient)" 
+                                mask="url(#crescentMask)"/>
+
+                        <!-- Accent stars on left curve -->
+                        <circle cx="-32" cy="-26" r="3" fill="white" opacity="0.8"/>
+                        <circle cx="-40" cy="0" r="3" fill="white" opacity="0.8"/>
+                        <circle cx="-32" cy="26" r="3" fill="white" opacity="0.8"/>
+                    </g>
+                    <text x="100" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="300" fill="#0F1A2B" letter-spacing="2">Celestryll</text>
+                </svg>
+            </div>
+            <div class="logo-title">Rainbow Crescent - Full Palette</div>
+            <div class="logo-description">Gradient C-shaped crescent showcasing all 5 palette colors</div>
+        </div>
+    </div>
+
+    <div class="preview-section">
+        <h2>App Icon Preview</h2>
+        <p style="color: #1FA2A0; margin-bottom: 20px;">How the logos would appear as app icons at different sizes</p>
+        
+        <div class="icon-preview">
+            <div class="icon-size">
+                <svg viewBox="0 0 120 120" width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="120" height="120" fill="white" rx="20"/>
+                    <g transform="translate(60, 60)">
+                        <path d="M 0,-30 L 3,-9 L 21,-21 L 9,-3 L 30,0 L 9,3 L 21,21 L 3,9 L 0,30 L -3,9 L -21,21 L -9,3 L -30,0 L -9,-3 L -21,-21 L -3,-9 Z" 
+                              fill="none" 
+                              stroke="#2D2F7F" 
+                              stroke-width="2"/>
+                        <circle cx="0" cy="0" r="7" fill="#1FA2A0"/>
+                        <circle cx="0" cy="0" r="15" fill="none" stroke="#6A6DFF" stroke-width="1.5" stroke-dasharray="2,2"/>
+                    </g>
+                </svg>
+                <p>120×120px</p>
+            </div>
+            
+            <div class="icon-size">
+                <svg viewBox="0 0 80 80" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="80" height="80" fill="white" rx="13"/>
+                    <g transform="translate(40, 40)">
+                        <path d="M 0,-20 L 2,-6 L 14,-14 L 6,-2 L 20,0 L 6,2 L 14,14 L 2,6 L 0,20 L -2,6 L -14,14 L -6,2 L -20,0 L -6,-2 L -14,-14 L -2,-6 Z" 
+                              fill="none" 
+                              stroke="#2D2F7F" 
+                              stroke-width="1.5"/>
+                        <circle cx="0" cy="0" r="5" fill="#1FA2A0"/>
+                        <circle cx="0" cy="0" r="10" fill="none" stroke="#6A6DFF" stroke-width="1" stroke-dasharray="1.5,1.5"/>
+                    </g>
+                </svg>
+                <p>80×80px</p>
+            </div>
+            
+            <div class="icon-size">
+                <svg viewBox="0 0 48 48" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="48" height="48" fill="white" rx="8"/>
+                    <g transform="translate(24, 24)">
+                        <path d="M 0,-12 L 1,-3.5 L 8.5,-8.5 L 3.5,-1 L 12,0 L 3.5,1 L 8.5,8.5 L 1,3.5 L 0,12 L -1,3.5 L -8.5,8.5 L -3.5,1 L -12,0 L -3.5,-1 L -8.5,-8.5 L -1,-3.5 Z" 
+                              fill="none" 
+                              stroke="#2D2F7F" 
+                              stroke-width="1"/>
+                        <circle cx="0" cy="0" r="3" fill="#1FA2A0"/>
+                        <circle cx="0" cy="0" r="6" fill="none" stroke="#6A6DFF" stroke-width="0.75" stroke-dasharray="1,1"/>
+                    </g>
+                </svg>
+                <p>48×48px</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 60px; padding: 40px; background: rgba(255,255,255,0.05); border-radius: 15px; max-width: 800px; margin-left: auto; margin-right: auto;">
+        <h3 style="color: #6A6DFF; margin-bottom: 15px; font-weight: 400;">Color Palette</h3>
+        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="text-align: center;">
+                <div style="width: 60px; height: 60px; background: #2D2F7F; border-radius: 10px; margin: 0 auto 10px;"></div>
+                <p style="font-size: 0.85em; color: #E8F7F6;">#2D2F7F<br><small>Deep Indigo</small></p>
+            </div>
+            <div style="text-align: center;">
+                <div style="width: 60px; height: 60px; background: #0F1A2B; border-radius: 10px; margin: 0 auto 10px;"></div>
+                <p style="font-size: 0.85em; color: #E8F7F6;">#0F1A2B<br><small>Midnight Blue</small></p>
+            </div>
+            <div style="text-align: center;">
+                <div style="width: 60px; height: 60px; background: #1FA2A0; border-radius: 10px; margin: 0 auto 10px;"></div>
+                <p style="font-size: 0.85em; color: #E8F7F6;">#1FA2A0<br><small>Teal</small></p>
+            </div>
+            <div style="text-align: center;">
+                <div style="width: 60px; height: 60px; background: #6A6DFF; border-radius: 10px; margin: 0 auto 10px;"></div>
+                <p style="font-size: 0.85em; color: #E8F7F6;">#6A6DFF<br><small>Soft Violet</small></p>
+            </div>
+            <div style="text-align: center;">
+                <div style="width: 60px; height: 60px; background: #E8F7F6; border-radius: 10px; margin: 0 auto 10px; border: 1px solid #6A6DFF;"></div>
+                <p style="font-size: 0.85em; color: #E8F7F6;">#E8F7F6<br><small>Light Aqua</small></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

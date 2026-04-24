@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Pemdas.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:Pemdas.Pages"
+    Title="PEMDAS">
+
+    <TabBar>
+        <ShellContent
+            Title="Daily Challenge"
+            Icon="dotnet_bot.png"
+            ContentTemplate="{DataTemplate pages:GamePage}"
+            Route="game" />
+
+        <ShellContent
+            Title="Profile"
+            Icon="dotnet_bot.png"
+            ContentTemplate="{DataTemplate pages:ProfilePage}"
+            Route="profile" />
+    </TabBar>
+
+</Shell>

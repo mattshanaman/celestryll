@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:AmbientSleeper.Resources.Strings"
+             xmlns:vm="clr-namespace:AmbientSleeper.ViewModels"
+             xmlns:models="clr-namespace:AmbientSleeper.Models"
+             x:Class="AmbientSleeper.Views.EqPage"
+             x:DataType="vm:EqViewModel"
+             Title="{x:Static resx:AppResources.EQ_Title}">
+    <ContentPage.Content>
+        <ScrollView>
+            <VerticalStackLayout Padding="{OnIdiom Phone=16, Tablet=24}" Spacing="{OnIdiom Phone=16, Tablet=20}">
+
+                <!-- Locked Message for Free/Standard Tiers -->
+                <Border IsVisible="{Binding IsAdvanced, Converter={StaticResource InverseBoolConverter}}"
+                        BackgroundColor="#40FF9800"
+                        Stroke="#FF9800"
+                        StrokeThickness="2"
+                        Padding="16"
+                        Margin="0,0,0,16">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="8" />
+                    </Border.StrokeShape>
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="{x:Static resx:AppResources.EQ_Locked_Title}" FontAttributes="Bold" FontSize="18" />
+                        <Label Text="{x:Static resx:AppResources.EQ_Locked_Message}" 
+                               FontSize="14" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Premium: 5-band graphic EQ -->
+                <VerticalStackLayout IsVisible="{Binding IsAdvanced, Converter={StaticResource IntToBoolConverter}, ConverterParameter=false}"
+                                     Spacing="{OnIdiom Phone=16, Tablet=20}">
+                    <HorizontalStackLayout Spacing="8">
+                        <Label Text="{x:Static resx:AppResources.EQ_5BandTitle}" FontAttributes="Bold" FontSize="{OnIdiom Phone=20, Tablet=22}" />
+                        <Label Text="{x:Static resx:AppResources.EQ_PresetsPremium}" 
+                               BackgroundColor="#FFC107"
+                               TextColor="Black"
+                               FontAttributes="Bold"
+                               FontSize="11"
+                               Padding="6,2"
+                               VerticalOptions="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </HorizontalStackLayout>
+                    
+                    <Label Text="{x:Static resx:AppResources.EQ_5BandDescription}"
+                           FontSize="13" TextColor="Gray" />
+                    
+                    <CollectionView ItemsSource="{Binding Graphic.Bands}" SelectionMode="None">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="{OnIdiom Phone=1, Tablet=2}" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="models:EqBand">
+                                <Border Stroke="#80FFFFFF" StrokeThickness="1" Padding="{OnIdiom Phone=12, Tablet=16}" Margin="0,4" BackgroundColor="#10FFFFFF">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="8" />
+                                    </Border.StrokeShape>
+                                    <VerticalStackLayout Spacing="8">
+                                        <HorizontalStackLayout Spacing="8">
+                                            <Label Text="{Binding CenterHz, StringFormat='{0} Hz'}" 
+                                                   FontAttributes="Bold"
+                                                   WidthRequest="{OnIdiom Phone=80, Tablet=100}" />
+                                            <Label Text="{Binding GainDb, StringFormat='{0:F1} dB'}" 
+                                                   WidthRequest="{OnIdiom Phone=80, Tablet=90}" 
+                                                   HorizontalTextAlignment="End"
+                                                   TextColor="#4CAF50"
+                                                   FontAttributes="Bold" />
+                                        </HorizontalStackLayout>
+                                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
+                                            <Label Grid.Column="0" Text="-12" FontSize="11" TextColor="Gray" />
+                                            <Slider Grid.Column="1" 
+                                                    Minimum="-12" 
+                                                    Maximum="12" 
+                                                    Value="{Binding GainDb, Mode=TwoWay}"
+                                                    MinimumTrackColor="#4CAF50"
+                                                    MaximumTrackColor="#80FFFFFF" />
+                                            <Label Grid.Column="2" Text="+12" FontSize="11" TextColor="Gray" />
+                                        </Grid>
+                                    </VerticalStackLayout>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                    <Grid ColumnDefinitions="*,*,*" ColumnSpacing="12">
+                        <Button Grid.Column="0"
+                                Text="{x:Static resx:AppResources.EQ_ApplyButton}" 
+                                Command="{Binding ApplyCommand}"
+                                BackgroundColor="#4CAF50"
+                                TextColor="White"
+                                FontSize="15"
+                                Padding="12" />
+                        <Button Grid.Column="1"
+                                Text="{x:Static resx:AppResources.EQ_ResetButton}" 
+                                Command="{Binding ClearCommand}"
+                                FontSize="15"
+                                Padding="12" />
+                        <Button Grid.Column="2"
+                                Text="{x:Static resx:AppResources.EQ_FlatButton}" 
+                                Command="{Binding ClearCommand}"
+                                FontSize="15"
+                                Padding="12" />
+                    </Grid>
+                    
+                    <!-- EQ Tips -->
+                    <Border Stroke="#80FFFFFF" StrokeThickness="1" Padding="12" BackgroundColor="#10FFFFFF">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="8" />
+                        </Border.StrokeShape>
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="{x:Static resx:AppResources.EQ_TipsTitle}" FontAttributes="Bold" FontSize="14" />
+                            <Label Text="{x:Static resx:AppResources.EQ_Tip1}"
+                                   FontSize="12" TextColor="Gray" />
+                            <Label Text="{x:Static resx:AppResources.EQ_Tip2}"
+                                   FontSize="12" TextColor="Gray" />
+                            <Label Text="{x:Static resx:AppResources.EQ_Tip3}"
+                                   FontSize="12" TextColor="Gray" />
+                            <Label Text="{x:Static resx:AppResources.EQ_Tip4}"
+                                   FontSize="12" TextColor="Gray" />
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+
+                <!-- Pro+: 10-band parametric with presets -->
+                <VerticalStackLayout IsVisible="{Binding IsAdvanced}"
+                                     Spacing="{OnIdiom Phone=16, Tablet=20}">
+                    <HorizontalStackLayout Spacing="8">
+                        <Label Text="{x:Static resx:AppResources.EQ_10BandParametric}" FontAttributes="Bold" FontSize="{OnIdiom Phone=20, Tablet=22}" />
+                        <Label Text="{x:Static resx:AppResources.EQ_ProPlusBadge}" 
+                               BackgroundColor="#9C27B0"
+                               TextColor="White"
+                               FontAttributes="Bold"
+                               FontSize="11"
+                               Padding="6,2"
+                               VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+                    
+                    <Label Text="{x:Static resx:AppResources.EQ_AdvancedDescription}"
+                           FontSize="13" TextColor="Gray" />
+                    
+                    <!-- Preset Selector -->
+                    <Border Stroke="#9C27B0" StrokeThickness="2" Padding="12" BackgroundColor="#209C27B0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="8" />
+                        </Border.StrokeShape>
+                        <VerticalStackLayout Spacing="12">
+                            <Label Text="{x:Static resx:AppResources.EQ_QuickPresets}" FontAttributes="Bold" FontSize="16" />
+                            <HorizontalStackLayout Spacing="12">
+                                <Picker Title="{x:Static resx:AppResources.EQ_ChoosePreset}" 
+                                        ItemsSource="{Binding PresetNames}" 
+                                        x:Name="PresetPicker" 
+                                        WidthRequest="{OnIdiom Phone=200, Tablet=300}" 
+                                        SelectedItem="{Binding SelectedPresetName, Mode=TwoWay}"
+                                        FontSize="15" />
+                                <Button Text="{x:Static resx:AppResources.EQ_LoadButton}"
+                                        Command="{Binding LoadPresetCommand}"
+                                        CommandParameter="{Binding SelectedPresetName}"
+                                        FontSize="14"
+                                        Padding="12,8" />
+                            </HorizontalStackLayout>
+                            <Label Text="{x:Static resx:AppResources.EQ_PresetsList}"
+                                   FontSize="11" TextColor="Gray" />
+                        </VerticalStackLayout>
+                    </Border>
+                    
+                    <CollectionView ItemsSource="{Binding Parametric.Bands}" SelectionMode="None">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="{OnIdiom Phone=1, Tablet=2}" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="models:ParametricEqBand">
+                                <Border Stroke="#80FFFFFF" StrokeThickness="1" Padding="{OnIdiom Phone=12, Tablet=16}" Margin="0,4" BackgroundColor="#10FFFFFF">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="8" />
+                                    </Border.StrokeShape>
+                                    <VerticalStackLayout Spacing="10">
+                                        <Label Text="{Binding FrequencyHz, StringFormat={x:Static resx:AppResources.EQ_BandFormat}}" 
+                                               FontAttributes="Bold"
+                                               FontSize="15" />
+                                        
+                                        <!-- Gain Control -->
+                                        <VerticalStackLayout Spacing="6">
+                                            <HorizontalStackLayout Spacing="8">
+                                                <Label Text="{x:Static resx:AppResources.EQ_Gain}" WidthRequest="{OnIdiom Phone=45, Tablet=60}" VerticalOptions="Center" />
+                                                <Label Text="{Binding GainDb, StringFormat='{0:F1} dB'}" 
+                                                       WidthRequest="{OnIdiom Phone=70, Tablet=90}" 
+                                                       HorizontalTextAlignment="End"
+                                                       TextColor="#4CAF50"
+                                                       FontAttributes="Bold"
+                                                       VerticalOptions="Center" />
+                                            </HorizontalStackLayout>
+                                            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
+                                                <Label Grid.Column="0" Text="{x:Static resx:AppResources.EQ_MinGain}" FontSize="11" TextColor="Gray" />
+                                                <Slider Grid.Column="1"
+                                                        Minimum="-12" 
+                                                        Maximum="12" 
+                                                        Value="{Binding GainDb, Mode=TwoWay}"
+                                                        MinimumTrackColor="#4CAF50"
+                                                        MaximumTrackColor="#80FFFFFF" />
+                                                <Label Grid.Column="2" Text="{x:Static resx:AppResources.EQ_MaxGain}" FontSize="11" TextColor="Gray" />
+                                            </Grid>
+                                        </VerticalStackLayout>
+                                        
+                                        <!-- Q Control -->
+                                        <VerticalStackLayout Spacing="6">
+                                            <HorizontalStackLayout Spacing="8">
+                                                <Label Text="{x:Static resx:AppResources.EQ_QWidth}" WidthRequest="{OnIdiom Phone=45, Tablet=60}" VerticalOptions="Center" />
+                                                <Label Text="{Binding Q, StringFormat='{0:F2}'}" 
+                                                       WidthRequest="{OnIdiom Phone=70, Tablet=90}" 
+                                                       HorizontalTextAlignment="End"
+                                                       TextColor="#2196F3"
+                                                       FontAttributes="Bold"
+                                                       VerticalOptions="Center" />
+                                            </HorizontalStackLayout>
+                                            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
+                                                <Label Grid.Column="0" Text="{x:Static resx:AppResources.EQ_Wide}" FontSize="10" TextColor="Gray" />
+                                                <Slider Grid.Column="1"
+                                                        Minimum="0.3" 
+                                                        Maximum="10" 
+                                                        Value="{Binding Q, Mode=TwoWay}"
+                                                        MinimumTrackColor="#2196F3"
+                                                        MaximumTrackColor="#80FFFFFF" />
+                                                <Label Grid.Column="2" Text="{x:Static resx:AppResources.EQ_Narrow}" FontSize="10" TextColor="Gray" />
+                                            </Grid>
+                                        </VerticalStackLayout>
+                                    </VerticalStackLayout>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                    <Grid ColumnDefinitions="*,*,*" ColumnSpacing="12">
+                        <Button Grid.Column="0"
+                                Text="{x:Static resx:AppResources.EQ_ApplyButton}" 
+                                Command="{Binding ApplyCommand}"
+                                BackgroundColor="#4CAF50"
+                                TextColor="White"
+                                FontSize="15"
+                                Padding="12" />
+                        <Button Grid.Column="1"
+                                Text="{x:Static resx:AppResources.EQ_ResetButton}" 
+                                Command="{Binding ClearCommand}"
+                                FontSize="15"
+                                Padding="12" />
+                        <Button Grid.Column="2"
+                                Text="{x:Static resx:AppResources.EQ_FlatButton}" 
+                                Command="{Binding ClearCommand}"
+                                FontSize="15"
+                                Padding="12" />
+                    </Grid>
+                    
+                    <!-- Advanced EQ Tips -->
+                    <Border Stroke="#80FFFFFF" StrokeThickness="1" Padding="12" BackgroundColor="#10FFFFFF">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="8" />
+                        </Border.StrokeShape>
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="{x:Static resx:AppResources.EQ_TipsTitle}" FontAttributes="Bold" FontSize="14" />
+                            <Label Text="{x:Static resx:AppResources.EQ_Tip1}"
+                                   FontSize="12" TextColor="Gray" />
+                            <Label Text="{x:Static resx:AppResources.EQ_Tip2}"
+                                   FontSize="12" TextColor="Gray" />
+                            <Label Text="{x:Static resx:AppResources.EQ_Tip3}"
+                                   FontSize="12" TextColor="Gray" />
+                            <Label Text="{x:Static resx:AppResources.EQ_Tip4}"
+                                   FontSize="12" TextColor="Gray" />
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

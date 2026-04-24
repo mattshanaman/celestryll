@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(100, 80)">
+        <!-- Main crescent - opens right -->
+        <path d="M -42,0 A 42,42 0 1,1 42,0 A 35,35 0 1,0 -35,0 Z"
+              fill="#1FA2A0"/>
+        <!-- Orbital ring -->
+        <ellipse cx="0" cy="0" rx="52" ry="20" fill="none" stroke="#6A6DFF" stroke-width="2" transform="rotate(25)"/>
+        <!-- Small orbiting stars -->
+        <circle cx="40" cy="-25" r="3" fill="#2D2F7F"/>
+        <circle cx="-48" cy="8" r="3" fill="#2D2F7F"/>
+        <!-- Center glow on left curve -->
+        <circle cx="-18" cy="0" r="5" fill="#E8F7F6"/>
+    </g>
+    <text x="100" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="300" fill="#2D2F7F" letter-spacing="2">Celestryll</text>
+</svg>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(100, 80)">
+        <circle cx="0" cy="-40" r="4" fill="#2D2F7F"/>
+        <circle cx="35" cy="-20" r="3" fill="#6A6DFF"/>
+        <circle cx="35" cy="20" r="3" fill="#6A6DFF"/>
+        <circle cx="0" cy="40" r="4" fill="#2D2F7F"/>
+        <circle cx="-35" cy="20" r="3" fill="#6A6DFF"/>
+        <circle cx="-35" cy="-20" r="3" fill="#6A6DFF"/>
+        <path d="M 0,-40 L 35,-20 L 35,20 L 0,40 L -35,20 L -35,-20 Z"
+              fill="none" stroke="#1FA2A0" stroke-width="1.5"/>
+        <path d="M 0,-20 L 17,-10 L 17,10 L 0,20 L -17,10 L -17,-10 Z"
+              fill="none" stroke="#2D2F7F" stroke-width="2"/>
+        <circle cx="0" cy="0" r="5" fill="#1FA2A0"/>
+    </g>
+    <text x="100" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="300" fill="#2D2F7F" letter-spacing="2">Celestryll</text>
+</svg>

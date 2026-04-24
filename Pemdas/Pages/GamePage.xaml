@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:Pemdas.ViewModels"
+             x:Class="Pemdas.Pages.GamePage"
+             x:DataType="viewmodels:GameViewModel"
+             Title="{Binding Title}">
+
+    <Grid Padding="8" RowDefinitions="Auto,Auto,Auto,*,Auto" RowSpacing="6">
+        
+        <!-- Test Mode Banner - Row 0 -->
+        <Frame Grid.Row="0" 
+               BackgroundColor="#FFA500" 
+               Padding="8"
+               IsVisible="{Binding IsTestMode}"
+               HasShadow="False">
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                <Label Text="🧪 TEST MODE" 
+                       TextColor="White" 
+                       FontAttributes="Bold"
+                       FontSize="14"/>
+                <Button Text="Exit Test" 
+                        Command="{Binding ExitTestModeCommand}"
+                        BackgroundColor="White"
+                        TextColor="#FFA500"
+                        FontSize="12"
+                        Padding="10,5"
+                        CornerRadius="5"/>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <Frame Grid.Row="0"
+               BackgroundColor="{StaticResource Info}"
+               Padding="8"
+               IsVisible="{Binding IsArchiveMode}"
+               HasShadow="False">
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                <Label Text="📚 PAST GAME" 
+                       TextColor="White" 
+                       FontAttributes="Bold"
+                       FontSize="14"/>
+                <Button Text="Back" 
+                        Command="{Binding ExitArchiveModeCommand}"
+                        BackgroundColor="White"
+                        TextColor="{StaticResource Info}"
+                        FontSize="12"
+                        Padding="10,5"
+                        CornerRadius="5"/>
+            </HorizontalStackLayout>
+        </Frame>
+        
+        <!-- Header Stats - Row 1 -->
+        <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*" ColumnSpacing="8">
+            <Frame Grid.Column="0" BackgroundColor="{StaticResource Primary}" Padding="8" CornerRadius="8">
+                <VerticalStackLayout Spacing="2">
+                    <Label Text="🔥" FontSize="18" HorizontalOptions="Center"/>
+                    <Label Text="{Binding CurrentStreak}" FontSize="16" FontAttributes="Bold" 
+                           HorizontalOptions="Center" TextColor="White"/>
+                    <Label Text="Streak" FontSize="10" HorizontalOptions="Center" TextColor="White"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame Grid.Column="1" BackgroundColor="{StaticResource Secondary}" Padding="8" CornerRadius="8">
+                <VerticalStackLayout Spacing="2">
+                    <Label Text="💡" FontSize="18" HorizontalOptions="Center"/>
+                    <Label Text="{Binding HintTokens}" FontSize="16" FontAttributes="Bold" 
+                           HorizontalOptions="Center" TextColor="White"/>
+                    <Label Text="Hints" FontSize="10" HorizontalOptions="Center" TextColor="White"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame Grid.Column="2" BackgroundColor="{StaticResource Tertiary}" Padding="8" CornerRadius="8"
+                   IsVisible="{Binding HasTimeLimit}">
+                <VerticalStackLayout Spacing="2">
+                    <Label Text="⏱️" FontSize="18" HorizontalOptions="Center"/>
+                    <Label Text="{Binding TimeRemaining}" FontSize="12" FontAttributes="Bold" 
+                           HorizontalOptions="Center" TextColor="White"/>
+                    <Label Text="Time" FontSize="10" HorizontalOptions="Center" TextColor="White"/>
+                </VerticalStackLayout>
+            </Frame>
+            
+            <!-- NEW: Elapsed Time Display -->
+            <Frame Grid.Column="3" BackgroundColor="{StaticResource Info}" Padding="8" CornerRadius="8">
+                <VerticalStackLayout Spacing="2">
+                    <Label Text="⏱️" FontSize="18" HorizontalOptions="Center"/>
+                    <Label Text="{Binding ElapsedTime}" FontSize="12" FontAttributes="Bold" 
+                           HorizontalOptions="Center" TextColor="White"/>
+                    <Label Text="Elapsed" FontSize="10" HorizontalOptions="Center" TextColor="White"/>
+                </VerticalStackLayout>
+            </Frame>
+        </Grid>
+
+        <!-- Puzzle Info & Display - Row 2 -->
+        <VerticalStackLayout Grid.Row="2" Spacing="8">
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="15">
+                <Label Text="{Binding ModeText}" FontSize="12" FontAttributes="Bold"/>
+                <Label Text="{Binding DifficultyText}" FontSize="12"/>
+            </HorizontalStackLayout>
+            
+            <!-- Difficulty Selector -->
+            <ScrollView Orientation="Horizontal" HorizontalOptions="Center"
+                        IsVisible="{Binding ShowDifficultySelector}">
+                <HorizontalStackLayout Spacing="4" Padding="0,4">
+                    <Button Text="⭐" 
+                            Command="{Binding SelectDifficultyCommand}" 
+                            CommandParameter="0"
+                            IsEnabled="{Binding EasyEnabled}"
+                            BackgroundColor="{StaticResource PuzzleEasy}"
+                            TextColor="White"
+                            FontSize="18"
+                            Padding="10,6"
+                            CornerRadius="4"
+                            BorderColor="{StaticResource Gray900}"
+                            BorderWidth="0"
+                            ToolTipProperties.Text="Easy">
+                        <Button.Triggers>
+                            <DataTrigger TargetType="Button" 
+                                       Binding="{Binding SelectedDifficultySlot}" 
+                                       Value="0">
+                                <Setter Property="BorderWidth" Value="3"/>
+                            </DataTrigger>
+                        </Button.Triggers>
+                    </Button>
+                    
+                    <Button Text="⭐⭐" 
+                            Command="{Binding SelectDifficultyCommand}" 
+                            CommandParameter="1"
+                            IsEnabled="{Binding MediumEnabled}"
+                            BackgroundColor="{StaticResource PuzzleMedium}"
+                            TextColor="White"
+                            FontSize="18"
+                            Padding="10,6"
+                            CornerRadius="4"
+                            BorderColor="{StaticResource Gray900}"
+                            BorderWidth="0"
+                            ToolTipProperties.Text="Medium">
+                        <Button.Triggers>
+                            <DataTrigger TargetType="Button" 
+                                       Binding="{Binding SelectedDifficultySlot}" 
+                                       Value="1">
+                                <Setter Property="BorderWidth" Value="3"/>
+                            </DataTrigger>
+                        </Button.Triggers>
+                    </Button>
+                    
+                    <Button Text="⭐⭐⭐" 
+                            Command="{Binding SelectDifficultyCommand}" 
+                            CommandParameter="2"
+                            IsEnabled="{Binding HardEnabled}"
+                            BackgroundColor="{StaticResource PuzzleHard}"
+                            TextColor="White"
+                            FontSize="18"
+                            Padding="10,6"
+                            CornerRadius="4"
+                            BorderColor="{StaticResource Gray900}"
+                            BorderWidth="0"
+                            ToolTipProperties.Text="Hard">
+                        <Button.Triggers>
+                            <DataTrigger TargetType="Button" 
+                                       Binding="{Binding SelectedDifficultySlot}" 
+                                       Value="2">
+                                <Setter Property="BorderWidth" Value="3"/>
+                            </DataTrigger>
+                        </Button.Triggers>
+                    </Button>
+                    
+                    <Button Text="🎨" 
+                            Command="{Binding SelectDifficultyCommand}" 
+                            CommandParameter="3"
+                            IsEnabled="{Binding CreativeEnabled}"
+                            BackgroundColor="{StaticResource PuzzleCreative}"
+                            TextColor="White"
+                            FontSize="18"
+                            Padding="10,6"
+                            CornerRadius="4"
+                            BorderColor="{StaticResource Gray900}"
+                            BorderWidth="0"
+                            ToolTipProperties.Text="Creative">
+                        <Button.Triggers>
+                            <DataTrigger TargetType="Button" 
+                                       Binding="{Binding SelectedDifficultySlot}" 
+                                       Value="3">
+                                <Setter Property="BorderWidth" Value="3"/>
+                            </DataTrigger>
+                        </Button.Triggers>
+                    </Button>
+                    
+                    <Button Text="🧩" 
+                            Command="{Binding SelectDifficultyCommand}" 
+                            CommandParameter="4"
+                            IsEnabled="{Binding TrickyEnabled}"
+                            BackgroundColor="{StaticResource PuzzleTricky}"
+                            TextColor="White"
+                            FontSize="18"
+                            Padding="10,6"
+                            CornerRadius="4"
+                            BorderColor="{StaticResource Gray900}"
+                            BorderWidth="0"
+                            ToolTipProperties.Text="Tricky">
+                        <Button.Triggers>
+                            <DataTrigger TargetType="Button" 
+                                       Binding="{Binding SelectedDifficultySlot}" 
+                                       Value="4">
+                                <Setter Property="BorderWidth" Value="3"/>
+                            </DataTrigger>
+                        </Button.Triggers>
+                    </Button>
+                    
+                    <Button Text="⚡" 
+                            Command="{Binding SelectDifficultyCommand}" 
+                            CommandParameter="5"
+                            IsEnabled="{Binding SpeedEnabled}"
+                            BackgroundColor="{StaticResource PuzzleSpeed}"
+                            TextColor="White"
+                            FontSize="18"
+                            Padding="10,6"
+                            CornerRadius="4"
+                            BorderColor="{StaticResource Gray900}"
+                            BorderWidth="0"
+                            ToolTipProperties.Text="Speed">
+                        <Button.Triggers>
+                            <DataTrigger TargetType="Button" 
+                                       Binding="{Binding SelectedDifficultySlot}" 
+                                       Value="5">
+                                <Setter Property="BorderWidth" Value="3"/>
+                            </DataTrigger>
+                        </Button.Triggers>
+                    </Button>
+                    
+                    <Button Text="👑" 
+                            Command="{Binding SelectDifficultyCommand}" 
+                            CommandParameter="6"
+                            IsEnabled="{Binding BossEnabled}"
+                            BackgroundColor="{StaticResource PuzzleBoss}"
+                            TextColor="White"
+                            FontSize="18"
+                            Padding="10,6"
+                            CornerRadius="4"
+                            BorderColor="{StaticResource Gray900}"
+                            BorderWidth="0"
+                            ToolTipProperties.Text="Boss">
+                        <Button.Triggers>
+                            <DataTrigger TargetType="Button" 
+                                       Binding="{Binding SelectedDifficultySlot}" 
+                                       Value="6">
+                                <Setter Property="BorderWidth" Value="3"/>
+                            </DataTrigger>
+                        </Button.Triggers>
+                    </Button>
+                    
+                    <Button Text="🎓" 
+                            Command="{Binding SelectDifficultyCommand}" 
+                            CommandParameter="7"
+                            IsEnabled="{Binding ExpertEnabled}"
+                            BackgroundColor="{StaticResource Info}"
+                            TextColor="White"
+                            FontSize="18"
+                            Padding="10,6"
+                            CornerRadius="4"
+                            BorderColor="{StaticResource Gray900}"
+                            BorderWidth="0"
+                            ToolTipProperties.Text="Expert - Premium">
+                        <Button.Triggers>
+                            <DataTrigger TargetType="Button" 
+                                       Binding="{Binding SelectedDifficultySlot}" 
+                                       Value="7">
+                                <Setter Property="BorderWidth" Value="3"/>
+                            </DataTrigger>
+                            <DataTrigger TargetType="Button" 
+                                       Binding="{Binding IsSubscribed}" 
+                                       Value="False">
+                                <Setter Property="Opacity" Value="0.5"/>
+                            </DataTrigger>
+                        </Button.Triggers>
+                    </Button>
+                </HorizontalStackLayout>
+            </ScrollView>
+            
+            <!-- NEW: Puzzle ID and Completion Status -->
+            <VerticalStackLayout Spacing="4" Padding="0,4">
+                <!-- Puzzle ID -->
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="6">
+                    <Label Text="Puzzle ID:" 
+                           FontSize="11"
+                           TextColor="{StaticResource Gray600}"/>
+                    <Label Text="{Binding CurrentPuzzleId}" 
+                           FontSize="11"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource Primary}"/>
+                </HorizontalStackLayout>
+                
+                <!-- Completion Status (only show if any completed today) -->
+                <Frame IsVisible="{Binding HasCompletedThisDifficulty}"
+                       BackgroundColor="{StaticResource Info}"
+                       Padding="8"
+                       HasShadow="False"
+                       CornerRadius="8">
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="✅ You've completed this difficulty today!" 
+                               FontSize="14"
+                               FontAttributes="Bold"
+                               HorizontalTextAlignment="Center"
+                               TextColor="White"/>
+                        
+                        <Label Text="{Binding CompletionMessage}" 
+                               FontSize="12"
+                               HorizontalTextAlignment="Center"
+                               LineBreakMode="WordWrap"
+                               TextColor="White"/>
+                        
+                        <!-- Show which difficulties are completed -->
+                        <HorizontalStackLayout HorizontalOptions="Center" Spacing="6">
+                            <Label Text="Completed:" FontSize="11" TextColor="White"/>
+                            <Label Text="{Binding CompletedDifficultiesDisplay}" 
+                                   FontSize="14" 
+                                   FontAttributes="Bold"
+                                   TextColor="White"/>
+                        </HorizontalStackLayout>
+                        
+                        <!-- Show total points -->
+                        <HorizontalStackLayout HorizontalOptions="Center" Spacing="6">
+                            <Label Text="🏆 Total Points:" FontSize="12" TextColor="White"/>
+                            <Label Text="{Binding TotalPointsEarned}" 
+                                   FontSize="14" 
+                                   FontAttributes="Bold"
+                                   TextColor="White"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+
+            <!-- Puzzle Display with better styling for [?] visibility -->
+            <Frame BorderColor="{StaticResource Primary}" 
+                   Padding="12" 
+                   HasShadow="False"
+                   BackgroundColor="{StaticResource Gray100}">
+                <VerticalStackLayout Spacing="6">
+                    <Label Text="{Binding PuzzleDisplay}" 
+                           FontSize="20" 
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"
+                           HorizontalTextAlignment="Center"
+                           TextColor="{StaticResource Gray900}"/>
+                    
+                    <!-- Available Digits for Build It puzzles -->
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Available digits:" 
+                               FontSize="14" 
+                               HorizontalOptions="Center"
+                               TextColor="{StaticResource Gray600}">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label" 
+                                           Binding="{Binding AvailableDigitsDisplay}" 
+                                           Value="">
+                                    <Setter Property="IsVisible" Value="False"/>
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                        <Label Text="{Binding AvailableDigitsDisplay}"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               TextColor="{StaticResource Primary}">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label" 
+                                           Binding="{Binding AvailableDigitsDisplay}" 
+                                           Value="">
+                                    <Setter Property="IsVisible" Value="False"/>
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- User Input -->
+            <VerticalStackLayout Spacing="4">
+                <!-- Help text for multiple values -->
+                <Label Text="{Binding InputHelpText}" 
+                       FontSize="11"
+                       TextColor="{StaticResource Gray600}"
+                       HorizontalOptions="Center"
+                       IsVisible="{Binding ShowInputHelp}"/>
+                
+                <!-- Single value input (for simple puzzles) -->
+                <Entry Text="{Binding UserInput}"
+                       Placeholder="Your answer..."
+                       PlaceholderColor="{StaticResource Gray500}"
+                       FontSize="18"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       HeightRequest="45"
+                       Keyboard="Numeric"
+                       TextColor="{StaticResource Gray900}"
+                       BackgroundColor="{StaticResource White}"
+                       IsVisible="{Binding ShowSingleInput}"
+                       IsEnabled="{Binding PuzzleCompleted, Converter={StaticResource InvertedBoolConverter}}">
+                    <Entry.Margin>
+                        <Thickness>0,3,0,3</Thickness>
+                    </Entry.Margin>
+                </Entry>
+                
+                <!-- Multi-value input (for complex puzzles) -->
+                <HorizontalStackLayout HorizontalOptions="Center" 
+                                       Spacing="8"
+                                       IsVisible="{Binding ShowMultiInput}">
+                    <!-- First value -->
+                    <HorizontalStackLayout Spacing="4" IsVisible="{Binding ShowValueA}">
+                        <Label Text="{Binding LabelA}" 
+                               FontSize="18" 
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource Gray900}"
+                               VerticalOptions="Center"/>
+                        <Entry Text="{Binding ValueA}"
+                               WidthRequest="65"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               HorizontalTextAlignment="Center"
+                               TextColor="{StaticResource Gray900}"
+                               BackgroundColor="{StaticResource White}"
+                               Keyboard="Default"
+                               IsEnabled="{Binding PuzzleCompleted, Converter={StaticResource InvertedBoolConverter}}"/>
+                    </HorizontalStackLayout>
+                    
+                    <!-- Second value -->
+                    <HorizontalStackLayout Spacing="4" IsVisible="{Binding ShowValueB}">
+                        <Label Text="{Binding LabelB}" 
+                               FontSize="18" 
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource Gray900}"
+                               VerticalOptions="Center"/>
+                        <Entry Text="{Binding ValueB}"
+                               WidthRequest="65"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               HorizontalTextAlignment="Center"
+                               TextColor="{StaticResource Gray900}"
+                               BackgroundColor="{StaticResource White}"
+                               Keyboard="Default"
+                               IsEnabled="{Binding PuzzleCompleted, Converter={StaticResource InvertedBoolConverter}}"/>
+                    </HorizontalStackLayout>
+                    
+                    <!-- Third value -->
+                    <HorizontalStackLayout Spacing="4" IsVisible="{Binding ShowValueC}">
+                        <Label Text="{Binding LabelC}" 
+                               FontSize="18" 
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource Gray900}"
+                               VerticalOptions="Center"/>
+                        <Entry Text="{Binding ValueC}"
+                               WidthRequest="65"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               HorizontalTextAlignment="Center"
+                               TextColor="{StaticResource Gray900}"
+                               BackgroundColor="{StaticResource White}"
+                               Keyboard="Default"
+                               IsEnabled="{Binding PuzzleCompleted, Converter={StaticResource InvertedBoolConverter}}"/>
+                    </HorizontalStackLayout>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+
+        <!-- Calculator Buttons - Row 3 (fills remaining space) -->
+        <!-- Only shown for Build It puzzles (not Solve It) -->
+        <Grid Grid.Row="3" 
+              RowDefinitions="*,*,*,*,*" 
+              ColumnDefinitions="*,*,*,*" 
+              RowSpacing="3" 
+              ColumnSpacing="3"
+              Margin="0,3"
+              IsVisible="{Binding ShowCalculator}">
+            
+            <!-- Numbers and operators in compact layout -->
+            <Button Grid.Row="0" Grid.Column="0" Text="7" 
+                    Command="{Binding AddDigitCommand}" CommandParameter="7" 
+                    FontSize="18" FontAttributes="Bold"
+                    Padding="0" 
+                    IsEnabled="{Binding Digit7Enabled}"/>
+            <Button Grid.Row="0" Grid.Column="1" Text="8" 
+                    Command="{Binding AddDigitCommand}" CommandParameter="8" 
+                    FontSize="18" FontAttributes="Bold"
+                    Padding="0" 
+                    IsEnabled="{Binding Digit8Enabled}"/>
+            <Button Grid.Row="0" Grid.Column="2" Text="9" 
+                    Command="{Binding AddDigitCommand}" CommandParameter="9" 
+                    FontSize="18" FontAttributes="Bold"
+                    Padding="0" 
+                    IsEnabled="{Binding Digit9Enabled}"/>
+            <Button Grid.Row="0" Grid.Column="3" Text="×" 
+                    Command="{Binding AddOperatorCommand}" CommandParameter="×" 
+                    BackgroundColor="{StaticResource Secondary}" 
+                    FontSize="18" FontAttributes="Bold"
+                    Padding="0"/>
+
+            <Button Grid.Row="1" Grid.Column="0" Text="4" 
+                    Command="{Binding AddDigitCommand}" CommandParameter="4" 
+                    FontSize="18" FontAttributes="Bold"
+                    Padding="0" 
+                    IsEnabled="{Binding Digit4Enabled}"/>
+            <Button Grid.Row="1" Grid.Column="1" Text="5" 
+                    Command="{Binding AddDigitCommand}" CommandParameter="5" 
+                    FontSize="18" FontAttributes="Bold"
+                    Padding="0" 
+                    IsEnabled="{Binding Digit5Enabled}"/>
+            <Button Grid.Row="1" Grid.Column="2" Text="6" 
+                    Command="{Binding AddDigitCommand}" CommandParameter="6" 
+                    FontSize="18" FontAttributes="Bold"
+                    Padding="0" 
+                    IsEnabled="{Binding Digit6Enabled}"/>
+            <Button Grid.Row="1" Grid.Column="3" Text="÷" 
+                    Command="{Binding AddOperatorCommand}" CommandParameter="÷" 
+                    BackgroundColor="{StaticResource Secondary}" 
+                    FontSize="18" FontAttributes="Bold"
+                    Padding="0"/>
+
+            <Button Grid.Row="2" Grid.Column="0" Text="1" 
+                    Command="{Binding AddDigitCommand}" CommandParameter="1" 
+                    FontSize="18" FontAttributes="Bold"
+                    Padding="0" 
+                    IsEnabled="{Binding Digit1Enabled}"/>
+            <Button Grid.Row="2" Grid.Column="1" Text="2" 
+                    Command="{Binding AddDigitCommand}" CommandParameter="2" 
+                    FontSize="18" FontAttributes="Bold"
+                    Padding="0" 
+                    IsEnabled="{Binding Digit2Enabled}"/>
+            <Button Grid.Row="2" Grid.Column="2" Text="3" 
+                    Command="{Binding AddDigitCommand}" CommandParameter="3" 
+                    FontSize="18" FontAttributes="Bold"
+                    Padding="0" 
+                    IsEnabled="{Binding Digit3Enabled}"/>
+            <Button Grid.Row="2" Grid.Column="3" Text="-" 
+                    Command="{Binding AddOperatorCommand}" CommandParameter="-" 
+                    BackgroundColor="{StaticResource Secondary}" 
+                    FontSize="18" FontAttributes="Bold"
+                    Padding="0"/>
+
+            <Button Grid.Row="3" Grid.Column="0" Text="0" 
+                    Command="{Binding AddDigitCommand}" CommandParameter="0" 
+                    FontSize="18" FontAttributes="Bold"
+                    Padding="0" 
+                    IsEnabled="{Binding Digit0Enabled}"/>
+            <Button Grid.Row="3" Grid.Column="1" Text="," 
+                    Command="{Binding AddOperatorCommand}" CommandParameter=", " 
+                    FontSize="14" FontAttributes="Bold"
+                    BackgroundColor="{StaticResource Tertiary}"
+                    Padding="0"/>
+            <Button Grid.Row="3" Grid.Column="2" Text="(" 
+                    Command="{Binding AddParenthesisCommand}" CommandParameter="(" 
+                    FontSize="18" FontAttributes="Bold"
+                    Padding="0"/>
+            <Button Grid.Row="3" Grid.Column="3" Text="+" 
+                    Command="{Binding AddOperatorCommand}" CommandParameter="+" 
+                    BackgroundColor="{StaticResource Secondary}" 
+                    FontSize="18" FontAttributes="Bold"
+                    Padding="0"/>
+            
+            <Button Grid.Row="4" Grid.Column="0" Text="⌫" 
+                    Command="{Binding BackspaceCommand}" 
+                    FontSize="20" 
+                    BackgroundColor="{StaticResource Gray300}"
+                    Padding="0"/>
+            <Button Grid.Row="4" Grid.Column="1" Text=")" 
+                    Command="{Binding AddParenthesisCommand}" CommandParameter=")" 
+                    FontSize="18" FontAttributes="Bold"
+                    Padding="0"/>
+            <Button Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Text="Clear" 
+                    Command="{Binding ClearInputCommand}" 
+                    BackgroundColor="{StaticResource Gray300}" 
+                    FontSize="14" FontAttributes="Bold"
+                    Padding="0"/>
+        </Grid>
+        
+        <!-- Clear button for multi-value mode -->
+        <Button Grid.Row="3"
+                Text="Clear All" 
+                Command="{Binding ClearInputCommand}"
+                BackgroundColor="{StaticResource Gray300}"
+                FontSize="14"
+                HeightRequest="45"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                IsVisible="{Binding ShowMultiInput}"/>
+        
+        <!-- Action Buttons & Feedback - Row 4 -->
+        <VerticalStackLayout Grid.Row="4" Spacing="8">
+            <!-- Action Buttons - Fixed position -->
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="8" HeightRequest="45">
+                <Button Grid.Column="0" 
+                        Text="💡 Hint" 
+                        Command="{Binding UseHintCommand}"
+                        BackgroundColor="{StaticResource Secondary}"
+                        IsEnabled="{Binding PuzzleCompleted, Converter={StaticResource InvertedBoolConverter}}"
+                        FontSize="14"
+                        HeightRequest="45"
+                        VerticalOptions="Fill"/>
+                
+                <Button Grid.Column="1" 
+                        Text="Submit" 
+                        Command="{Binding SubmitAnswerCommand}"
+                        BackgroundColor="{StaticResource Primary}"
+                        IsEnabled="{Binding PuzzleCompleted, Converter={StaticResource InvertedBoolConverter}}"
+                        FontSize="14"
+                        HeightRequest="45"
+                        VerticalOptions="Fill"/>
+            </Grid>
+
+            <!-- Feedback Section - Appears below buttons -->
+            <VerticalStackLayout Spacing="8">
+                <!-- ERROR DISPLAY -->
+                <Frame IsVisible="{Binding HasError}" 
+                       BackgroundColor="{StaticResource Error}" 
+                       Padding="10"
+                       HasShadow="False"
+                       BorderColor="{StaticResource ErrorDark}"
+                       CornerRadius="8">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="⚠️ Error" 
+                               TextColor="White" 
+                               FontSize="14"
+                               FontAttributes="Bold"
+                               HorizontalTextAlignment="Center"/>
+                        <Label Text="{Binding ErrorMessage}" 
+                               TextColor="White" 
+                               FontSize="12"
+                               HorizontalTextAlignment="Center"
+                               LineBreakMode="WordWrap"/>
+                    </VerticalStackLayout>
+                </Frame>
+                
+                <!-- Hint Display -->
+                <Frame IsVisible="{Binding ShowHint}" 
+                       BackgroundColor="#FFA500" 
+                       Padding="10"
+                       HasShadow="False">
+                    <Label Text="{Binding HintText}" 
+                           TextColor="White" 
+                           FontSize="12"
+                           FontAttributes="Italic"/>
+                </Frame>
+
+                <!-- Feedback Message -->
+                <Frame IsVisible="{Binding ShowFeedback}" 
+                       BackgroundColor="#28a745" 
+                       Padding="10"
+                       HasShadow="False">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="{Binding FeedbackMessage}" 
+                               TextColor="White" 
+                               FontSize="14"
+                               FontAttributes="Bold"
+                               HorizontalTextAlignment="Center"/>
+                        
+                        <!-- Show completion stats when puzzle is completed -->
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="12" IsVisible="{Binding PuzzleCompleted}">
+                            <VerticalStackLayout Grid.Column="0" Spacing="2">
+                                <Label Text="Time" 
+                                       FontSize="11" 
+                                       HorizontalTextAlignment="Center"
+                                       TextColor="White"
+                                       Opacity="0.8"/>
+                                <Label Text="{Binding CompletionTimeDisplay}" 
+                                       FontSize="18" 
+                                       FontAttributes="Bold"
+                                       HorizontalTextAlignment="Center"
+                                       TextColor="White"/>
+                            </VerticalStackLayout>
+                            
+                            <VerticalStackLayout Grid.Column="1" Spacing="2">
+                                <Label Text="Puzzle ID" 
+                                       FontSize="11" 
+                                       HorizontalTextAlignment="Center"
+                                       TextColor="White"
+                                       Opacity="0.8"/>
+                                <Label Text="{Binding CurrentPuzzleId}" 
+                                       FontSize="14" 
+                                       FontAttributes="Bold"
+                                       HorizontalTextAlignment="Center"
+                                       TextColor="White"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Share Button -->
+                <Button Text="📤 Share" 
+                        Command="{Binding ShareResultCommand}"
+                        IsVisible="{Binding PuzzleCompleted}"
+                        BackgroundColor="{StaticResource Tertiary}"
+                        FontSize="14"
+                        HeightRequest="40"/>
+
+                <!-- Activity Indicator -->
+                <ActivityIndicator IsRunning="{Binding IsBusy}" 
+                                  IsVisible="{Binding IsBusy}"
+                                  Color="{StaticResource Primary}"
+                                  HeightRequest="30"/>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </Grid>
+
+</ContentPage>

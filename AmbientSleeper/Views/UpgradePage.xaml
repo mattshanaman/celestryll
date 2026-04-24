@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:AmbientSleeper.Resources.Strings"
+             xmlns:views="clr-namespace:AmbientSleeper.Views"
+             x:Class="AmbientSleeper.Views.UpgradePage"
+             x:DataType="views:UpgradePage"
+             Title="{x:Static resx:AppResources.Upgrade_Title}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="16">
+            <Label Text="{x:Static resx:AppResources.Upgrade_UnlockLongerSessions}" FontSize="22" FontAttributes="Bold" />
+            <Label Text="{x:Static resx:AppResources.Upgrade_Description}" />
+            <Button Text="{x:Static resx:AppResources.Upgrade_ViewPlans}" Clicked="OnOpenPlans" />
+            <Button Text="{x:Static resx:AppResources.Upgrade_NotNow}" Clicked="OnClose" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

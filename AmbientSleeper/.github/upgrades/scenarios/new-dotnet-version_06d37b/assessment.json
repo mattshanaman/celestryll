@@ -1,0 +1,1177 @@
+{
+  "settings": {
+    "components": {
+      "code": true,
+      "binaries": false
+    },
+    "targetId": "net10.0",
+    "targetDisplayName": ".NETCoreApp,Version=v10.0"
+  },
+  "analysisStartTime": "2026-04-04T22:53:33.7234595Z",
+  "analysisEndTime": "2026-04-04T22:53:40.945475Z",
+  "privacyModeHelpUrl": "https://go.microsoft.com/fwlink/?linkid=2270980",
+  "stats": {
+    "summary": {
+      "projects": 1,
+      "issues": 2,
+      "incidents": 40,
+      "effort": 40
+    },
+    "charts": {
+      "severity": {
+        "Mandatory": 1,
+        "Optional": 0,
+        "Potential": 39,
+        "Information": 0
+      },
+      "category": {
+        "Project": 1,
+        "Api": 39
+      }
+    }
+  },
+  "projects": [
+    {
+      "path": "AmbientSleeper.csproj",
+      "startingProject": true,
+      "issues": 2,
+      "storyPoints": 40,
+      "properties": {
+        "appName": "AmbientSleeper",
+        "projectKind": "ClassLibrary",
+        "frameworks": [
+          "net9.0-android",
+          "net9.0-ios",
+          "net9.0-maccatalyst"
+        ],
+        "languages": [
+          "C#"
+        ],
+        "tools": [
+          "MSBuild"
+        ],
+        "isSdkStyle": true,
+        "numberOfFiles": 193,
+        "numberOfCodeFiles": 184,
+        "linesTotal": 35326,
+        "linesOfCode": 23102,
+        "totalApiScanned": 16683,
+        "minLinesOfCodeToChange": 39,
+        "maxLinesOfCodeToChange": 39
+      },
+      "ruleInstances": [
+        {
+          "incidentId": "0fb60df3-67a5-4322-8013-e2a7f4d2c11c",
+          "ruleId": "Project.0002",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current target framework: net9.0-android;net9.0-ios;net9.0-maccatalyst\nRecommended target framework: net9.0-android;net9.0-ios;net9.0-maccatalyst;net10.0-ios;net10.0-android;net10.0-maccatalyst",
+              "protected": "Current target framework: net9.0-android;net9.0-ios;net9.0-maccatalyst\nRecommended target framework: net9.0-android;net9.0-ios;net9.0-maccatalyst;net10.0-ios;net10.0-android;net10.0-maccatalyst"
+            },
+            "kind": "File",
+            "path": "AmbientSleeper.csproj",
+            "snippet": "Current target framework: net9.0-android;net9.0-ios;net9.0-maccatalyst\nRecommended target framework: net9.0-android;net9.0-ios;net9.0-maccatalyst;net10.0-ios;net10.0-android;net10.0-maccatalyst",
+            "protectedSnippet": "Current target framework: net9.0-android;net9.0-ios;net9.0-maccatalyst\nRecommended target framework: net9.0-android;net9.0-ios;net9.0-maccatalyst;net10.0-ios;net10.0-android;net10.0-maccatalyst",
+            "properties": {
+              "CurrentTargetFramework": "net9.0-android;net9.0-ios;net9.0-maccatalyst",
+              "RecommendedTargetFramework": "net9.0-android;net9.0-ios;net9.0-maccatalyst;net10.0-ios;net10.0-android;net10.0-maccatalyst"
+            }
+          }
+        },
+        {
+          "incidentId": "45c78b1b-07bb-4c17-960d-a7e9ab6c3db6",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "_elapsedTimer.Interval = TimeSpan.FromSeconds(1);",
+              "protected": "M:System.TimeSpan.FromSeconds(System.Int64)"
+            },
+            "kind": "File",
+            "path": "Apps\\Pemdas\\BadlyDefined\\ViewModels\\GameViewModel.cs",
+            "snippet": "_elapsedTimer.Interval = TimeSpan.FromSeconds(1);",
+            "protectedSnippet": "M:System.TimeSpan.FromSeconds(System.Int64)",
+            "label": "M:System.TimeSpan.FromSeconds(System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 524,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "bea52f18-574c-4dcb-b039-5ce83c9c0568",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "await Task.Delay(TimeSpan.FromMilliseconds(100 * attempt));",
+              "protected": "M:System.TimeSpan.FromMilliseconds(System.Int64,System.Int64)"
+            },
+            "kind": "File",
+            "path": "Apps\\Pemdas\\BadlyDefined\\Services\\DatabaseService.cs",
+            "snippet": "await Task.Delay(TimeSpan.FromMilliseconds(100 * attempt));",
+            "protectedSnippet": "M:System.TimeSpan.FromMilliseconds(System.Int64,System.Int64)",
+            "label": "M:System.TimeSpan.FromMilliseconds(System.Int64,System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 156,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "12c0435c-9175-4630-a87e-50da08359d45",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "if (!saveTask.Wait(TimeSpan.FromSeconds(2)))\r\n            {\r\n                Debug.WriteLine(\u0022\u26A0\uFE0F SecureStorage save timeout, using generated key without saving\u0022);\r\n                return newKey;\r\n            }",
+              "protected": "M:System.TimeSpan.FromSeconds(System.Int64)"
+            },
+            "kind": "File",
+            "path": "Apps\\Pemdas\\BadlyDefined\\Services\\DatabaseService.cs",
+            "snippet": "if (!saveTask.Wait(TimeSpan.FromSeconds(2)))\r\n            {\r\n                Debug.WriteLine(\u0022\u26A0\uFE0F SecureStorage save timeout, using generated key without saving\u0022);\r\n                return newKey;\r\n            }",
+            "protectedSnippet": "M:System.TimeSpan.FromSeconds(System.Int64)",
+            "label": "M:System.TimeSpan.FromSeconds(System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 63,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "382b0f92-6169-445b-b0f2-86f1bb35b62b",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "if (!task.Wait(TimeSpan.FromSeconds(2)))\r\n            {\r\n                Debug.WriteLine(\u0022\u26A0\uFE0F SecureStorage timeout, using fallback key\u0022);\r\n                return GenerateFallbackKey();\r\n            }",
+              "protected": "M:System.TimeSpan.FromSeconds(System.Int64)"
+            },
+            "kind": "File",
+            "path": "Apps\\Pemdas\\BadlyDefined\\Services\\DatabaseService.cs",
+            "snippet": "if (!task.Wait(TimeSpan.FromSeconds(2)))\r\n            {\r\n                Debug.WriteLine(\u0022\u26A0\uFE0F SecureStorage timeout, using fallback key\u0022);\r\n                return GenerateFallbackKey();\r\n            }",
+            "protectedSnippet": "M:System.TimeSpan.FromSeconds(System.Int64)",
+            "label": "M:System.TimeSpan.FromSeconds(System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 41,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "3f648bf1-6048-4501-81d7-38a0a938a420",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "_elapsedTimer.Interval = TimeSpan.FromSeconds(1);",
+              "protected": "M:System.TimeSpan.FromSeconds(System.Int64)"
+            },
+            "kind": "File",
+            "path": "Apps\\Pemdas\\ViewModels\\GameViewModel.cs",
+            "snippet": "_elapsedTimer.Interval = TimeSpan.FromSeconds(1);",
+            "protectedSnippet": "M:System.TimeSpan.FromSeconds(System.Int64)",
+            "label": "M:System.TimeSpan.FromSeconds(System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 668,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "fede065a-f75d-43ef-a8dc-cf782f1888fa",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "_timer.Interval = TimeSpan.FromSeconds(1);",
+              "protected": "M:System.TimeSpan.FromSeconds(System.Int64)"
+            },
+            "kind": "File",
+            "path": "Apps\\Pemdas\\ViewModels\\GameViewModel.cs",
+            "snippet": "_timer.Interval = TimeSpan.FromSeconds(1);",
+            "protectedSnippet": "M:System.TimeSpan.FromSeconds(System.Int64)",
+            "label": "M:System.TimeSpan.FromSeconds(System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 620,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "d73d96b6-b841-412b-b219-16015ecd23ee",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "timer.Interval = TimeSpan.FromMilliseconds(CooldownMs);",
+              "protected": "M:System.TimeSpan.FromMilliseconds(System.Int64,System.Int64)"
+            },
+            "kind": "File",
+            "path": "Apps\\Pemdas\\Services\\FeedbackService.cs",
+            "snippet": "timer.Interval = TimeSpan.FromMilliseconds(CooldownMs);",
+            "protectedSnippet": "M:System.TimeSpan.FromMilliseconds(System.Int64,System.Int64)",
+            "label": "M:System.TimeSpan.FromMilliseconds(System.Int64,System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 288,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "d9091ec6-dfcb-496a-b16a-2b67cf5348c4",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Vibration.Vibrate(TimeSpan.FromMilliseconds(100));",
+              "protected": "M:System.TimeSpan.FromMilliseconds(System.Int64,System.Int64)"
+            },
+            "kind": "File",
+            "path": "Apps\\Pemdas\\Services\\FeedbackService.cs",
+            "snippet": "Vibration.Vibrate(TimeSpan.FromMilliseconds(100));",
+            "protectedSnippet": "M:System.TimeSpan.FromMilliseconds(System.Int64,System.Int64)",
+            "label": "M:System.TimeSpan.FromMilliseconds(System.Int64,System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 241,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "c863ea49-282c-4481-a20b-0efccc15bf6e",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Vibration.Vibrate(TimeSpan.FromMilliseconds(50));",
+              "protected": "M:System.TimeSpan.FromMilliseconds(System.Int64,System.Int64)"
+            },
+            "kind": "File",
+            "path": "Apps\\Pemdas\\Services\\FeedbackService.cs",
+            "snippet": "Vibration.Vibrate(TimeSpan.FromMilliseconds(50));",
+            "protectedSnippet": "M:System.TimeSpan.FromMilliseconds(System.Int64,System.Int64)",
+            "label": "M:System.TimeSpan.FromMilliseconds(System.Int64,System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 222,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "d0ec4d2b-660f-42db-bab8-7ca0c6a438eb",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Vibration.Vibrate(TimeSpan.FromMilliseconds(200));",
+              "protected": "M:System.TimeSpan.FromMilliseconds(System.Int64,System.Int64)"
+            },
+            "kind": "File",
+            "path": "Apps\\Pemdas\\Services\\FeedbackService.cs",
+            "snippet": "Vibration.Vibrate(TimeSpan.FromMilliseconds(200));",
+            "protectedSnippet": "M:System.TimeSpan.FromMilliseconds(System.Int64,System.Int64)",
+            "label": "M:System.TimeSpan.FromMilliseconds(System.Int64,System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 185,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "980cae90-ec62-488b-826b-cc94c0649e8a",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Vibration.Vibrate(TimeSpan.FromMilliseconds(50));",
+              "protected": "M:System.TimeSpan.FromMilliseconds(System.Int64,System.Int64)"
+            },
+            "kind": "File",
+            "path": "Apps\\Pemdas\\Services\\FeedbackService.cs",
+            "snippet": "Vibration.Vibrate(TimeSpan.FromMilliseconds(50));",
+            "protectedSnippet": "M:System.TimeSpan.FromMilliseconds(System.Int64,System.Int64)",
+            "label": "M:System.TimeSpan.FromMilliseconds(System.Int64,System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 165,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "4f8bc369-3a17-4304-b3d2-490cfe52ad97",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Vibration.Vibrate(TimeSpan.FromMilliseconds(50));",
+              "protected": "M:System.TimeSpan.FromMilliseconds(System.Int64,System.Int64)"
+            },
+            "kind": "File",
+            "path": "Apps\\Pemdas\\Services\\FeedbackService.cs",
+            "snippet": "Vibration.Vibrate(TimeSpan.FromMilliseconds(50));",
+            "protectedSnippet": "M:System.TimeSpan.FromMilliseconds(System.Int64,System.Int64)",
+            "label": "M:System.TimeSpan.FromMilliseconds(System.Int64,System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 163,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "7f455dd2-faed-4827-b3a9-e45a8b130b6f",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "delay = TimeSpan.FromMilliseconds(delay.TotalMilliseconds * 2);",
+              "protected": "M:System.TimeSpan.FromMilliseconds(System.Double)"
+            },
+            "kind": "File",
+            "path": "Services\\UserPrefrences.cs",
+            "snippet": "delay = TimeSpan.FromMilliseconds(delay.TotalMilliseconds * 2);",
+            "protectedSnippet": "M:System.TimeSpan.FromMilliseconds(System.Double)",
+            "label": "M:System.TimeSpan.FromMilliseconds(System.Double)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 338,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "e9450273-ffde-4503-8cb3-0fd01855188c",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var delay = TimeSpan.FromMilliseconds(100);",
+              "protected": "M:System.TimeSpan.FromMilliseconds(System.Int64,System.Int64)"
+            },
+            "kind": "File",
+            "path": "Services\\UserPrefrences.cs",
+            "snippet": "var delay = TimeSpan.FromMilliseconds(100);",
+            "protectedSnippet": "M:System.TimeSpan.FromMilliseconds(System.Int64,System.Int64)",
+            "label": "M:System.TimeSpan.FromMilliseconds(System.Int64,System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 324,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "09d58f64-69b2-4a87-8c0a-3a97f20b67d0",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "delay = TimeSpan.FromMilliseconds(delay.TotalMilliseconds * 2);",
+              "protected": "M:System.TimeSpan.FromMilliseconds(System.Double)"
+            },
+            "kind": "File",
+            "path": "Services\\UserPrefrences.cs",
+            "snippet": "delay = TimeSpan.FromMilliseconds(delay.TotalMilliseconds * 2);",
+            "protectedSnippet": "M:System.TimeSpan.FromMilliseconds(System.Double)",
+            "label": "M:System.TimeSpan.FromMilliseconds(System.Double)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 285,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "0d0be2ce-140c-4e0e-b807-ddc33cc5360e",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var delay = TimeSpan.FromMilliseconds(100);",
+              "protected": "M:System.TimeSpan.FromMilliseconds(System.Int64,System.Int64)"
+            },
+            "kind": "File",
+            "path": "Services\\UserPrefrences.cs",
+            "snippet": "var delay = TimeSpan.FromMilliseconds(100);",
+            "protectedSnippet": "M:System.TimeSpan.FromMilliseconds(System.Int64,System.Int64)",
+            "label": "M:System.TimeSpan.FromMilliseconds(System.Int64,System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 272,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "732bdef8-90c4-408c-8185-64ef2cf96ee2",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "if (duration \u003C TimeSpan.Zero || duration \u003E TimeSpan.FromMinutes(5))\r\n        {\r\n            LogWarning($\u0022SetCacheExpiration: Invalid duration {duration}, using default 5 seconds\u0022);\r\n            return;\r\n        }",
+              "protected": "M:System.TimeSpan.FromMinutes(System.Int64)"
+            },
+            "kind": "File",
+            "path": "Services\\UserPrefrences.cs",
+            "snippet": "if (duration \u003C TimeSpan.Zero || duration \u003E TimeSpan.FromMinutes(5))\r\n        {\r\n            LogWarning($\u0022SetCacheExpiration: Invalid duration {duration}, using default 5 seconds\u0022);\r\n            return;\r\n        }",
+            "protectedSnippet": "M:System.TimeSpan.FromMinutes(System.Int64)",
+            "label": "M:System.TimeSpan.FromMinutes(System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 160,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "b5a0cbdd-e665-45fd-8294-42d8bbab42d0",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "_resetTimeout = TimeSpan.FromSeconds(resetTimeoutSeconds);",
+              "protected": "M:System.TimeSpan.FromSeconds(System.Int64)"
+            },
+            "kind": "File",
+            "path": "Services\\UserPrefrences.cs",
+            "snippet": "_resetTimeout = TimeSpan.FromSeconds(resetTimeoutSeconds);",
+            "protectedSnippet": "M:System.TimeSpan.FromSeconds(System.Int64)",
+            "label": "M:System.TimeSpan.FromSeconds(System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 35,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "3efbb357-2d0e-4ca5-8cd6-a8973f5ea854",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "_resetTimeout = TimeSpan.FromSeconds(resetTimeoutSeconds);",
+              "protected": "M:System.TimeSpan.FromSeconds(System.Int64)"
+            },
+            "kind": "File",
+            "path": "Services\\UserPrefrences.cs",
+            "snippet": "_resetTimeout = TimeSpan.FromSeconds(resetTimeoutSeconds);",
+            "protectedSnippet": "M:System.TimeSpan.FromSeconds(System.Int64)",
+            "label": "M:System.TimeSpan.FromSeconds(System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 35,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "2f91adbe-cc44-44a4-85dc-ea165a899c77",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "return Tier == SubscriptionTier.ProPlus ? TimeSpan.MaxValue\r\n            : Tier == SubscriptionTier.Premium ? TimeSpan.FromHours(8)\r\n            : Tier == SubscriptionTier.Standard ? TimeSpan.FromHours(2)\r\n            : TimeSpan.FromMinutes(15);",
+              "protected": "M:System.TimeSpan.FromMinutes(System.Int64)"
+            },
+            "kind": "File",
+            "path": "Services\\FeatureGate.cs",
+            "snippet": "return Tier == SubscriptionTier.ProPlus ? TimeSpan.MaxValue\r\n            : Tier == SubscriptionTier.Premium ? TimeSpan.FromHours(8)\r\n            : Tier == SubscriptionTier.Standard ? TimeSpan.FromHours(2)\r\n            : TimeSpan.FromMinutes(15);",
+            "protectedSnippet": "M:System.TimeSpan.FromMinutes(System.Int64)",
+            "label": "M:System.TimeSpan.FromMinutes(System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 48,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "16756c7b-8818-4d34-843f-afdc361efb62",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "return Tier == SubscriptionTier.ProPlus ? TimeSpan.MaxValue\r\n            : Tier == SubscriptionTier.Premium ? TimeSpan.FromHours(8)\r\n            : Tier == SubscriptionTier.Standard ? TimeSpan.FromHours(2)\r\n            : TimeSpan.FromMinutes(15);",
+              "protected": "M:System.TimeSpan.FromHours(System.Int32)"
+            },
+            "kind": "File",
+            "path": "Services\\FeatureGate.cs",
+            "snippet": "return Tier == SubscriptionTier.ProPlus ? TimeSpan.MaxValue\r\n            : Tier == SubscriptionTier.Premium ? TimeSpan.FromHours(8)\r\n            : Tier == SubscriptionTier.Standard ? TimeSpan.FromHours(2)\r\n            : TimeSpan.FromMinutes(15);",
+            "protectedSnippet": "M:System.TimeSpan.FromHours(System.Int32)",
+            "label": "M:System.TimeSpan.FromHours(System.Int32)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 48,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "11c0b191-25bd-4e82-9924-91478e2c770f",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "return Tier == SubscriptionTier.ProPlus ? TimeSpan.MaxValue\r\n            : Tier == SubscriptionTier.Premium ? TimeSpan.FromHours(8)\r\n            : Tier == SubscriptionTier.Standard ? TimeSpan.FromHours(2)\r\n            : TimeSpan.FromMinutes(15);",
+              "protected": "M:System.TimeSpan.FromHours(System.Int32)"
+            },
+            "kind": "File",
+            "path": "Services\\FeatureGate.cs",
+            "snippet": "return Tier == SubscriptionTier.ProPlus ? TimeSpan.MaxValue\r\n            : Tier == SubscriptionTier.Premium ? TimeSpan.FromHours(8)\r\n            : Tier == SubscriptionTier.Standard ? TimeSpan.FromHours(2)\r\n            : TimeSpan.FromMinutes(15);",
+            "protectedSnippet": "M:System.TimeSpan.FromHours(System.Int32)",
+            "label": "M:System.TimeSpan.FromHours(System.Int32)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 48,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "ff623afe-1cd2-4201-bd9e-f511a0475a71",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var baseTime = TimeSpan.FromMinutes(15);",
+              "protected": "M:System.TimeSpan.FromMinutes(System.Int64)"
+            },
+            "kind": "File",
+            "path": "Services\\FeatureGate.cs",
+            "snippet": "var baseTime = TimeSpan.FromMinutes(15);",
+            "protectedSnippet": "M:System.TimeSpan.FromMinutes(System.Int64)",
+            "label": "M:System.TimeSpan.FromMinutes(System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 40,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "77bdd454-22f4-4a39-8a46-1371b22912f8",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "_rewardManager.GrantSessionExtension(TimeSpan.FromMinutes(45));",
+              "protected": "M:System.TimeSpan.FromMinutes(System.Int64)"
+            },
+            "kind": "File",
+            "path": "Services\\AdvertisingService.cs",
+            "snippet": "_rewardManager.GrantSessionExtension(TimeSpan.FromMinutes(45));",
+            "protectedSnippet": "M:System.TimeSpan.FromMinutes(System.Int64)",
+            "label": "M:System.TimeSpan.FromMinutes(System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 188,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "f9688e61-0922-4d9a-8bdd-c6968905be87",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var delay = TimeSpan.FromMilliseconds(Math.Max(25, duration.TotalMilliseconds / steps));",
+              "protected": "M:System.TimeSpan.FromMilliseconds(System.Double)"
+            },
+            "kind": "File",
+            "path": "Services\\AudioService.cs",
+            "snippet": "var delay = TimeSpan.FromMilliseconds(Math.Max(25, duration.TotalMilliseconds / steps));",
+            "protectedSnippet": "M:System.TimeSpan.FromMilliseconds(System.Double)",
+            "label": "M:System.TimeSpan.FromMilliseconds(System.Double)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 303,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "6dda3ae4-0f0c-41d4-a5cc-d0546d29c52e",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "if (features.Tier == SubscriptionTier.Free\r\n            \u0026\u0026 cap == TimeSpan.FromMinutes(15)\r\n            \u0026\u0026 planned \u003E= TimeSpan.FromMinutes(15))\r\n        {\r\n            try\r\n            {\r\n                await MainThread.InvokeOnMainThreadAsync(async () =\u003E\r\n                {\r\n                    var shell = Shell.Current;\r\n                    if (shell != null)\r\n                    {\r\n                        await shell.GoToAsync(nameof(Views.UpgradePage));\r\n                    }\r\n                });\r\n            }\r\n            catch\r\n            {\r\n                // ignore navigation failures\r\n            }\r\n        }",
+              "protected": "M:System.TimeSpan.FromMinutes(System.Int64)"
+            },
+            "kind": "File",
+            "path": "ViewModels\\PlaybackViewModel.cs",
+            "snippet": "if (features.Tier == SubscriptionTier.Free\r\n            \u0026\u0026 cap == TimeSpan.FromMinutes(15)\r\n            \u0026\u0026 planned \u003E= TimeSpan.FromMinutes(15))\r\n        {\r\n            try\r\n            {\r\n                await MainThread.InvokeOnMainThreadAsync(async () =\u003E\r\n                {\r\n                    var shell = Shell.Current;\r\n                    if (shell != null)\r\n                    {\r\n                        await shell.GoToAsync(nameof(Views.UpgradePage));\r\n                    }\r\n                });\r\n            }\r\n            catch\r\n            {\r\n                // ignore navigation failures\r\n            }\r\n        }",
+            "protectedSnippet": "M:System.TimeSpan.FromMinutes(System.Int64)",
+            "label": "M:System.TimeSpan.FromMinutes(System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 618,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "ec1a8467-94b5-4062-801a-8f3259c7893a",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "if (features.Tier == SubscriptionTier.Free\r\n            \u0026\u0026 cap == TimeSpan.FromMinutes(15)\r\n            \u0026\u0026 planned \u003E= TimeSpan.FromMinutes(15))\r\n        {\r\n            try\r\n            {\r\n                await MainThread.InvokeOnMainThreadAsync(async () =\u003E\r\n                {\r\n                    var shell = Shell.Current;\r\n                    if (shell != null)\r\n                    {\r\n                        await shell.GoToAsync(nameof(Views.UpgradePage));\r\n                    }\r\n                });\r\n            }\r\n            catch\r\n            {\r\n                // ignore navigation failures\r\n            }\r\n        }",
+              "protected": "M:System.TimeSpan.FromMinutes(System.Int64)"
+            },
+            "kind": "File",
+            "path": "ViewModels\\PlaybackViewModel.cs",
+            "snippet": "if (features.Tier == SubscriptionTier.Free\r\n            \u0026\u0026 cap == TimeSpan.FromMinutes(15)\r\n            \u0026\u0026 planned \u003E= TimeSpan.FromMinutes(15))\r\n        {\r\n            try\r\n            {\r\n                await MainThread.InvokeOnMainThreadAsync(async () =\u003E\r\n                {\r\n                    var shell = Shell.Current;\r\n                    if (shell != null)\r\n                    {\r\n                        await shell.GoToAsync(nameof(Views.UpgradePage));\r\n                    }\r\n                });\r\n            }\r\n            catch\r\n            {\r\n                // ignore navigation failures\r\n            }\r\n        }",
+            "protectedSnippet": "M:System.TimeSpan.FromMinutes(System.Int64)",
+            "label": "M:System.TimeSpan.FromMinutes(System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 618,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "e095d9eb-81d6-4974-8634-29eb3a5fdd2b",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var fade = TimeSpan.FromSeconds(UserPreferences.FadeOutSeconds);",
+              "protected": "M:System.TimeSpan.FromSeconds(System.Int64)"
+            },
+            "kind": "File",
+            "path": "ViewModels\\PlaybackViewModel.cs",
+            "snippet": "var fade = TimeSpan.FromSeconds(UserPreferences.FadeOutSeconds);",
+            "protectedSnippet": "M:System.TimeSpan.FromSeconds(System.Int64)",
+            "label": "M:System.TimeSpan.FromSeconds(System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 602,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "ffb800ff-79b7-4f38-82f5-ff2d317b978c",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var fade = TimeSpan.FromSeconds(UserPreferences.FadeOutSeconds);",
+              "protected": "M:System.TimeSpan.FromSeconds(System.Int64)"
+            },
+            "kind": "File",
+            "path": "ViewModels\\PlaybackViewModel.cs",
+            "snippet": "var fade = TimeSpan.FromSeconds(UserPreferences.FadeOutSeconds);",
+            "protectedSnippet": "M:System.TimeSpan.FromSeconds(System.Int64)",
+            "label": "M:System.TimeSpan.FromSeconds(System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 568,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "f9284dfd-8250-4557-b2b9-8640ec4f6e56",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var fade = TimeSpan.FromSeconds(UserPreferences.FadeOutSeconds);",
+              "protected": "M:System.TimeSpan.FromSeconds(System.Int64)"
+            },
+            "kind": "File",
+            "path": "ViewModels\\PlaybackViewModel.cs",
+            "snippet": "var fade = TimeSpan.FromSeconds(UserPreferences.FadeOutSeconds);",
+            "protectedSnippet": "M:System.TimeSpan.FromSeconds(System.Int64)",
+            "label": "M:System.TimeSpan.FromSeconds(System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 556,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "6b86b42e-a4b4-402c-901a-82664c0eaff7",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var transition = IsMixPlaylistTransitionsEnabled\r\n                            ? TimeSpan.FromSeconds(Math.Clamp(entry.TransitionSeconds, 0, _features.MaxMixTransitionSeconds))\r\n                            : TimeSpan.Zero;",
+              "protected": "M:System.TimeSpan.FromSeconds(System.Int64)"
+            },
+            "kind": "File",
+            "path": "ViewModels\\PlaybackViewModel.cs",
+            "snippet": "var transition = IsMixPlaylistTransitionsEnabled\r\n                            ? TimeSpan.FromSeconds(Math.Clamp(entry.TransitionSeconds, 0, _features.MaxMixTransitionSeconds))\r\n                            : TimeSpan.Zero;",
+            "protectedSnippet": "M:System.TimeSpan.FromSeconds(System.Int64)",
+            "label": "M:System.TimeSpan.FromSeconds(System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 530,
+            "column": 24
+          }
+        },
+        {
+          "incidentId": "5d09a928-5462-4705-8073-97a446d4b91f",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "await Task.Delay(TimeSpan.FromSeconds(runSeconds), _sessionCts?.Token ?? CancellationToken.None);",
+              "protected": "M:System.TimeSpan.FromSeconds(System.Int64)"
+            },
+            "kind": "File",
+            "path": "ViewModels\\PlaybackViewModel.cs",
+            "snippet": "await Task.Delay(TimeSpan.FromSeconds(runSeconds), _sessionCts?.Token ?? CancellationToken.None);",
+            "protectedSnippet": "M:System.TimeSpan.FromSeconds(System.Int64)",
+            "label": "M:System.TimeSpan.FromSeconds(System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 526,
+            "column": 28
+          }
+        },
+        {
+          "incidentId": "f0eb3b2e-36c3-492c-b5bd-059c17e97dda",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var runSeconds = entry.DurationSeconds ?? (int)TimeSpan.FromMinutes(3).TotalSeconds;",
+              "protected": "M:System.TimeSpan.FromMinutes(System.Int64)"
+            },
+            "kind": "File",
+            "path": "ViewModels\\PlaybackViewModel.cs",
+            "snippet": "var runSeconds = entry.DurationSeconds ?? (int)TimeSpan.FromMinutes(3).TotalSeconds;",
+            "protectedSnippet": "M:System.TimeSpan.FromMinutes(System.Int64)",
+            "label": "M:System.TimeSpan.FromMinutes(System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 523,
+            "column": 24
+          }
+        },
+        {
+          "incidentId": "8964f9c0-7612-4d75-99b8-d432cad822ce",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var fade = TimeSpan.FromSeconds(UserPreferences.FadeOutSeconds);",
+              "protected": "M:System.TimeSpan.FromSeconds(System.Int64)"
+            },
+            "kind": "File",
+            "path": "ViewModels\\PlaybackViewModel.cs",
+            "snippet": "var fade = TimeSpan.FromSeconds(UserPreferences.FadeOutSeconds);",
+            "protectedSnippet": "M:System.TimeSpan.FromSeconds(System.Int64)",
+            "label": "M:System.TimeSpan.FromSeconds(System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 359,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "32808e4c-9136-4323-9add-cc0e65cbb2bb",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var fade = TimeSpan.FromSeconds(UserPreferences.FadeOutSeconds);",
+              "protected": "M:System.TimeSpan.FromSeconds(System.Int64)"
+            },
+            "kind": "File",
+            "path": "ViewModels\\PlaybackViewModel.cs",
+            "snippet": "var fade = TimeSpan.FromSeconds(UserPreferences.FadeOutSeconds);",
+            "protectedSnippet": "M:System.TimeSpan.FromSeconds(System.Int64)",
+            "label": "M:System.TimeSpan.FromSeconds(System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 225,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "ba0cf420-1725-46e6-af0b-ff2669be4967",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Duration -= TimeSpan.FromMinutes(5);",
+              "protected": "M:System.TimeSpan.FromMinutes(System.Int64)"
+            },
+            "kind": "File",
+            "path": "ViewModels\\TimerViewModel.cs",
+            "snippet": "Duration -= TimeSpan.FromMinutes(5);",
+            "protectedSnippet": "M:System.TimeSpan.FromMinutes(System.Int64)",
+            "label": "M:System.TimeSpan.FromMinutes(System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 116,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "c50046dc-8b76-4c0e-996a-2b403ec97be0",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "if (Duration \u003E TimeSpan.FromMinutes(5))\r\n            Duration -= TimeSpan.FromMinutes(5);",
+              "protected": "M:System.TimeSpan.FromMinutes(System.Int64)"
+            },
+            "kind": "File",
+            "path": "ViewModels\\TimerViewModel.cs",
+            "snippet": "if (Duration \u003E TimeSpan.FromMinutes(5))\r\n            Duration -= TimeSpan.FromMinutes(5);",
+            "protectedSnippet": "M:System.TimeSpan.FromMinutes(System.Int64)",
+            "label": "M:System.TimeSpan.FromMinutes(System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 115,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "c2c96336-086b-4225-83cc-ab09c26d496f",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "TimeSpan.FromMinutes(5)",
+              "protected": "M:System.TimeSpan.FromMinutes(System.Int64)"
+            },
+            "kind": "File",
+            "path": "ViewModels\\TimerViewModel.cs",
+            "snippet": "TimeSpan.FromMinutes(5)",
+            "protectedSnippet": "M:System.TimeSpan.FromMinutes(System.Int64)",
+            "label": "M:System.TimeSpan.FromMinutes(System.Int64)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 110,
+            "column": 41
+          }
+        },
+        {
+          "incidentId": "569c9ae8-5fe8-4225-86c6-2f752520fc83",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: New TimeSpan.From*() overloads that take integers ",
+          "projectPath": "AmbientSleeper.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "UserPreferences.SetDuration(TimeSpan.FromMinutes(clamped));",
+              "protected": "M:System.TimeSpan.FromMinutes(System.Double)"
+            },
+            "kind": "File",
+            "path": "ViewModels\\TimerViewModel.Features.cs",
+            "snippet": "UserPreferences.SetDuration(TimeSpan.FromMinutes(clamped));",
+            "protectedSnippet": "M:System.TimeSpan.FromMinutes(System.Double)",
+            "label": "M:System.TimeSpan.FromMinutes(System.Double)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/timespan-from-overloads.md",
+                "isCustom": false
+              }
+            ],
+            "line": 52,
+            "column": 12
+          }
+        }
+      ],
+      "features": []
+    }
+  ],
+  "rules": {
+    "Project.0002": {
+      "id": "Project.0002",
+      "isFeature": false,
+      "description": "Project\u0027s target framework(s) needs to be changed to the new target framework that you selected for this upgrade.\n\nDuring upgrade target framework will be adjusted to corresponding platform when applicable. In some cases project would result in multiple target frameworks after the upgrade if it was using features that now have their own platforms in modern .NET frameworks (windows, iOS, Android etc).",
+      "label": "Project\u0027s target framework(s) needs to be changed",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Overview of porting from .NET Framework to .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265227",
+          "isCustom": false
+        },
+        {
+          "title": ".NET project SDKs",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265226",
+          "isCustom": false
+        }
+      ]
+    },
+    "Api.0002": {
+      "id": "Api.0002",
+      "isFeature": false,
+      "description": "API is source incompatible for selected .NET version: requires code changes to compile successfully when targeting a new version, such as removing obsolete APIs or changing method signatures.",
+      "label": "Source incompatible for selected .NET version",
+      "severity": "Potential",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Breaking changes in .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262679",
+          "isCustom": false
+        }
+      ]
+    }
+  }
+}

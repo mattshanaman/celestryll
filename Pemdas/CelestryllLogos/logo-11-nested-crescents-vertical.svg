@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(100, 80) rotate(-90)">
+        <!-- Outer crescent (indigo) - opens upward -->
+        <path d="M -50,0 A 50,50 0 1,1 50,0 A 40,40 0 1,0 -40,0 Z"
+              fill="none" stroke="#2D2F7F" stroke-width="3"/>
+        <!-- Middle crescent (violet) - opens upward -->
+        <path d="M -38,0 A 38,38 0 1,1 38,0 A 30,30 0 1,0 -30,0 Z"
+              fill="none" stroke="#6A6DFF" stroke-width="2.5"/>
+        <!-- Inner crescent (teal) - opens upward -->
+        <path d="M -26,0 A 26,26 0 1,1 26,0 A 20,20 0 1,0 -20,0 Z"
+              fill="#1FA2A0"/>
+        <!-- Star accent -->
+        <circle cx="-35" cy="0" r="3" fill="#E8F7F6"/>
+    </g>
+    <text x="100" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="300" fill="#2D2F7F" letter-spacing="2">Celestryll</text>
+</svg>

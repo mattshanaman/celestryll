@@ -1,0 +1,1466 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="Library_Title" xml:space="preserve">
+    <value>Bibliothek</value>
+  </data>
+  <data name="Tab_BuiltIn" xml:space="preserve">
+    <value>Eingebaut</value>
+    <comment>DEPRECATED - Built-in is now a bundle</comment>
+  </data>
+  <data name="Tab_YourAudio" xml:space="preserve">
+    <value>Ihre Audiodateien</value>
+  </data>
+  <data name="ImportFromDevice" xml:space="preserve">
+    <value>Vom Gerät importieren</value>
+  </data>
+  <data name="AudioBundles" xml:space="preserve">
+    <value>Pakete</value>
+  </data>
+  <data name="A11y_AddToMix" xml:space="preserve">
+    <value>Zum Mix hinzufügen</value>
+  </data>
+  <data name="A11y_AddToPlaylist" xml:space="preserve">
+    <value>Zur Playlist hinzufügen</value>
+  </data>
+  <data name="Confirmation_SoundAdded" xml:space="preserve">
+    <value>Sound zur Playlist hinzugefügt</value>
+  </data>
+  <data name="PlaylistLocked_Title" xml:space="preserve">
+    <value>Playlist gesperrt</value>
+  </data>
+  <data name="PlaylistLocked_Message" xml:space="preserve">
+    <value>Upgrade auf Standard, Premium oder Pro+, um Playlists zu speichern oder zu ändern.</value>
+  </data>
+  <data name="DefaultPlaylistCreated_Title" xml:space="preserve">
+    <value>Standard-Playlist erstellt</value>
+  </data>
+  <data name="DefaultPlaylistCreated_Message" xml:space="preserve">
+    <value>Eine 'Standard'-Playlist wurde erstellt.</value>
+  </data>
+  <data name="SelectPlaylist_Title" xml:space="preserve">
+    <value>Playlist auswählen</value>
+  </data>
+  <data name="EmptyPlaylist_Title" xml:space="preserve">
+    <value>Leere Playlist</value>
+  </data>
+  <data name="EmptyPlaylist_Message" xml:space="preserve">
+    <value>Fügen Sie zuerst Sounds zur Playlist-Warteschlange hinzu oder laden Sie eine gespeicherte Playlist.</value>
+  </data>
+  <data name="ExportScope_Title" xml:space="preserve">
+    <value>Export-Umfang</value>
+  </data>
+  <data name="ExportScope_Personal" xml:space="preserve">
+    <value>Persönlich (Standard+)</value>
+  </data>
+  <data name="ExportScope_Shareable" xml:space="preserve">
+    <value>Teilbar (Premium/Pro+)</value>
+  </data>
+  <data name="ExportLocked_Title" xml:space="preserve">
+    <value>Export gesperrt</value>
+  </data>
+  <data name="ExportLocked_Message" xml:space="preserve">
+    <value>Upgrade auf Standard, Premium oder Pro+, um Ihre Mixe zu exportieren.</value>
+  </data>
+  <data name="ExportComplete_Title" xml:space="preserve">
+    <value>Export abgeschlossen</value>
+  </data>
+  <data name="ExportComplete_Message" xml:space="preserve">
+    <value>Ihre Mixe und Playlists wurden exportiert. Wählen Sie einen Speicherort für die Datei.</value>
+    <comment>Export</comment>
+  </data>
+  <data name="ExportFailed_Title" xml:space="preserve">
+    <value>Export fehlgeschlagen</value>
+  </data>
+  <data name="ImportComplete_Title" xml:space="preserve">
+    <value>Import abgeschlossen</value>
+  </data>
+  <data name="ImportComplete_MessageFormat" xml:space="preserve">
+    <value>{0} Elemente importiert.</value>
+  </data>
+  <data name="ImportFailed_Title" xml:space="preserve">
+    <value>Import fehlgeschlagen</value>
+  </data>
+  <data name="Alarm_Title" xml:space="preserve">
+    <value>Alarm</value>
+  </data>
+  <data name="Alarm_Free_Message" xml:space="preserve">
+    <value>Die Alarm-Funktion erfordert ein Premium- oder Pro+-Abonnement.</value>
+  </data>
+  <data name="PickExport_Title" xml:space="preserve">
+    <value>Export auswählen</value>
+  </data>
+  <data name="PickAudio_Title" xml:space="preserve">
+    <value>Audio auswählen</value>
+  </data>
+  <data name="PickAudio_TitleAlt" xml:space="preserve">
+    <value>Audiodatei auswählen</value>
+  </data>
+  <data name="Subscription_Title" xml:space="preserve">
+    <value>Abonnement</value>
+  </data>
+  <data name="Purchased_StandardLifetime" xml:space="preserve">
+    <value>Standard Lifetime gekauft</value>
+  </data>
+  <data name="Purchased_PremiumLifetime" xml:space="preserve">
+    <value>Premium Lifetime gekauft</value>
+  </data>
+  <data name="LifetimeSuffix" xml:space="preserve">
+    <value>Lifetime</value>
+  </data>
+  <data name="CurrentTier_Format" xml:space="preserve">
+    <value>Aktuelles Level: {0} {1}</value>
+  </data>
+  <data name="ExportShare_Title" xml:space="preserve">
+    <value>Export teilen</value>
+  </data>
+  <data name="ExportShare_ShareSheet" xml:space="preserve">
+    <value>Teilen</value>
+  </data>
+  <data name="ExportShare_Email" xml:space="preserve">
+    <value>E-Mail</value>
+  </data>
+  <data name="ExportEmail_Subject" xml:space="preserve">
+    <value>Ambient Sleeper Einstellungen</value>
+  </data>
+  <data name="Tab_Mix" xml:space="preserve">
+    <value>Mix</value>
+  </data>
+  <data name="Tab_Playlist" xml:space="preserve">
+    <value>Playlist</value>
+  </data>
+  <data name="Tab_MixPlaylist" xml:space="preserve">
+    <value>Mix-Playlist</value>
+  </data>
+  <data name="MixPlaylist_Mode" xml:space="preserve">
+    <value>Mix-Playlist-Modus</value>
+  </data>
+  <data name="MixPlaylist_AddMix" xml:space="preserve">
+    <value>Mix hinzufügen</value>
+  </data>
+  <data name="MixPlaylist_Remove" xml:space="preserve">
+    <value>Entfernen</value>
+  </data>
+  <data name="MixPlaylist_Save" xml:space="preserve">
+    <value>Aktuelle Mix-Playlist speichern</value>
+  </data>
+  <data name="MixPlaylist_NamePlaceholder" xml:space="preserve">
+    <value>Mix-Playlist-Name</value>
+  </data>
+  <data name="MixPlaylist_Saved" xml:space="preserve">
+    <value>Gespeicherte Mix-Playlists</value>
+  </data>
+  <data name="MixPlaylist_Loop" xml:space="preserve">
+    <value>Mix-Playlist wiederholen</value>
+  </data>
+  <data name="MixPlaylist_Transition" xml:space="preserve">
+    <value>Übergang:</value>
+  </data>
+  <data name="MixPlaylist_Duration" xml:space="preserve">
+    <value>Dauer:</value>
+  </data>
+  <data name="MixPlaylist_Locked_Title" xml:space="preserve">
+    <value>Mix-Playlist gesperrt</value>
+  </data>
+  <data name="MixPlaylist_Locked_Message" xml:space="preserve">
+    <value>Upgrade auf Pro+, um Mix-Playlists zu verwenden.</value>
+  </data>
+  <data name="Help_Title" xml:space="preserve">
+    <value>Help &amp; Instructions</value>
+  </data>
+  <data name="Help_Welcome_Title" xml:space="preserve">
+    <value>Welcome to Ambient Sleeper</value>
+  </data>
+  <data name="Help_Welcome_Description" xml:space="preserve">
+    <value>Create the perfect ambient soundscape to help you relax, focus, or sleep. Mix multiple sounds, create playlists, and set timers for the ideal audio experience.</value>
+  </data>
+  <data name="Help_GettingStarted_Title" xml:space="preserve">
+    <value>Getting Started</value>
+  </data>
+  <data name="Help_GettingStarted_Description" xml:space="preserve">
+    <value>Ambient Sleeper is organized into three main tabs:</value>
+  </data>
+  <data name="Help_GettingStarted_Library" xml:space="preserve">
+    <value>Library - Browse and add sounds</value>
+  </data>
+  <data name="Help_GettingStarted_Playback" xml:space="preserve">
+    <value>Playback - Control your audio and create mixes</value>
+  </data>
+  <data name="Help_GettingStarted_Timer" xml:space="preserve">
+    <value>Timer - Set automatic stop times</value>
+  </data>
+  <data name="Help_Library_Title" xml:space="preserve">
+    <value>Library Tab</value>
+  </data>
+  <data name="Help_Library_Bundles_Title" xml:space="preserve">
+    <value>Sound Bundles</value>
+  </data>
+  <data name="Help_Library_Bundles_Description" xml:space="preserve">
+    <value>Collections of related ambient sounds (nature, white noise, etc.). Tap any sound to add it to your current mix or playlist.</value>
+  </data>
+  <data name="Help_Library_Playlists_Title" xml:space="preserve">
+    <value>Saved Playlists</value>
+  </data>
+  <data name="Help_Library_Playlists_Description" xml:space="preserve">
+    <value>View and manage your saved playlists. Load a playlist to queue multiple sounds for sequential playback. (Standard+ feature)</value>
+  </data>
+  <data name="Help_Library_MixPlaylists_Title" xml:space="preserve">
+    <value>Mix Playlists</value>
+  </data>
+  <data name="Help_Library_MixPlaylists_Description" xml:space="preserve">
+    <value>Advanced feature for creating scheduled transitions between different mixes. (Premium+ feature)</value>
+  </data>
+  <data name="Help_Playback_Title" xml:space="preserve">
+    <value>Playback Tab</value>
+  </data>
+  <data name="Help_Playback_Mix_Title" xml:space="preserve">
+    <value>Mix Mode</value>
+  </data>
+  <data name="Help_Playback_Mix_Description" xml:space="preserve">
+    <value>Overlay multiple sounds simultaneously. Adjust individual volume levels for each sound. Save your favorite combinations.</value>
+  </data>
+  <data name="Help_Playback_Mix_Tiers" xml:space="preserve">
+    <value>Free: 2 sounds | Standard: 3 sounds | Premium: 10 sounds | Pro+: 20 sounds</value>
+  </data>
+  <data name="Help_Playback_Playlist_Title" xml:space="preserve">
+    <value>Playlist Mode</value>
+  </data>
+  <data name="Help_Playback_Playlist_Description" xml:space="preserve">
+    <value>Play sounds sequentially with loop mode. (Standard+ feature)</value>
+  </data>
+  <data name="Help_Playback_MixPlaylist_Title" xml:space="preserve">
+    <value>Mix Playlist Mode</value>
+  </data>
+  <data name="Help_Playback_MixPlaylist_Description" xml:space="preserve">
+    <value>Create scheduled rotations of different mixes with customizable durations and transitions. (Premium+ feature)</value>
+  </data>
+  <data name="Help_Timer_Title" xml:space="preserve">
+    <value>Timer Tab</value>
+  </data>
+  <data name="Help_Timer_Duration_Title" xml:space="preserve">
+    <value>Duration Mode</value>
+  </data>
+  <data name="Help_Timer_Duration_Description" xml:space="preserve">
+    <value>Set a countdown timer (e.g., 30 minutes). Audio will fade out when the timer expires.</value>
+  </data>
+  <data name="Help_Timer_StopAt_Title" xml:space="preserve">
+    <value>Stop At Time</value>
+  </data>
+  <data name="Help_Timer_StopAt_Description" xml:space="preserve">
+    <value>Set a specific time for audio to stop (e.g., 11:00 PM). Perfect for bedtime routines.</value>
+  </data>
+  <data name="Help_Timer_Alarm_Title" xml:space="preserve">
+    <value>Alarm Integration</value>
+  </data>
+  <data name="Help_Timer_Alarm_Description" xml:space="preserve">
+    <value>Optionally play a system alarm sound when the timer expires. (Standard+ feature)</value>
+  </data>
+  <data name="Help_Advanced_Title" xml:space="preserve">
+    <value>Advanced Features</value>
+  </data>
+  <data name="Help_Mixes_Title" xml:space="preserve">
+    <value>Creating Mixes</value>
+  </data>
+  <data name="Help_Mixes_Description" xml:space="preserve">
+    <value>Mixes allow you to overlay multiple ambient sounds simultaneously. From the Library tab, tap sounds to add them to your mix. In the Playback tab, adjust each sound's volume independently using the sliders.</value>
+  </data>
+  <data name="Help_Mixes_Tip" xml:space="preserve">
+    <value>Tip: Start with 1-2 sounds and gradually add more. Try keeping one sound louder as a 'base' and others softer for texture.</value>
+  </data>
+  <data name="Help_EQ_Title" xml:space="preserve">
+    <value>Equalizer (EQ)</value>
+  </data>
+  <data name="Help_EQ_Description" xml:space="preserve">
+    <value>Customize the frequency balance of your audio. Premium tier includes a standard 3-band EQ, while Pro+ tier provides advanced multi-band control with presets and custom curves.</value>
+  </data>
+  <data name="Help_Export_Title" xml:space="preserve">
+    <value>Export &amp; Import</value>
+  </data>
+  <data name="Help_Export_Description" xml:space="preserve">
+    <value>Back up your mixes and playlists or share them with others. Standard+ tiers can export for personal backup. Premium+ tiers can create shareable exports that work across devices.</value>
+  </data>
+  <data name="Help_Tiers_Title" xml:space="preserve">
+    <value>Subscription Tiers</value>
+  </data>
+  <data name="Help_Tier_Free_Title" xml:space="preserve">
+    <value>Free Tier</value>
+  </data>
+  <data name="Help_Tier_Free_Features" xml:space="preserve">
+    <value>Mix up to 2 sounds simultaneously | Access to all sound bundles | Save up to 3 mixes | 15-minute session limit</value>
+  </data>
+  <data name="Help_Tier_Standard_Title" xml:space="preserve">
+    <value>Standard Tier ($4.99/mo or $24/yr)</value>
+  </data>
+  <data name="Help_Tier_Standard_Features" xml:space="preserve">
+    <value>Mix up to 3 sounds simultaneously | Unlimited session length | Save up to 10 mixes | Playlist mode with looping | Custom alarm integration | Export/import (personal backup)</value>
+  </data>
+  <data name="Help_Tier_Premium_Title" xml:space="preserve">
+    <value>Premium Tier ($9.99/mo or $49/yr)</value>
+  </data>
+  <data name="Help_Tier_Premium_Features" xml:space="preserve">
+    <value>Mix up to 10 sounds simultaneously | Save unlimited mixes &amp; playlists | Custom 3-band equalizer | Mix Playlist mode | Export/import with sharing</value>
+  </data>
+  <data name="Help_Tier_ProPlus_Title" xml:space="preserve">
+    <value>Pro+ Tier ($14.99/mo or $74/yr)</value>
+  </data>
+  <data name="Help_Tier_ProPlus_Features" xml:space="preserve">
+    <value>Mix up to 20 sounds simultaneously | Unlimited saved content | Advanced multi-band equalizer with presets | Mix Playlist with custom transitions | Priority support | Early access to new features</value>
+  </data>
+  <data name="Help_Tips_Title" xml:space="preserve">
+    <value>Tips &amp; Tricks</value>
+  </data>
+  <data name="Help_Tips_Simple" xml:space="preserve">
+    <value>Start Simple: Begin with 1-2 sounds and gradually add more</value>
+  </data>
+  <data name="Help_Tips_Volume" xml:space="preserve">
+    <value>Volume Balance: Adjust individual volumes to create depth</value>
+  </data>
+  <data name="Help_Tips_Timer" xml:space="preserve">
+    <value>Timer Strategy: Use Duration mode for naps, Stop At Time for bedtime</value>
+  </data>
+  <data name="Help_Tips_Save" xml:space="preserve">
+    <value>Save Configurations: Save mixes for different activities</value>
+  </data>
+  <data name="Help_Tips_Background" xml:space="preserve">
+    <value>Background Play: Audio continues when app is minimized</value>
+  </data>
+  <data name="Help_Troubleshooting_Title" xml:space="preserve">
+    <value>Troubleshooting</value>
+  </data>
+  <data name="Help_Troubleshooting_Audio" xml:space="preserve">
+    <value>Audio Not Playing: Check device volume and app permissions</value>
+  </data>
+  <data name="Help_Troubleshooting_Timer" xml:space="preserve">
+    <value>Timer Not Working: Verify timer is enabled and duration is set</value>
+  </data>
+  <data name="Help_Troubleshooting_Data" xml:space="preserve">
+    <value>Saved Data Lost: Use Export feature regularly to back up</value>
+  </data>
+  <data name="Help_Troubleshooting_Performance" xml:space="preserve">
+    <value>Performance Issues: Try reducing number of simultaneous sounds</value>
+  </data>
+  <data name="Help_Troubleshooting_More" xml:space="preserve">
+    <value>Need More Help? Visit Settings &gt; Diagnostics to check system health and view error reports.</value>
+  </data>
+  <data name="Help_Footer_AppVersion" xml:space="preserve">
+    <value>App Version</value>
+  </data>
+  <data name="Help_Footer_LastUpdated" xml:space="preserve">
+    <value>Last Updated</value>
+  </data>
+  <data name="Legal_Title" xml:space="preserve">
+    <value>Legal &amp; Disclaimer</value>
+  </data>
+  <data name="Legal_PageTitle" xml:space="preserve">
+    <value>Legal Information &amp; Disclaimer</value>
+  </data>
+  <data name="Legal_Critical_Title" xml:space="preserve">
+    <value>⚠️ IMPORTANT MEDICAL DISCLAIMER</value>
+  </data>
+  <data name="Legal_Critical_Statement" xml:space="preserve">
+    <value>THIS APPLICATION IS FOR ENTERTAINMENT AND RELAXATION PURPOSES ONLY.</value>
+  </data>
+  <data name="Legal_Critical_NotMedical" xml:space="preserve">
+    <value>Ambient Sleeper is NOT a medical device, medical treatment, or healthcare application. It is not intended to diagnose, treat, cure, or prevent any disease, medical condition, or sleep disorder.</value>
+  </data>
+  <data name="Legal_Entertainment_Title" xml:space="preserve">
+    <value>Entertainment Purpose Only</value>
+  </data>
+  <data name="Legal_Entertainment_ForText" xml:space="preserve">
+    <value>Ambient Sleeper is designed solely for:</value>
+  </data>
+  <data name="Legal_Entertainment_List" xml:space="preserve">
+    <value>Entertainment | Relaxation | Creating ambient soundscapes | Personal enjoyment</value>
+  </data>
+  <data name="Legal_Entertainment_DoesNotText" xml:space="preserve">
+    <value>This app does NOT:</value>
+  </data>
+  <data name="Legal_Entertainment_DoesNotList" xml:space="preserve">
+    <value>Provide medical advice or treatment | Replace professional medical care | Diagnose or treat sleep disorders | Cure insomnia or other medical conditions | Replace prescribed medications or therapies</value>
+  </data>
+  <data name="Legal_NoAdvice_Title" xml:space="preserve">
+    <value>Not Medical Advice</value>
+  </data>
+  <data name="Legal_NoAdvice_Description" xml:space="preserve">
+    <value>The content, features, and functionality of Ambient Sleeper do not constitute medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified healthcare provider with any questions you may have regarding a medical condition.</value>
+  </data>
+  <data name="Legal_NoAdvice_SleepProblems" xml:space="preserve">
+    <value>If you have sleep problems: Consult with a licensed healthcare professional, such as a sleep specialist or physician.</value>
+  </data>
+  <data name="Legal_Health_Title" xml:space="preserve">
+    <value>Health Conditions</value>
+  </data>
+  <data name="Legal_Health_Consult" xml:space="preserve">
+    <value>If you suffer from any of the following conditions, consult your doctor before using this app:</value>
+  </data>
+  <data name="Legal_Health_ConditionsList" xml:space="preserve">
+    <value>Insomnia or other sleep disorders | Anxiety or depression | Epilepsy or seizure disorders | Hearing impairments or sensitivity | Any chronic medical condition</value>
+  </data>
+  <data name="Legal_Health_NoDelay" xml:space="preserve">
+    <value>Never delay seeking medical advice or disregard professional medical advice because of something you have heard or experienced in this app.</value>
+  </data>
+  <data name="Legal_Liability_Title" xml:space="preserve">
+    <value>Limitation of Liability &amp; Indemnification</value>
+  </data>
+  <data name="Legal_Liability_Risk_Title" xml:space="preserve">
+    <value>Use at Your Own Risk</value>
+  </data>
+  <data name="Legal_Liability_Risk_Text" xml:space="preserve">
+    <value>You acknowledge and agree that:</value>
+  </data>
+  <data name="Legal_Liability_Risk_List" xml:space="preserve">
+    <value>You use Ambient Sleeper entirely at your own risk | The app is provided "AS IS" and "AS AVAILABLE" without warranties of any kind | We make no guarantees about the effectiveness of the app for any purpose | We do not guarantee that the app will help you sleep, relax, or achieve any specific outcome</value>
+  </data>
+  <data name="Legal_Liability_NoLiability_Title" xml:space="preserve">
+    <value>No Liability</value>
+  </data>
+  <data name="Legal_Liability_NoLiability_Text" xml:space="preserve">
+    <value>To the maximum extent permitted by applicable law, the developers, publishers, and distributors of Ambient Sleeper shall not be liable for:</value>
+  </data>
+  <data name="Legal_Liability_NoLiability_List" xml:space="preserve">
+    <value>Any direct, indirect, incidental, special, consequential, or punitive damages | Any health issues, sleep problems, or medical conditions that arise from or are related to app use | Any loss of sleep, productivity, or quality of life | Any hearing damage from improper volume settings | Any personal injury or property damage | Any damages arising from reliance on the app as a medical treatment or solution</value>
+  </data>
+  <data name="Legal_Liability_Indemnification_Title" xml:space="preserve">
+    <value>Indemnification</value>
+  </data>
+  <data name="Legal_Liability_Indemnification_Text" xml:space="preserve">
+    <value>You agree to indemnify, defend, and hold harmless the developers, publishers, distributors, and any affiliated parties from and against any and all claims, damages, obligations, losses, liabilities, costs, debts, and expenses (including attorney's fees) arising from:</value>
+  </data>
+  <data name="Legal_Liability_Indemnification_List" xml:space="preserve">
+    <value>Your use or misuse of the app | Your violation of any terms or conditions | Your violation of any third-party rights | Any health issues related to app usage | Any claim that you relied on the app as medical treatment</value>
+  </data>
+  <data name="Legal_Volume_Title" xml:space="preserve">
+    <value>Volume &amp; Hearing Safety</value>
+  </data>
+  <data name="Legal_Volume_Warning" xml:space="preserve">
+    <value>⚠️ WARNING: Prolonged exposure to loud sounds can cause hearing damage.</value>
+  </data>
+  <data name="Legal_Volume_Text" xml:space="preserve">
+    <value>Always use reasonable volume levels. Do not use this app at high volumes, especially while sleeping or using headphones.</value>
+  </data>
+  <data name="Legal_Volume_Guidelines" xml:space="preserve">
+    <value>Start with low volume and adjust gradually | Never exceed comfortable listening levels | Take breaks from audio playback | If you experience ringing in ears or hearing discomfort, stop use immediately and consult a doctor</value>
+  </data>
+  <data name="Legal_Emergency_Title" xml:space="preserve">
+    <value>Not for Emergency Use</value>
+  </data>
+  <data name="Legal_Emergency_Text" xml:space="preserve">
+    <value>This app is not intended for use in emergency situations. If you are experiencing a medical emergency, call emergency services immediately (911 in the US, 112 in Europe, or your local emergency number).</value>
+  </data>
+  <data name="Legal_Timer_Title" xml:space="preserve">
+    <value>Timer Function Disclaimer</value>
+  </data>
+  <data name="Legal_Timer_Text" xml:space="preserve">
+    <value>The timer and alarm features are provided for convenience only:</value>
+  </data>
+  <data name="Legal_Timer_List" xml:space="preserve">
+    <value>Do not rely on this app as your primary alarm clock for critical appointments | We are not liable if the timer or alarm fails to function | Battery drain, system issues, or other factors may prevent timers from working correctly | Always use a dedicated alarm clock for important wake-up times</value>
+  </data>
+  <data name="Legal_Children_Title" xml:space="preserve">
+    <value>Use by Children</value>
+  </data>
+  <data name="Legal_Children_Text" xml:space="preserve">
+    <value>This app is not specifically designed for use by children. Parents and guardians should:</value>
+  </data>
+  <data name="Legal_Children_List" xml:space="preserve">
+    <value>Supervise children's use of the app | Ensure volume levels are safe for children's sensitive hearing | Consult a pediatrician before using the app as a sleep aid for children | Be aware that children may require different approaches to sleep and relaxation</value>
+  </data>
+  <data name="Legal_Data_Title" xml:space="preserve">
+    <value>Data &amp; Privacy</value>
+  </data>
+  <data name="Legal_Data_Text" xml:space="preserve">
+    <value>While we strive to protect your data, we make no guarantees about:</value>
+  </data>
+  <data name="Legal_Data_List" xml:space="preserve">
+    <value>The security of your saved mixes, playlists, or settings | The persistence of your data across app updates or device changes | The backup or recovery of your data</value>
+  </data>
+  <data name="Legal_Data_Export" xml:space="preserve">
+    <value>We recommend exporting your mixes and playlists regularly if they are important to you.</value>
+  </data>
+  <data name="Legal_ThirdParty_Title" xml:space="preserve">
+    <value>Third-Party Content</value>
+  </data>
+  <data name="Legal_ThirdParty_Text" xml:space="preserve">
+    <value>If you import your own audio files or use third-party sounds:</value>
+  </data>
+  <data name="Legal_ThirdParty_List" xml:space="preserve">
+    <value>You are responsible for ensuring you have the legal right to use that content | We are not liable for any copyright or intellectual property violations | We do not screen or approve user-imported content</value>
+  </data>
+  <data name="Legal_Changes_Title" xml:space="preserve">
+    <value>Changes to Features</value>
+  </data>
+  <data name="Legal_Changes_Text" xml:space="preserve">
+    <value>We reserve the right to:</value>
+  </data>
+  <data name="Legal_Changes_List" xml:space="preserve">
+    <value>Modify, suspend, or discontinue any feature at any time | Change subscription tiers and pricing | Update these terms and disclaimers | Remove sounds or features from the app</value>
+  </data>
+  <data name="Legal_Changes_NoLiability" xml:space="preserve">
+    <value>We are not liable for any losses or damages resulting from such changes.</value>
+  </data>
+  <data name="Legal_Law_Title" xml:space="preserve">
+    <value>Governing Law</value>
+  </data>
+  <data name="Legal_Law_Text" xml:space="preserve">
+    <value>These terms and disclaimers are governed by applicable laws in your jurisdiction. By using this app, you agree that any disputes will be resolved in accordance with local laws.</value>
+  </data>
+  <data name="Legal_Contact_Title" xml:space="preserve">
+    <value>Questions or Concerns</value>
+  </data>
+  <data name="Legal_Contact_Text" xml:space="preserve">
+    <value>If you have questions about these terms or disclaimers, please contact us through the app support channels.</value>
+  </data>
+  <data name="Legal_Acceptance_Title" xml:space="preserve">
+    <value>Acceptance of Terms</value>
+  </data>
+  <data name="Legal_Acceptance_Agree" xml:space="preserve">
+    <value>By using Ambient Sleeper, you acknowledge that you have read, understood, and agree to all terms, conditions, disclaimers, and limitations of liability stated in this document.</value>
+  </data>
+  <data name="Legal_Acceptance_Disagree" xml:space="preserve">
+    <value>If you do not agree to these terms, you must immediately stop using the app and uninstall it from your device.</value>
+  </data>
+  <data name="Legal_Footer_Copyright" xml:space="preserve">
+    <value>All Rights Reserved</value>
+  </data>
+  <data name="Legal_Footer_Disclaimer" xml:space="preserve">
+    <value>This disclaimer is provided for informational purposes. It does not constitute legal advice. Consult with a qualified attorney for legal matters.</value>
+  </data>
+  <data name="Playback_PlaylistLocked_Title" xml:space="preserve">
+    <value>Playlist gesperrt</value>
+  </data>
+  <data name="Playback_PlaylistLocked_Message" xml:space="preserve">
+    <value>Upgrade auf Standard, Premium oder Pro+, um Playlists zu verwenden.</value>
+  </data>
+  <data name="Playback_PlaylistMode" xml:space="preserve">
+    <value>Playlist mode</value>
+  </data>
+  <data name="Playback_MixPlaylistLocked_Title" xml:space="preserve">
+    <value>🔒 Mix Playlists Locked</value>
+  </data>
+  <data name="Playback_MixPlaylistLocked_Message" xml:space="preserve">
+    <value>Schedule different soundscapes throughout your session. Available in Premium and Pro+ tiers.</value>
+  </data>
+  <data name="Playback_MixPlaylistEmpty" xml:space="preserve">
+    <value>Create and save mixes first, then add them here to build a scheduled playlist.</value>
+  </data>
+  <data name="MixPlaylist_Empty" xml:space="preserve">
+    <value>Ihre Mix-Playlist ist leer. Fügen Sie gespeicherte Mixe hinzu.</value>
+  </data>
+  <data name="EQ_Locked_Title" xml:space="preserve">
+    <value>🎚️ Equalizer</value>
+  </data>
+  <data name="EQ_Locked_Message" xml:space="preserve">
+    <value>Customize your sound with professional frequency controls. Available in Premium and Pro+ tiers.</value>
+  </data>
+  <data name="EQ_5BandTitle" xml:space="preserve">
+    <value>5-Band Graphic EQ</value>
+  </data>
+  <data name="EQ_5BandDescription" xml:space="preserve">
+    <value>Adjust 5 frequency bands to customize your sound. Move sliders up to boost, down to reduce.</value>
+  </data>
+  <data name="EQ_10BandTitle" xml:space="preserve">
+    <value>10-Band Parametric EQ</value>
+  </data>
+  <data name="EQ_PresetsPremium" xml:space="preserve">
+    <value>Premium</value>
+  </data>
+  <data name="EQ_PresetsProPlus" xml:space="preserve">
+    <value>Pro+</value>
+  </data>
+  <data name="EQ_ApplyButton" xml:space="preserve">
+    <value>✔ Apply</value>
+  </data>
+  <data name="EQ_ResetButton" xml:space="preserve">
+    <value>↺ Reset</value>
+  </data>
+  <data name="EQ_FlatButton" xml:space="preserve">
+    <value>0 Flat</value>
+  </data>
+  <data name="EQ_TipsTitle" xml:space="preserve">
+    <value>💡 EQ Tips</value>
+  </data>
+  <data name="EQ_Tip1" xml:space="preserve">
+    <value>• Q Factor: Lower = wider frequency range affected</value>
+  </data>
+  <data name="EQ_Tip2" xml:space="preserve">
+    <value>• Use presets as a starting point, then fine-tune</value>
+  </data>
+  <data name="EQ_Tip3" xml:space="preserve">
+    <value>• Avoid boosting too many frequencies (causes distortion)</value>
+  </data>
+  <data name="EQ_Tip4" xml:space="preserve">
+    <value>• Make subtle adjustments for best results</value>
+  </data>
+  <data name="PlaybackSettings_Title" xml:space="preserve">
+    <value>Playback Settings</value>
+  </data>
+  <data name="PlaybackSettings_AudioSettings" xml:space="preserve">
+    <value>Audio Settings</value>
+  </data>
+  <data name="PlaybackSettings_Description" xml:space="preserve">
+    <value>Configure fade-out timing and alarm integration</value>
+  </data>
+  <data name="PlaybackSettings_FadeOutTitle" xml:space="preserve">
+    <value>Fade-Out Duration</value>
+  </data>
+  <data name="PlaybackSettings_FadeOutDescription" xml:space="preserve">
+    <value>Choose how long audio fades out when the timer ends</value>
+  </data>
+  <data name="PlaybackSettings_MinFade" xml:space="preserve">
+    <value>0s</value>
+  </data>
+  <data name="PlaybackSettings_Current" xml:space="preserve">
+    <value>Current:</value>
+  </data>
+  <data name="PlaybackSettings_SecondsFormat" xml:space="preserve">
+    <value>{0} seconds</value>
+  </data>
+  <data name="PlaybackSettings_TierAllowsFormat" xml:space="preserve">
+    <value>Your tier allows up to {0} seconds</value>
+  </data>
+  <data name="PlaybackSettings_AlarmIntegration" xml:space="preserve">
+    <value>Alarm Integration</value>
+  </data>
+  <data name="PlaybackSettings_AlarmDescription" xml:space="preserve">
+    <value>Stop ambient sounds and play an alarm when the timer ends</value>
+  </data>
+  <data name="PlaybackSettings_EnableAlarm" xml:space="preserve">
+    <value>Enable Alarm</value>
+  </data>
+  <data name="PlaybackSettings_On" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="PlaybackSettings_Off" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="PlaybackSettings_ChooseAlarmSound" xml:space="preserve">
+    <value>Choose Alarm Sound</value>
+  </data>
+  <data name="PlaybackSettings_SelectedAlarm" xml:space="preserve">
+    <value>Selected Alarm:</value>
+  </data>
+  <data name="PlaybackSettings_NoneSelected" xml:space="preserve">
+    <value>None selected</value>
+  </data>
+  <data name="PlaybackSettings_AlarmLocked_Title" xml:space="preserve">
+    <value>🔒 Alarm Integration Locked</value>
+  </data>
+  <data name="PlaybackSettings_AlarmLocked_Message" xml:space="preserve">
+    <value>Wake up to custom alarm sounds. Available in Standard tier and above.</value>
+  </data>
+  <data name="PlaybackSettings_AlarmFreeNote" xml:space="preserve">
+    <value>Free tier uses your device's default alarm sound.</value>
+  </data>
+  <data name="PlaybackSettings_TipsTitle" xml:space="preserve">
+    <value>💡 Tips</value>
+  </data>
+  <data name="PlaybackSettings_Tip1" xml:space="preserve">
+    <value>• Longer fade-outs create a gentler wake-up experience</value>
+  </data>
+  <data name="PlaybackSettings_Tip2" xml:space="preserve">
+    <value>• Alarm integration requires Timer feature to be active</value>
+  </data>
+  <data name="PlaybackSettings_Tip3" xml:space="preserve">
+    <value>• Your alarm sound choice is saved between sessions</value>
+  </data>
+  <data name="PlaybackSettings_Tip4" xml:space="preserve">
+    <value>• Upgrade your tier for longer fade-out durations</value>
+  </data>
+  <data name="Ad_WatchForExtension_Title" xml:space="preserve">
+    <value>Get 45 More Minutes</value>
+  </data>
+  <data name="Ad_WatchForExtension_Message" xml:space="preserve">
+    <value>Watch a short ad to extend your session</value>
+  </data>
+  <data name="Ad_WatchForExtension_Button" xml:space="preserve">
+    <value>Watch Ad</value>
+  </data>
+  <data name="Ad_WatchToUnlock_Title" xml:space="preserve">
+    <value>Unlock This Sound</value>
+  </data>
+  <data name="Ad_WatchToUnlock_Message" xml:space="preserve">
+    <value>Watch a short ad to unlock until you close the app</value>
+  </data>
+  <data name="Ad_WatchToUnlock_Button" xml:space="preserve">
+    <value>Watch Ad</value>
+  </data>
+  <data name="Ad_TimeAlmostUp_Title" xml:space="preserve">
+    <value>⏰ Time Almost Up</value>
+  </data>
+  <data name="Ad_TimeRemaining" xml:space="preserve">
+    <value>{0} minutes remaining</value>
+  </data>
+  <data name="Ad_2MinutesLeft" xml:space="preserve">
+    <value>2 minutes remaining</value>
+  </data>
+  <data name="Ad_SessionExtended_Title" xml:space="preserve">
+    <value>Session Extended!</value>
+  </data>
+  <data name="Ad_SessionExtended_Message" xml:space="preserve">
+    <value>You've earned 45 more minutes of listening. Enjoy!</value>
+  </data>
+  <data name="Ad_SoundUnlocked_Title" xml:space="preserve">
+    <value>Sound Unlocked!</value>
+  </data>
+  <data name="Ad_SoundUnlocked_Message" xml:space="preserve">
+    <value>You can use this sound until you close the app.</value>
+  </data>
+  <data name="Ad_LoadingAd" xml:space="preserve">
+    <value>Loading ad...</value>
+  </data>
+  <data name="Ad_AdNotAvailable_Title" xml:space="preserve">
+    <value>Ad Not Available</value>
+  </data>
+  <data name="Ad_AdNotAvailable_Message" xml:space="preserve">
+    <value>No ad available right now. Please try again in a moment.</value>
+  </data>
+  <data name="Ad_OrUpgrade" xml:space="preserve">
+    <value>Or upgrade to Premium for unlimited sessions</value>
+  </data>
+  <data name="Ad_OrUpgrade_Short" xml:space="preserve">
+    <value>Or upgrade to remove ads</value>
+  </data>
+  <data name="Ad_NoThanks" xml:space="preserve">
+    <value>No Thanks</value>
+  </data>
+  <data name="Ad_MaybeLater" xml:space="preserve">
+    <value>Maybe Later</value>
+  </data>
+  <data name="Ad_Type_Banner" xml:space="preserve">
+    <value>Banner</value>
+  </data>
+  <data name="Ad_Type_Interstitial" xml:space="preserve">
+    <value>Interstitial</value>
+  </data>
+  <data name="Ad_Type_Rewarded" xml:space="preserve">
+    <value>Rewarded</value>
+  </data>
+  <data name="Toolbar_Tier" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="Toolbar_EQ" xml:space="preserve">
+    <value>EQ</value>
+  </data>
+  <data name="Toolbar_Audio" xml:space="preserve">
+    <value>Audio</value>
+  </data>
+  <data name="Toolbar_Export" xml:space="preserve">
+    <value>Exportieren</value>
+  </data>
+  <data name="Toolbar_Import" xml:space="preserve">
+    <value>Importieren</value>
+  </data>
+  <data name="Mix_Mode" xml:space="preserve">
+    <value>Mix-Modus</value>
+  </data>
+  <data name="Mix_Empty" xml:space="preserve">
+    <value>Ihr Mix ist leer. Fügen Sie Sounds aus der Bibliothek hinzu.</value>
+  </data>
+  <data name="Mix_RemoveButton" xml:space="preserve">
+    <value>Aus Mix entfernen</value>
+  </data>
+  <data name="Mix_VolumeFormat" xml:space="preserve">
+    <value>Volume: {0:P0}</value>
+  </data>
+  <data name="Mix_SoundsInMixFormat" xml:space="preserve">
+    <value>Sounds im Mix: {0}</value>
+  </data>
+  <data name="Mix_OfFormat" xml:space="preserve">
+    <value>von {0}</value>
+  </data>
+  <data name="Mix_PlayButton" xml:space="preserve">
+    <value>▶ Play</value>
+  </data>
+  <data name="Mix_StopButton" xml:space="preserve">
+    <value>⏹ Stop</value>
+  </data>
+  <data name="Mix_SaveCurrent" xml:space="preserve">
+    <value>Aktuellen Mix speichern</value>
+  </data>
+  <data name="Mix_NamePlaceholder" xml:space="preserve">
+    <value>Mix-Name</value>
+  </data>
+  <data name="Mix_SaveButton" xml:space="preserve">
+    <value>💾 Save</value>
+  </data>
+  <data name="Mix_SaveLimitFormat" xml:space="preserve">
+    <value>Limit für gespeicherte Mixe: {0}</value>
+  </data>
+  <data name="Mix_SavedTitle" xml:space="preserve">
+    <value>Gespeicherte Mixe</value>
+  </data>
+  <data name="Mix_SavedEmpty" xml:space="preserve">
+    <value>Keine gespeicherten Mixe. Speichern Sie Ihren ersten Mix oben.</value>
+  </data>
+  <data name="Mix_LoadButton" xml:space="preserve">
+    <value>📂 Load</value>
+  </data>
+  <data name="Mix_DeleteButton" xml:space="preserve">
+    <value>Mix löschen</value>
+  </data>
+  <data name="Mix_SoundsCountFormat" xml:space="preserve">
+    <value>{0} sounds</value>
+  </data>
+  <data name="Mix_StopAllFormat" xml:space="preserve">
+    <value>? Alle stoppen (Ausblenden {0}s)</value>
+  </data>
+  <data name="Playlist_Mode" xml:space="preserve">
+    <value>Playlist-Modus</value>
+  </data>
+  <data name="Playlist_Empty" xml:space="preserve">
+    <value>Ihre Playlist ist leer. Fügen Sie Sounds aus der Bibliothek hinzu.</value>
+  </data>
+  <data name="Playlist_RemoveButton" xml:space="preserve">
+    <value>Aus Playlist entfernen</value>
+  </data>
+  <data name="Playlist_SoundsCountFormat" xml:space="preserve">
+    <value>{0} Sounds in der Playlist</value>
+  </data>
+  <data name="Playlist_LoopToggle" xml:space="preserve">
+    <value>Playlist wiederholen</value>
+  </data>
+  <data name="Playlist_SaveCurrent" xml:space="preserve">
+    <value>Aktuelle Playlist speichern</value>
+  </data>
+  <data name="Playlist_NamePlaceholder" xml:space="preserve">
+    <value>Playlist-Name</value>
+  </data>
+  <data name="Playlist_SaveLimitFormat" xml:space="preserve">
+    <value>Limit für gespeicherte Playlists: {0}</value>
+  </data>
+  <data name="Playlist_SavedTitle" xml:space="preserve">
+    <value>Gespeicherte Playlists</value>
+  </data>
+  <data name="Playlist_SavedEmpty" xml:space="preserve">
+    <value>Keine gespeicherten Playlists. Speichern Sie Ihre erste Playlist oben.</value>
+  </data>
+  <data name="Playlist_DeleteButton" xml:space="preserve">
+    <value>Playlist löschen</value>
+  </data>
+  <data name="MixPlaylist_Seconds" xml:space="preserve">
+    <value>Sekunden</value>
+  </data>
+  <data name="MixPlaylist_RemoveButton" xml:space="preserve">
+    <value>Aus Mix-Playlist entfernen</value>
+  </data>
+  <data name="MixPlaylist_SaveLimitFormat" xml:space="preserve">
+    <value>Limit für Mix-Playlists: {0}</value>
+  </data>
+  <data name="MixPlaylist_SavedEmpty" xml:space="preserve">
+    <value>Keine gespeicherten Mix-Playlists.</value>
+  </data>
+  <data name="MixPlaylist_DeleteButton" xml:space="preserve">
+    <value>Mix-Playlist löschen</value>
+  </data>
+  <data name="MixPlaylist_MixesCountFormat" xml:space="preserve">
+    <value>{0} Mixe</value>
+  </data>
+  <data name="Common_PlayButton" xml:space="preserve">
+    <value>? Abspielen</value>
+  </data>
+  <data name="Common_StopButton" xml:space="preserve">
+    <value>? Stoppen</value>
+  </data>
+  <data name="Common_SaveButton" xml:space="preserve">
+    <value>?? Speichern</value>
+  </data>
+  <data name="Common_LoadButton" xml:space="preserve">
+    <value>?? Laden</value>
+  </data>
+  <data name="Common_DeleteIcon" xml:space="preserve">
+    <value>??</value>
+  </data>
+  <data name="Common_RemoveIcon" xml:space="preserve">
+    <value>✕</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Ambient Sleeper</value>
+  </data>
+  <data name="AppTagline" xml:space="preserve">
+    <value>Relaxing Soundscapes</value>
+  </data>
+  <data name="Nav_Library" xml:space="preserve">
+    <value>Bibliothek</value>
+  </data>
+  <data name="Nav_Playback" xml:space="preserve">
+    <value>Wiedergabe</value>
+  </data>
+  <data name="Nav_Timer" xml:space="preserve">
+    <value>Timer</value>
+  </data>
+  <data name="Timer_Title" xml:space="preserve">
+    <value>Schlaf-Timer</value>
+  </data>
+  <data name="Timer_Description" xml:space="preserve">
+    <value>Automatically stop playback after a set duration or at a specific time.</value>
+  </data>
+  <data name="Timer_ModeLabel" xml:space="preserve">
+    <value>Timer Mode</value>
+  </data>
+  <data name="Timer_StopAfterDuration" xml:space="preserve">
+    <value>Nach Dauer stoppen</value>
+  </data>
+  <data name="Timer_DurationDescription" xml:space="preserve">
+    <value>Set how long playback should continue (e.g., 30 minutes)</value>
+  </data>
+  <data name="Timer_DurationLabel" xml:space="preserve">
+    <value>Duration:</value>
+  </data>
+  <data name="Timer_HoursMinutes" xml:space="preserve">
+    <value>(hours:minutes)</value>
+  </data>
+  <data name="Timer_StopAtTime" xml:space="preserve">
+    <value>Zu bestimmter Zeit stoppen</value>
+  </data>
+  <data name="Timer_TimeDescription" xml:space="preserve">
+    <value>Set the exact time when playback should stop (e.g., 11:00 PM)</value>
+  </data>
+  <data name="Timer_StopTimeLabel" xml:space="preserve">
+    <value>Stop time:</value>
+  </data>
+  <data name="Timer_EnableTimer" xml:space="preserve">
+    <value>Enable Timer</value>
+  </data>
+  <data name="Timer_TimerActive" xml:space="preserve">
+    <value>⏱️ Timer Active</value>
+  </data>
+  <data name="Timer_WillStopIn" xml:space="preserve">
+    <value>Playback will stop in:</value>
+  </data>
+  <data name="Timer_WillStopAt" xml:space="preserve">
+    <value>Playback will stop at:</value>
+  </data>
+  <data name="Timer_FadeOutLabel" xml:space="preserve">
+    <value>Fade-out duration (seconds):</value>
+  </data>
+  <data name="Timer_FadeOutDescription" xml:space="preserve">
+    <value>Gradually reduce volume before stopping</value>
+  </data>
+  <data name="Timer_AlarmLabel" xml:space="preserve">
+    <value>Play alarm when timer expires</value>
+  </data>
+  <data name="Timer_AlarmDescription" xml:space="preserve">
+    <value>Sound an alarm after the timer completes (Standard+ feature)</value>
+  </data>
+  <data name="Timer_SelectAlarmSound" xml:space="preserve">
+    <value>Select Alarm Sound</value>
+  </data>
+  <data name="Timer_StartTimer" xml:space="preserve">
+    <value>Start Timer</value>
+  </data>
+  <data name="Timer_CancelTimer" xml:space="preserve">
+    <value>Cancel Timer</value>
+  </data>
+  <data name="Timer_LockedMessage" xml:space="preserve">
+    <value>🔒 Advanced timer features require Standard tier or above.</value>
+  </data>
+  <data name="Settings_Title" xml:space="preserve">
+    <value>Abonnement-Einstellungen</value>
+  </data>
+  <data name="Settings_ChoosePlan" xml:space="preserve">
+    <value>Choose Your Plan</value>
+  </data>
+  <data name="Settings_Description" xml:space="preserve">
+    <value>Select the plan that best fits your needs. Upgrade anytime to unlock more features.</value>
+  </data>
+  <data name="Settings_Or" xml:space="preserve">
+    <value> or </value>
+  </data>
+  <data name="Settings_Free_Title" xml:space="preserve">
+    <value>Free</value>
+  </data>
+  <data name="Settings_Free_Badge" xml:space="preserve">
+    <value>✨ Get Started</value>
+  </data>
+  <data name="Settings_Free_Description" xml:space="preserve">
+    <value>Perfect for trying out the app</value>
+  </data>
+  <data name="Settings_Free_Feature1" xml:space="preserve">
+    <value>✓ Mix 2 sounds simultaneously</value>
+  </data>
+  <data name="Settings_Free_Feature2" xml:space="preserve">
+    <value>✓ Access all sound bundles</value>
+  </data>
+  <data name="Settings_Free_Feature3" xml:space="preserve">
+    <value>✓ Save up to 3 mixes</value>
+  </data>
+  <data name="Settings_Free_Limit" xml:space="preserve">
+    <value>• 15-minute session limit</value>
+  </data>
+  <data name="Settings_RecurringSubscriptions" xml:space="preserve">
+    <value>Recurring Subscriptions</value>
+  </data>
+  <data name="Settings_Standard_Title" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="Settings_Standard_Monthly" xml:space="preserve">
+    <value>$4.99/mo</value>
+  </data>
+  <data name="Settings_Standard_Yearly" xml:space="preserve">
+    <value>$24/yr</value>
+  </data>
+  <data name="Settings_Standard_Feature1" xml:space="preserve">
+    <value>✓ Mix 3 sounds</value>
+  </data>
+  <data name="Settings_Standard_Feature2" xml:space="preserve">
+    <value>✓ Unlimited session length</value>
+  </data>
+  <data name="Settings_Standard_Feature3" xml:space="preserve">
+    <value>✓ Save up to 10 mixes</value>
+  </data>
+  <data name="Settings_Standard_Feature4" xml:space="preserve">
+    <value>✓ Playlist mode</value>
+  </data>
+  <data name="Settings_Standard_Feature5" xml:space="preserve">
+    <value>✓ Alarm integration</value>
+  </data>
+  <data name="Settings_Standard_Feature6" xml:space="preserve">
+    <value>✓ Export/Import (personal)</value>
+  </data>
+  <data name="Settings_Premium_Title" xml:space="preserve">
+    <value>Premium</value>
+  </data>
+  <data name="Settings_Premium_Monthly" xml:space="preserve">
+    <value>$9.99/mo</value>
+  </data>
+  <data name="Settings_Premium_Yearly" xml:space="preserve">
+    <value>$49/yr</value>
+  </data>
+  <data name="Settings_Premium_Badge" xml:space="preserve">
+    <value>⭐ Most Popular</value>
+  </data>
+  <data name="Settings_Premium_Feature1" xml:space="preserve">
+    <value>✓ Mix 10 sounds</value>
+  </data>
+  <data name="Settings_Premium_Feature2" xml:space="preserve">
+    <value>✓ Unlimited mixes &amp; playlists</value>
+  </data>
+  <data name="Settings_Premium_Feature3" xml:space="preserve">
+    <value>✓ 3-band equalizer</value>
+  </data>
+  <data name="Settings_Premium_Feature4" xml:space="preserve">
+    <value>✓ Mix Playlist mode</value>
+  </data>
+  <data name="Settings_Premium_Feature5" xml:space="preserve">
+    <value>✓ Export/Import (shareable)</value>
+  </data>
+  <data name="Settings_ProPlus_Title" xml:space="preserve">
+    <value>Pro+</value>
+  </data>
+  <data name="Settings_ProPlus_Monthly" xml:space="preserve">
+    <value>$14.99/mo</value>
+  </data>
+  <data name="Settings_ProPlus_Yearly" xml:space="preserve">
+    <value>$74/yr</value>
+  </data>
+  <data name="Settings_ProPlus_Badge" xml:space="preserve">
+    <value>🏆 Maximum Power</value>
+  </data>
+  <data name="Settings_ProPlus_Feature1" xml:space="preserve">
+    <value>✓ Mix 20 sounds</value>
+  </data>
+  <data name="Settings_ProPlus_Feature2" xml:space="preserve">
+    <value>✓ Advanced multi-band EQ</value>
+  </data>
+  <data name="Settings_ProPlus_Feature3" xml:space="preserve">
+    <value>✓ Custom EQ presets</value>
+  </data>
+  <data name="Settings_ProPlus_Feature4" xml:space="preserve">
+    <value>✓ Mix transitions</value>
+  </data>
+  <data name="Settings_ProPlus_Feature5" xml:space="preserve">
+    <value>✓ Priority support</value>
+  </data>
+  <data name="Settings_ProPlus_Feature6" xml:space="preserve">
+    <value>✓ Early access to new features</value>
+  </data>
+  <data name="Settings_LifetimeTitle" xml:space="preserve">
+    <value>Lifetime Purchases</value>
+  </data>
+  <data name="Settings_LifetimeDescription" xml:space="preserve">
+    <value>One-time purchase, yours forever</value>
+  </data>
+  <data name="Settings_StandardLifetime_Title" xml:space="preserve">
+    <value>Standard Lifetime</value>
+  </data>
+  <data name="Settings_StandardLifetime_Price" xml:space="preserve">
+    <value>$59</value>
+  </data>
+  <data name="Settings_PremiumLifetime_Title" xml:space="preserve">
+    <value>Premium Lifetime</value>
+  </data>
+  <data name="Settings_PremiumLifetime_Price" xml:space="preserve">
+    <value>$99</value>
+  </data>
+  <data name="Settings_CurrentStatus" xml:space="preserve">
+    <value>Current Status</value>
+  </data>
+  <data name="Settings_RestorePurchases" xml:space="preserve">
+    <value>Restore Purchases</value>
+  </data>
+  <data name="Settings_RestoreSuccess" xml:space="preserve">
+    <value>Purchases restored successfully</value>
+  </data>
+  <data name="Settings_RestoreNone" xml:space="preserve">
+    <value>No purchases to restore</value>
+  </data>
+  <data name="Settings_StandardLifetime_Features" xml:space="preserve">
+    <value>All Standard subscription features, forever</value>
+  </data>
+  <data name="Settings_StandardLifetime_Savings" xml:space="preserve">
+    <value>💰 Save $35 vs 3 years of subscription</value>
+  </data>
+  <data name="Settings_PremiumLifetime_Features" xml:space="preserve">
+    <value>All Premium subscription features, forever</value>
+  </data>
+  <data name="Settings_PremiumLifetime_Savings" xml:space="preserve">
+    <value>💰 Save $140 vs 3 years of subscription</value>
+  </data>
+  <data name="Settings_PremiumLifetime_Badge" xml:space="preserve">
+    <value>💎 BEST VALUE</value>
+  </data>
+  <data name="Settings_Diagnostics_Title" xml:space="preserve">
+    <value>Diagnostics &amp; Support</value>
+  </data>
+  <data name="Settings_Diagnostics_Description" xml:space="preserve">
+    <value>Check app health and view error reports for troubleshooting</value>
+  </data>
+  <data name="Settings_CheckHealth" xml:space="preserve">
+    <value>Status prüfen</value>
+  </data>
+  <data name="Settings_ErrorReport" xml:space="preserve">
+    <value>Fehlerbericht</value>
+  </data>
+  <data name="Timer_TipsTitle" xml:space="preserve">
+    <value>💡 Timer Tips</value>
+  </data>
+  <data name="Timer_Tip1" xml:space="preserve">
+    <value>• Use Duration mode for naps (e.g., 30 minutes)</value>
+  </data>
+  <data name="Timer_Tip2" xml:space="preserve">
+    <value>• Use Stop At Time mode for bedtime (e.g., 11:00 PM)</value>
+  </data>
+  <data name="Timer_Tip3" xml:space="preserve">
+    <value>• Audio will fade out gradually when timer expires</value>
+  </data>
+  <data name="Timer_Tip4" xml:space="preserve">
+    <value>• Use +/- 5 min buttons to quickly adjust running timer</value>
+  </data>
+  <data name="Timer_Add5Min" xml:space="preserve">
+    <value>➕ Add 5 min</value>
+  </data>
+  <data name="Timer_Remove5Min" xml:space="preserve">
+    <value>➖ Remove 5 min</value>
+  </data>
+  <data name="Timer_StopAlarm" xml:space="preserve">
+    <value>🔕 Stop Alarm</value>
+  </data>
+  <data name="Timer_StopAlarmDescription" xml:space="preserve">
+    <value>Stop the alarm sound if it's currently playing</value>
+  </data>
+  <data name="Timer_Status" xml:space="preserve">
+    <value>Timer Status</value>
+  </data>
+  <data name="Timer_TimeRemaining" xml:space="preserve">
+    <value>Time Remaining: {0:hh\\:mm\\:ss}</value>
+  </data>
+  <data name="Timer_WillFadeOut" xml:space="preserve">
+    <value>Timer will stop playback and fade out audio when time expires</value>
+  </data>
+  <data name="Timer_Controls" xml:space="preserve">
+    <value>Timer Controls</value>
+  </data>
+  <data name="Upgrade_Title" xml:space="preserve">
+    <value>Upgrade</value>
+  </data>
+  <data name="Upgrade_UnlockLongerSessions" xml:space="preserve">
+    <value>Unlock longer sessions</value>
+  </data>
+  <data name="Upgrade_Description" xml:space="preserve">
+    <value>Free sessions are limited to 15 minutes. Upgrade to enjoy longer sessions, playlists, more saved mixes, and more.</value>
+  </data>
+  <data name="Upgrade_ViewPlans" xml:space="preserve">
+    <value>View Plans</value>
+  </data>
+  <data name="Upgrade_NotNow" xml:space="preserve">
+    <value>Not now</value>
+  </data>
+  <data name="EQ_Title" xml:space="preserve">
+    <value>Equalizer (Premium/Pro+)</value>
+  </data>
+  <data name="EQ_Apply" xml:space="preserve">
+    <value>✔ Apply</value>
+  </data>
+  <data name="EQ_Reset" xml:space="preserve">
+    <value>Zurücksetzen</value>
+  </data>
+  <data name="EQ_Tip_Bass" xml:space="preserve">
+    <value>• Bass (60-250 Hz): Boost for deeper, richer sound</value>
+  </data>
+  <data name="EQ_Tip_Mids" xml:space="preserve">
+    <value>• Mids (500-2k Hz): Adjust for clarity and warmth</value>
+  </data>
+  <data name="EQ_Tip_Treble" xml:space="preserve">
+    <value>• Treble (4k-16k Hz): Enhance for brightness and detail</value>
+  </data>
+  <data name="EQ_Tip_SmallAdjustments" xml:space="preserve">
+    <value>• Start with small adjustments (±3 dB)</value>
+  </data>
+  <data name="EQ_10BandParametric" xml:space="preserve">
+    <value>10-Band Parametric EQ</value>
+  </data>
+  <data name="EQ_ProPlusBadge" xml:space="preserve">
+    <value>Pro+</value>
+  </data>
+  <data name="EQ_AdvancedDescription" xml:space="preserve">
+    <value>Advanced control with frequency, gain, and Q (bandwidth) for each band. Use presets for quick setup.</value>
+  </data>
+  <data name="EQ_QuickPresets" xml:space="preserve">
+    <value>Quick Presets</value>
+  </data>
+  <data name="EQ_ChoosePreset" xml:space="preserve">
+    <value>Choose a preset</value>
+  </data>
+  <data name="EQ_LoadButton" xml:space="preserve">
+    <value>📥 Load</value>
+  </data>
+  <data name="EQ_PresetsList" xml:space="preserve">
+    <value>Presets: Flat, Bass Boost, Vocal Enhance, Treble Bright, and more</value>
+  </data>
+  <data name="EQ_BandFormat" xml:space="preserve">
+    <value>Band: {0:F0} Hz</value>
+  </data>
+  <data name="EQ_Gain" xml:space="preserve">
+    <value>Gain:</value>
+  </data>
+  <data name="EQ_MinGain" xml:space="preserve">
+    <value>-12</value>
+  </data>
+  <data name="EQ_MaxGain" xml:space="preserve">
+    <value>+12</value>
+  </data>
+  <data name="EQ_Frequency" xml:space="preserve">
+    <value>Frequency:</value>
+  </data>
+  <data name="EQ_MinFreq" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="EQ_MaxFreq" xml:space="preserve">
+    <value>20k</value>
+  </data>
+  <data name="EQ_Q" xml:space="preserve">
+    <value>Q (Bandwidth):</value>
+  </data>
+  <data name="EQ_QWidth" xml:space="preserve">
+    <value>Q (Width):</value>
+  </data>
+  <data name="EQ_Wide" xml:space="preserve">
+    <value>Wide</value>
+  </data>
+  <data name="EQ_Narrow" xml:space="preserve">
+    <value>Narrow</value>
+  </data>
+  <data name="Notification_TimerComplete_Title" xml:space="preserve">
+    <value>Timer abgeschlossen</value>
+  </data>
+  <data name="Notification_TimerComplete_Description" xml:space="preserve">
+    <value>Ihr Schlaf-Timer ist abgelaufen</value>
+  </data>
+  <data name="NavigationError_Title" xml:space="preserve">
+    <value>Navigationsfehler</value>
+  </data>
+  <data name="NavigationError_Settings" xml:space="preserve">
+    <value>Einstellungsseite konnte nicht geöffnet werden</value>
+  </data>
+  <data name="HealthCheck_Checking" xml:space="preserve">
+    <value>Status wird geprüft...</value>
+  </data>
+  <data name="HealthCheck_AllHealthy" xml:space="preserve">
+    <value>Alles in Ordnung</value>
+  </data>
+  <data name="HealthCheck_Passed" xml:space="preserve">
+    <value>Statusprüfung bestanden</value>
+  </data>
+  <data name="HealthCheck_IssuesDetected" xml:space="preserve">
+    <value>{0} Probleme erkannt</value>
+  </data>
+  <data name="HealthCheck_ResultsTitle" xml:space="preserve">
+    <value>Prüfungsergebnisse</value>
+  </data>
+  <data name="HealthCheck_IssuesMessage" xml:space="preserve">
+    <value>Folgende Probleme wurden gefunden:\n• {0}</value>
+  </data>
+  <data name="HealthCheck_Failed" xml:space="preserve">
+    <value>Prüfung fehlgeschlagen</value>
+  </data>
+  <data name="HealthCheck_FailedMessage" xml:space="preserve">
+    <value>Fehler beim Prüfen des Status: {0}</value>
+  </data>
+  <data name="ErrorReport_Title" xml:space="preserve">
+    <value>Fehlerbericht</value>
+  </data>
+  <data name="ErrorReport_ServiceUnavailable" xml:space="preserve">
+    <value>Fehlerberichtsdienst nicht verfügbar</value>
+  </data>
+  <data name="ErrorReport_NoErrors" xml:space="preserve">
+    <value>Keine Fehler aufgezeichnet</value>
+  </data>
+  <data name="ErrorReport_CountFormat" xml:space="preserve">
+    <value>{0} Fehler aufgezeichnet</value>
+  </data>
+  <data name="ErrorReport_ViewDetails" xml:space="preserve">
+    <value>Details anzeigen</value>
+  </data>
+  <data name="ErrorReport_ShareReport" xml:space="preserve">
+    <value>Bericht teilen</value>
+  </data>
+  <data name="ErrorReport_ClearErrors" xml:space="preserve">
+    <value>Fehler löschen</value>
+  </data>
+  <data name="ErrorReport_SharedSuccess" xml:space="preserve">
+    <value>Bericht erfolgreich geteilt</value>
+  </data>
+  <data name="ErrorReport_ClearConfirmTitle" xml:space="preserve">
+    <value>Fehler löschen</value>
+  </data>
+  <data name="ErrorReport_ClearConfirmMessage" xml:space="preserve">
+    <value>Sind Sie sicher, dass Sie alle Fehler löschen möchten?</value>
+  </data>
+  <data name="ErrorReport_Cleared" xml:space="preserve">
+    <value>Fehler gelöscht</value>
+  </data>
+  <data name="ErrorReport_ViewFailed" xml:space="preserve">
+    <value>Fehler beim Anzeigen des Berichts: {0}</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Nein</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+</root>

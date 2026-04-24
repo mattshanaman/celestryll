@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:BadlyDefined.ViewModels"
+             x:Class="BadlyDefined.Pages.TestModePage"
+             x:DataType="viewmodels:TestModeViewModel"
+             Title="{Binding Title}">
+
+    <Grid Padding="16" RowDefinitions="Auto,Auto,*,Auto" RowSpacing="12">
+        
+        <!-- Header with Stats -->
+        <Border Grid.Row="0" BackgroundColor="{StaticResource Warning}" Padding="16" StrokeShape="RoundRectangle 12" Rotation="-1">
+            <VerticalStackLayout Spacing="8">
+                <Label Text="🧪 Test Mode" 
+                       FontSize="24" 
+                       FontAttributes="Bold"
+                       TextColor="White"
+                       HorizontalOptions="Center"/>
+                
+                <Label Text="{Binding LibraryStats}" 
+                       FontSize="12"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"/>
+                
+                <Button Text="🔄 Regenerate All Puzzles" 
+                        Command="{Binding RegeneratePuzzlesCommand}"
+                        BackgroundColor="White"
+                        TextColor="{StaticResource Warning}"
+                        FontSize="14"
+                        Padding="12,8"/>
+            </VerticalStackLayout>
+        </Border>
+
+        <!-- Filters -->
+        <Grid Grid.Row="1" RowDefinitions="Auto,Auto" RowSpacing="8">
+            <!-- Search -->
+            <SearchBar Grid.Row="0"
+                      Text="{Binding SearchQuery}"
+                      Placeholder="Search solutions, definitions, or categories..."
+                      SearchCommand="{Binding SearchCommand}"
+                      BackgroundColor="White"/>
+
+            <!-- Difficulty Filter -->
+            <HorizontalStackLayout Grid.Row="1" HorizontalOptions="Center" Spacing="8">
+                <Button Text="All" 
+                        Command="{Binding FilterByDifficultyCommand}" 
+                        CommandParameter="-1"
+                        BackgroundColor="{StaticResource Gray400}"
+                        FontSize="12"
+                        Padding="12,6"/>
+                
+                <Button Text="⭐ Easy" 
+                        Command="{Binding FilterByDifficultyCommand}" 
+                        CommandParameter="0"
+                        BackgroundColor="{StaticResource DifficultyEasy}"
+                        TextColor="White"
+                        FontSize="12"
+                        Padding="12,6"/>
+                
+                <Button Text="⭐⭐ Medium" 
+                        Command="{Binding FilterByDifficultyCommand}" 
+                        CommandParameter="1"
+                        BackgroundColor="{StaticResource DifficultyMedium}"
+                        TextColor="White"
+                        FontSize="12"
+                        Padding="12,6"/>
+                
+                <Button Text="⭐⭐⭐ Hard" 
+                        Command="{Binding FilterByDifficultyCommand}" 
+                        CommandParameter="2"
+                        BackgroundColor="{StaticResource DifficultyHard}"
+                        TextColor="White"
+                        FontSize="12"
+                        Padding="12,6"/>
+            </HorizontalStackLayout>
+        </Grid>
+
+        <!-- Puzzle List -->
+        <Grid Grid.Row="2" ColumnDefinitions="2*,3*" ColumnSpacing="12">
+            
+            <!-- Left: Puzzle List -->
+            <CollectionView Grid.Column="0" ItemsSource="{Binding AllPuzzles}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Padding="12" Margin="0,4" StrokeShape="RoundRectangle 8" Rotation="1">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:TestModeViewModel}}, Path=SelectPuzzleCommand}"
+                                                     CommandParameter="{Binding .}"/>
+                            </Border.GestureRecognizers>
+                            
+                            <VerticalStackLayout Spacing="4">
+                                <HorizontalStackLayout Spacing="8">
+                                    <Label Text="{Binding DifficultySlot, StringFormat='Slot {0}'}" 
+                                           FontSize="10"
+                                           TextColor="{StaticResource Gray600}"/>
+                                    <Label Text="{Binding PuzzleDate, StringFormat='{0:MMM dd}'}" 
+                                           FontSize="10"
+                                           TextColor="{StaticResource Gray600}"/>
+                                </HorizontalStackLayout>
+                                
+                                <Label Text="{Binding Solution}" 
+                                       FontSize="14" 
+                                       FontAttributes="Bold"/>
+                                
+                                <Label Text="{Binding BadDefinitionText}" 
+                                       FontSize="11"
+                                       TextColor="{StaticResource Gray700}"
+                                       LineBreakMode="TailTruncation"
+                                       MaxLines="2"/>
+                                
+                                <Label Text="{Binding Category, StringFormat='Category: {0}'}" 
+                                       FontSize="10"
+                                       TextColor="{StaticResource Info}"/>
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Right: Puzzle Details -->
+            <ScrollView Grid.Column="1">
+                <VerticalStackLayout Spacing="12" IsVisible="{Binding SelectedPuzzle, Converter={StaticResource IsNotNullConverter}}">
+                    
+                    <!-- Puzzle Info -->
+                    <Border BackgroundColor="{StaticResource Primary}" Padding="16" StrokeShape="RoundRectangle 8" Rotation="-2">
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="{Binding SelectedPuzzle.Solution}" 
+                                   FontSize="24" 
+                                   FontAttributes="Bold"
+                                   TextColor="White"
+                                   HorizontalOptions="Center"/>
+                            
+                            <Label Text="{Binding SelectedPuzzle.PuzzleIdentifier}" 
+                                   FontSize="12"
+                                   TextColor="White"
+                                   HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <!-- Definition -->
+                    <Border BackgroundColor="{StaticResource Gray100}" Padding="12" StrokeShape="RoundRectangle 8" Rotation="1">
+                        <VerticalStackLayout Spacing="4">
+                            <Label Text="Bad Definition:" FontSize="12" FontAttributes="Bold"/>
+                            <Label Text="{Binding SelectedPuzzle.BadDefinitionText}" 
+                                   FontSize="14"
+                                   FontAttributes="Italic"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <!-- Metadata -->
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                        <Border Grid.Column="0" BackgroundColor="{StaticResource Secondary}" Padding="12" StrokeShape="RoundRectangle 8" Rotation="2">
+                            <VerticalStackLayout Spacing="4">
+                                <Label Text="Category" FontSize="11"/>
+                                <Label Text="{Binding SelectedPuzzle.Category}" FontSize="14" FontAttributes="Bold"/>
+                            </VerticalStackLayout>
+                            </Border>
+
+                            <Border Grid.Column="1" BackgroundColor="{StaticResource Tertiary}" Padding="12" StrokeShape="RoundRectangle 8" Rotation="-3">
+                            <VerticalStackLayout Spacing="4">
+                                <Label Text="Letters" FontSize="11"/>
+                                <Label Text="{Binding SelectedPuzzle.LetterCount}" FontSize="14" FontAttributes="Bold"/>
+                                </VerticalStackLayout>
+                                </Border>
+                            </Grid>
+
+                            <!-- Test Solution -->
+                            <Border Stroke="{StaticResource Warning}" StrokeThickness="2" Padding="12" StrokeShape="RoundRectangle 8" Rotation="1">
+                        <VerticalStackLayout Spacing="12">
+                            <Label Text="🧪 Test Solution" FontSize="16" FontAttributes="Bold"/>
+                            
+                            <Entry Text="{Binding TestGuess}"
+                                  Placeholder="Enter guess to test..."
+                                  FontSize="16"/>
+                            
+                            <Button Text="Test Guess" 
+                                    Command="{Binding TestSolutionCommand}"
+                                    BackgroundColor="{StaticResource Warning}"/>
+
+                            <Border IsVisible="{Binding ShowTestResult}"
+                                    BackgroundColor="{StaticResource Info}"
+                                    Padding="12"
+                                    StrokeShape="RoundRectangle 8"
+                                    Rotation="-1">
+                                <Label Text="{Binding TestResult}" 
+                                       TextColor="White"
+                                       FontSize="14"/>
+                            </Border>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <!-- Hint Configuration -->
+                    <Border BackgroundColor="{StaticResource Gray200}" Padding="12" StrokeShape="RoundRectangle 8" Rotation="2">
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="Hint Configuration" FontSize="14" FontAttributes="Bold"/>
+                            
+                            <HorizontalStackLayout Spacing="8">
+                                <Label Text="Base Points:" VerticalOptions="Center"/>
+                                <Label Text="{Binding SelectedPuzzle.BasePoints}" 
+                                       FontSize="16"
+                                       FontAttributes="Bold"
+                                       VerticalOptions="Center"/>
+                            </HorizontalStackLayout>
+                            
+                            <HorizontalStackLayout Spacing="8">
+                                <Label Text="Max Attempts:" VerticalOptions="Center"/>
+                                <Label Text="{Binding SelectedPuzzle.MaxAttempts}" 
+                                       FontSize="16"
+                                       FontAttributes="Bold"
+                                       VerticalOptions="Center"/>
+                            </HorizontalStackLayout>
+                            
+                            <Label Text="Hint Letters:" FontSize="12" FontAttributes="Bold"/>
+                            <Label Text="{Binding SelectedPuzzle.FirstHintLetters, StringFormat='1st: {0}'}" FontSize="11"/>
+                            <Label Text="{Binding SelectedPuzzle.SecondHintLetters, StringFormat='2nd: {0}'}" FontSize="11"/>
+                            <Label Text="{Binding SelectedPuzzle.ThirdHintLetters, StringFormat='3rd: {0}'}" FontSize="11"/>
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+            </ScrollView>
+        </Grid>
+
+        <!-- Footer -->
+        <Label Grid.Row="3" 
+               Text="{Binding TotalPuzzleCount, StringFormat='{0} puzzles loaded'}"
+               FontSize="12"
+               TextColor="{StaticResource Gray600}"
+               HorizontalOptions="Center"/>
+
+        <!-- Activity Indicator -->
+        <ActivityIndicator Grid.Row="0" Grid.RowSpan="4"
+                          IsRunning="{Binding IsBusy}" 
+                          IsVisible="{Binding IsBusy}"
+                          Color="{StaticResource Primary}"
+                          VerticalOptions="Center"
+                          HorizontalOptions="Center"/>
+    </Grid>
+
+</ContentPage>

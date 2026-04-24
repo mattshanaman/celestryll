@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary brand colors for Ambient Sleeper -->
+    <color name="colorPrimary">#4a90e2</color>
+    <color name="colorPrimaryDark">#357abd</color>
+    <color name="colorAccent">#4a90e2</color>
+    
+    <!-- Splash screen colors -->
+    <color name="splashBackground">#1a1a2e</color>
+    <color name="splashText">#e8f4f8</color>
+</resources>
