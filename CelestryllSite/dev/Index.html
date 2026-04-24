@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Celestryll</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+        <h1>Celestryll</h1>
+        <p>Thoughtful apps designed for clarity, focus, and well‑being.</p>
+    </header>
+
+    <section id="about">
+        <h2>About Celestryll</h2>
+        <p>
+            Celestryll is an independent software studio creating simple, elegant, and
+            purposeful mobile applications. Our focus is on tools that improve daily life,
+            support learning, and encourage healthier digital habits.
+        </p>
+    </section>
+
+    <section id="apps">
+        <h2>Our Apps</h2>
+
+        <div class="app">
+            <h3>Somnaural</h3>
+            <p>
+                A calming ambient audio experience designed to help users relax, unwind,
+                and fall asleep more easily. Part of the AmbientSleeper project.
+            </p>
+        </div>
+
+        <div class="app">
+            <h3>Pemdas (New Name Coming Soon)</h3>
+            <p>
+                A clean, intuitive math practice app focused on order‑of‑operations
+                mastery. A new name and updated branding will be announced soon.
+            </p>
+        </div>
+
+        <div class="app">
+            <h3>Badly Defined</h3>
+            <p>
+                A quirky, puzzle‑driven experience built around ambiguous clues,
+                unexpected twists, and creative problem‑solving.
+            </p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>
+            For support or inquiries, please email:
+            <a href="mailto:appdev@celestryll.com">appdev@celestryll.com</a>
+        </p>
+    </section>
+
+    <footer>
+        <p>© <span id="year"></span> Celestryll. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
